@@ -1,0 +1,30 @@
+{
+  "name": "back-end-dev",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexG53090/MR-back-end-dev.git"
+  },
+  "author": "Alex Bennett <alexandergraybennett@gmail.com> (http://thedope.agency)",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/alexG53090/MR-back-end-dev/issues"
+  },
+  "homepage": "https://github.com/alexG53090/MR-back-end-dev#readme",
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "cookie-parser": "^1.4.0",
+    "cors": "^2.7.1",
+    "express": "^4.13.3",
+    "knex": "^0.9.0",
+    "morgan": "^1.6.1",
+    "passport": "^0.3.2",
+    "passport-google-oauth": "^0.2.0",
+    "pg": "^4.4.3"
+  }
+}
