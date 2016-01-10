@@ -1,6 +1,6 @@
 {
-  "name": "MR-back-end-dev",
-  "version": "0.0.0",
+  "name": "mr-back-end-ev",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "start": "node ./bin/www"
@@ -16,7 +16,18 @@
     "morgan": "~1.6.1",
     "passport": "^0.3.2",
     "passport-google-oauth": "^0.2.0",
-    "pg": "^4.4.3",
-    "serve-favicon": "~2.3.0"
-  }
+    "pg": "^4.4.3"
+  },
+  "description": "1. Fork, clone\r 2. npm i\r 3. nodemon",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MountainRangers/MR-back-end-dev.git"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/MountainRangers/MR-back-end-dev/issues"
+  },
+  "homepage": "https://github.com/MountainRangers/MR-back-end-dev#readme"
 }
