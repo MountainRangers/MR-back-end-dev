@@ -9,18 +9,22 @@ var passport = require('passport');
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 var session = require('express-session')
 
+var api = require('./api');
+var passport = require('passport');
+var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+var session = require('express-session')
+var env = require('dotenv').load();
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var auth = require('./routes/auth')
 
-var app = express();
 
 // google stategy
 
 passport.use(new GoogleStrategy({
-  clientID: '124221571735-b5t8li62qid2pqkk3a714vfkvr1a5k7k.apps.googleusercontent.com',
-  clientSecret: 's4-7rvZmWWRrLtGCh7Tkd_3E',
-  callbackURL: "https://trailmix.firebaseapp.com/views/timeline.html"
+    clientID: process.env.CLIENT_ID,
+    clientSecret: process.env.CLIENT_SECRET,
+    callbackURL: "https://trailmix.firebaseapp.com/views/timeline.html"
   },
   function(accessToken, refreshToken, profile, done) {
     process.nextTick(function() {
@@ -50,11 +54,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
+app.use(session({
+  secret: 'keyboardcat',
+  resave: true,
+  saveUninitialized: true,
+}))
 
 // user authenication
 app.use(passport.initialize());
 app.use(passport.session());
-
 
 // run authentication
 function ensureAuthenticated(req, res, next) {
@@ -80,8 +88,8 @@ app.get('/logout', function(req, res, next){
   res.redirect('/')
 })
 
-// auth routes
 
+// Routes
 app.use('/', routes);
 app.use('/users', ensureAuthenticated, users);
 
@@ -95,6 +103,21 @@ app.get('/timeline.html', function(req, res, next){
   res.redirect('/timeline.html')
 })
 
+app.get('/posts/read', function(request, response){
+  api.posts.readAll(response);
+});
+
+app.get('/posts/:id', function(request, response){
+  api.posts.readOne(response, request.params.id);
+});
+
+app.get('/user/read', function(request, response){
+  api.users.readAll(response);
+});
+
+app.get('/user/:id', function(request, response){
+  api.users.readOne(response, request.params.id);
+});
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
@@ -122,5 +145,9 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
+
+app.listen(8080, function(){
+  console.log('locked into 8080')
+})
 
 module.exports = app;
