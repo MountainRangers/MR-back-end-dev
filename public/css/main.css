@@ -75,6 +75,11 @@
   font-size: .8em;
   margin-bottom: 50px; }
 
+.filter-call {
+  font-family: 'Amatic SC', cursive;
+  font-size: 1.5em;
+  font-weight: 500; }
+
 .profile-img-placeholder {
   margin-top: 20px;
   height: 90px;
@@ -103,10 +108,12 @@ input, textarea {
   margin-bottom: 40px;
   width: 80%;
   height: 4em; }
+  input .description-input, textarea .description-input {
+    font-size: 1em; }
 
 .call-to-edit {
-  font-family: 'Noto Sans', sans-serif;
-  font-size: 1em;
+  font-family: 'Amatic SC';
+  font-size: 1.5em;
   color: #476042;
   margin: 20px;
   margin-top: 20px; }
@@ -153,11 +160,7 @@ input, textarea {
   height: 60px;
   font-size: 1.3em; }
 
-.description-input {
-  height: 60px;
-  font-size: 1.3em; }
-
-.description-input, .title-input, .location-input[type=text]:placeholder-shown {
+.description-input, .title-input[type=text]:placeholder-shown, .location-input[type=text]:placeholder-shown {
   line-height: 2em;
   padding: .5em; }
 
@@ -190,7 +193,7 @@ input, textarea {
 .profile-header {
   display: flex;
   font-family: "Verdana";
-  height: 150px;
+  height: 160px;
   background-color: white;
   align-items: center;
   justify-content: center; }
@@ -201,7 +204,13 @@ input, textarea {
 .profile-user-info {
   flex-direction: row;
   text-align: left;
-  padding: 3%; }
+  padding: 1%; }
+  .profile-user-info .profile-name {
+    margin: 5px; }
+  .profile-user-info .member-since {
+    margin: 5px; }
+  .profile-user-info .profile-blurb {
+    margin: 5px; }
 
 .profile-img {
   height: 150px;
@@ -242,8 +251,31 @@ input, textarea {
   float: left;
   width: 32%;
   padding-bottom: 32%;
-  margin: .5%;
+  margin: 0.5%;
   background-color: white; }
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'verdana'; }
+  main img {
+    margin-top: 30px;
+    border-radius: 50%;
+    flex-grow: 0; }
+  main .edit-settings {
+    font-size: 1.6em;
+    margin-top: 30px;
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; }
+    main .edit-settings .change-info {
+      font-size: 60%;
+      align-self: center;
+      color: red; }
+  main .edit-settings:last-child {
+    margin-bottom: 30px; }
 
 label {
   display: block; }
