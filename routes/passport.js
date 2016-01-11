@@ -4,19 +4,21 @@ var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 passport.use(new GoogleStrategy({
     clientID: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
-    callbackURL: "https://trailmix.firebaseapp.com/views/timeline.html"
+    callbackURL: process.env.HOST + '/auth/google/callback'
   },
   function(accessToken, refreshToken, profile, done) {
-    process.nextTick(function() {
-      return done(null, profile);
+    return done(null, {
+      id: profile.id,
+      displayName: profile.displayName,
+      profilePhoto: profile.photos[0].value
     });
   }
 ));
 
-passport.serializeUser(function(user,done){
-  done(null, user)
+passport.serializeUser(function(user, done){
+  done(null, user);
 });
 
-passport.deserializeUser(function(obj,done){
-  done(null, obj)
+passport.deserializeUser(function(user, done){
+  done(null, user);
 });
