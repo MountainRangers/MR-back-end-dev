@@ -1,41 +1,48 @@
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Make Profile</title>
-    <link rel='stylesheet' href='./css/main.css' />
-    <link rel='stylesheet' href='./css/createProfile.css' />
-    <link href='https://fonts.googleapis.com/css?family=Amatic+SC:400,700' rel='stylesheet' type='text/css'>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src='js/client.js'></script>
-    <script src='js/makeprofile.js'></script>
-  </head>
-  <body>
 
-    <!-- nav -->
-    <nav class='nav-bar'>
-      <div class='nav-component'><a href='./timeline.html'>Home</a></div>
-      <div class='nav-component'><h1 class='active'>Make Profile</h1></div>
-      <div class='nav-component'><a href='./editor.html'>Add Post</a></div>
-      <div class='nav-component'><a href='./profile.html'>Profile</a></div>
-    </nav>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Make Profile</title>
+  <link rel='stylesheet' href='./css/main.css' />
+  <link rel='stylesheet' href='./css/createProfile.css' />
+  <link href='https://fonts.googleapis.com/css?family=Amatic+SC:400,700' rel='stylesheet' type='text/css'>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src='js/client.js'></script>
+  <script src='js/makeprofile.js'></script>
+</head>
 
-    <!-- user's google profile img -->
-    <img src='' class='onboarding-profile-img' />
+<body>
 
-    <!-- get user to put in a display name -->
-    <h1>Choose a display name</h1>
-
+  <!-- nav -->
+  <nav class='nav-bar'>
+    <div class='nav-component'><a href='./timeline.html'>Home</a></div>
+    <div class='nav-component'>
+      <h1 class='active'>Make Profile</h1>
+    </div>
+    <div class='nav-component'><a href='./editor.html'>Add Post</a></div>
+    <div class='nav-component'><a href='./profile.html'>Profile</a></div>
+  </nav>
+  <main>
+    <header class='create-profile-header'>
+      <div class='user-image'>
+        <img src="http://placehold.it/150x150" alt="User Profile Photo" class='create-profile-img' />
+      </div>
+      <div class='choose-name'>
+        <h1>Choose your display name for Trail Mix!</h1>
+      </div>
+    </header>
     <form action='/setdisplayname' method="POST" class='create-profile-form'>
-      <input type='text' name='displayName' placeholder="display name">
-      <input type='submit' value="Finish profile">
+      <label class='display-name'>Display Name</label>
+      <input type='text' name='displayName' placeholder="What should we call you?">
+      <input type='submit' value="Complete profile" class='submit-button'>
     </form>
+  </main>
+  <footer class='app-footer'>
+    <p>Copyright, Mountain Rangers 2016. All rights reserved.</p>
+  </footer>
 
-    <!-- Footer -->
-    <footer class='app-footer'>
-      <p>Copyright, Mountain Rangers 2016. All rights reserved.</p>
-    </footer>
+</body>
 
-  </body>
 </html>
