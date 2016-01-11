@@ -7,7 +7,7 @@ var api = require('./api');
 var passport = require('passport');
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 var session = require('express-session')
-
+var env = require('dotenv').load();
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var auth = require('./routes/auth')
@@ -15,8 +15,8 @@ var auth = require('./routes/auth')
 var app = express();
 
 passport.use(new GoogleStrategy({
-    clientID: '124221571735-b5t8li62qid2pqkk3a714vfkvr1a5k7k.apps.googleusercontent.com',
-    clientSecret: 's4-7rvZmWWRrLtGCh7Tkd_3E',
+    clientID: process.env.CLIENT_ID,
+    clientSecret: process.env.CLIENT_SECRET,
     callbackURL: "https://trailmix.firebaseapp.com/views/timeline.html"
   },
   function(accessToken, refreshToken, profile, done) {
@@ -82,14 +82,21 @@ app.get('/logout', function(req, res, next){
 app.use('/', routes);
 app.use('/users', ensureAuthenticated, users);
 
-app.get('/read', function(request, response){
+app.get('/posts/read', function(request, response){
   api.posts.readAll(response);
 });
 
-app.get('/:id', function(request, response){
+app.get('/posts/:id', function(request, response){
   api.posts.readOne(response, request.params.id);
 });
 
+app.get('/user/read', function(request, response){
+  api.users.readAll(response);
+});
+
+app.get('/user/:id', function(request, response){
+  api.users.readOne(response, request.params.id);
+});
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
