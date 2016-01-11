@@ -1,7 +1,7 @@
 .profile-header {
   display: flex;
   font-family: "Verdana";
-  height: 150px;
+  height: 160px;
   background-color: white;
   align-items: center;
   justify-content: center; }
@@ -12,7 +12,13 @@
 .profile-user-info {
   flex-direction: row;
   text-align: left;
-  padding: 3%; }
+  padding: 1%; }
+  .profile-user-info .profile-name {
+    margin: 5px; }
+  .profile-user-info .member-since {
+    margin: 5px; }
+  .profile-user-info .profile-blurb {
+    margin: 5px; }
 
 .profile-img {
   height: 150px;
@@ -53,7 +59,7 @@
   float: left;
   width: 32%;
   padding-bottom: 32%;
-  margin: .5%;
+  margin: 0.5%;
   background-color: white; }
 
 /*# sourceMappingURL=profile.css.map */
