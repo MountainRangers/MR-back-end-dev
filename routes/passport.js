@@ -7,8 +7,10 @@ passport.use(new GoogleStrategy({
     callbackURL: process.env.HOST + '/auth/google/callback'
   },
   function(accessToken, refreshToken, profile, done) {
-    process.nextTick(function() {
-      return done(null, profile);
+    return done(null, {
+      id: profile.id,
+      displayName: profile.displayName,
+      profilePhoto: profile.photos[0].value
     });
   }
 ));
