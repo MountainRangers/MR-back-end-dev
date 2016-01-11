@@ -3,7 +3,7 @@ var path = require('path');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
+var api = require('./api');
 var routes = require('./routes/index');
 
 var app = express();
@@ -14,6 +14,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use('/', routes);
+
+app.get('/read', function(request, response){
+  api.posts.readAll(response);
+});
+
+app.get('/:id', function(request, response){
+  api.posts.readOne(response, request.params.id);
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -46,5 +54,8 @@ app.use(function(err, req, res, next) {
   });
 });
 
+app.listen(3000, function(){
+  console.log('listening');
+});
 
 module.exports = app;
