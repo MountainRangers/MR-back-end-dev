@@ -6,7 +6,7 @@ var bodyParser = require('body-parser');
 var passport = require('passport');
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 var session = require('express-session')
-
+var env = require('dotenv').load();
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var auth = require('./routes/auth')
@@ -14,8 +14,8 @@ var auth = require('./routes/auth')
 var app = express();
 
 passport.use(new GoogleStrategy({
-    clientID: '124221571735-b5t8li62qid2pqkk3a714vfkvr1a5k7k.apps.googleusercontent.com',
-    clientSecret: 's4-7rvZmWWRrLtGCh7Tkd_3E',
+    clientID: process.env.CLIENT_ID,
+    clientSecret: process.env.CLIENT_SECRET,
     callbackURL: "https://trailmix.firebaseapp.com/views/timeline.html"
   },
   function(accessToken, refreshToken, profile, done) {
