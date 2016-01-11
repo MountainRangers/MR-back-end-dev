@@ -108,10 +108,12 @@ input, textarea {
   margin-bottom: 40px;
   width: 80%;
   height: 4em; }
+  input .description-input, textarea .description-input {
+    font-size: 1em; }
 
 .call-to-edit {
-  font-family: 'Noto Sans', sans-serif;
-  font-size: 1em;
+  font-family: 'Amatic SC';
+  font-size: 1.5em;
   color: #476042;
   margin: 20px;
   margin-top: 20px; }
@@ -158,11 +160,7 @@ input, textarea {
   height: 60px;
   font-size: 1.3em; }
 
-.description-input {
-  height: 60px;
-  font-size: 1.3em; }
-
-.description-input, .title-input, .location-input[type=text]:placeholder-shown {
+.description-input, .title-input[type=text]:placeholder-shown, .location-input[type=text]:placeholder-shown {
   line-height: 2em;
   padding: .5em; }
 
