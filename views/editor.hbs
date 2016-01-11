@@ -1,0 +1,35 @@
+<!-- nav -->
+<nav class='nav-bar'>
+  <div class='nav-component'><a href='./timeline.html'>Home</a></div>
+  <div class='nav-component'><h1 class='active'>Write a Post</h1></div>
+  <div class='nav-component'><a href='./editor.html'>Add Post</a></div>
+  <div class='nav-component'><a href='./profile.html'>Profile</a></div>
+</nav>
+
+<!-- Page call to action -->
+<h1 class='call-to-edit'>Tell the world about your hike</h1>
+
+<!-- Create a post form -->
+<form class='create-blog-form' action='/submitblog' method="POST">
+  <label class='post-title'>Title</label>
+  <input name='title' type='text' placeholder="Title" class='title-input'>
+  <label class='post-location'>Location</label>
+  <input name='location' type='text' placeholder="location" class='location-input'>
+  <label class='post-description'>Description</label>
+  <textarea name='description' rows="10" cols="50" class='description-input'>
+    Share your hiking experience!
+  </textarea>
+
+  <!-- <div class='tag-container'>
+    <input type="radio" name="adventerous" class='tag-toggle'>
+    <input type="radio" name="Awesome" class='tag-toggle'>
+    <input type="radio" name="Relaxing" class='tag-toggle'>
+  </div> -->
+
+  <input type='submit' value='submit' class='submit-button'>
+</form>
+
+<!-- Footer -->
+<footer class='app-footer'>
+  <p>Copyright, Mountain Rangers 2016. All rights reserved.</p>
+</footer>

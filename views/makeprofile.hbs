@@ -1,0 +1,27 @@
+<!-- nav -->
+<nav class='nav-bar'>
+  <div class='nav-component'><a href='./timeline.html'>Home</a></div>
+  <div class='nav-component'>
+    <h1 class='active'>Make Profile</h1>
+  </div>
+  <div class='nav-component'><a href='./editor.html'>Add Post</a></div>
+  <div class='nav-component'><a href='./profile.html'>Profile</a></div>
+</nav>
+<main>
+  <header class='create-profile-header'>
+    <div class='user-image'>
+      <img src="http://placehold.it/150x150" alt="User Profile Photo" class='create-profile-img' />
+    </div>
+    <div class='choose-name'>
+      <h1>Choose your display name for Trail Mix!</h1>
+    </div>
+  </header>
+  <form action='/setdisplayname' method="POST" class='create-profile-form'>
+    <label class='display-name'>Display Name</label>
+    <input type='text' name='displayName' placeholder="What should we call you?">
+    <input type='submit' value="Complete profile" class='submit-button'>
+  </form>
+</main>
+<footer class='app-footer'>
+  <p>Copyright, Mountain Rangers 2016. All rights reserved.</p>
+</footer>
