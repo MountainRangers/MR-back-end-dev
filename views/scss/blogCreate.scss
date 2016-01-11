@@ -1,0 +1,95 @@
+// scss for create a blog post view
+
+label {
+  display: block;
+}
+input, textarea {
+  margin-top: 10px;
+  margin-bottom: 40px;
+  width: 80%;
+  height: 4em;
+}
+.call-to-edit {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 1em;
+  color: #476042;
+  margin: 20px;
+  margin-top: 20px;
+}
+.tag-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-left: 10%;
+}
+.tag-toggle {
+  flex-direction: row;
+}
+.create-blog-form {
+  height: 100%;
+  text-align: center;
+  background-color: #eef4ed;
+  font-family: 'Noto Sans', sans-serif;
+}
+.post-title {
+  padding-top: 30px;
+  text-align: left;
+  margin-left: 10%;
+  font-family: 'Amatic SC';
+  font-size: 2em;
+}
+.post-location {
+  text-align: left;
+  margin-left: 10%;
+  font-family: 'Amatic SC';
+  font-size: 2em;
+}
+.post-description {
+  text-align: left;
+  margin-left: 10%;
+  font-family: 'Amatic SC';
+  font-size: 2em;
+}
+.title-input {
+  height:60px;
+  font-size: 1.3em;
+}
+.location-input {
+  height:60px;
+  font-size: 1.3em;
+}
+.description-input {
+  height:60px;
+  font-size: 1.3em;
+}
+.description-input, .title-input, .location-input[type=text]:placeholder-shown {
+  line-height: 2em;
+  padding: .5em;
+}
+.submit-button {
+	border:none;
+	background-color: #fc511d;
+	width:80%;
+  margin: auto;
+	display: block;
+	height: 60px;
+	color: white;
+	font-family: 'Amatic SC';
+	font-size: 2em;
+	transition: color 1s, width 1s, height 1s, background-color 1s, transform 1s;
+}
+
+.submit-button:hover {
+	border:none;
+	flex-direction: row;
+	background-color:white;
+	width:80%;
+	display: block;
+	margin: auto;
+	height: 60px;
+	color:  green;
+	font-family: 'Amatic SC';
+	font-size: 2em;
+	justify-content: center;
+	align-items: center;
+}

@@ -1,0 +1,69 @@
+// scss for profile view
+body {
+  // background-color: #ededed;
+}
+.profile-header {
+  display: flex;
+  font-family: "Verdana";
+  height: 150px;
+  background-color: white;
+  align-items: center;
+  justify-content: center;
+}
+.profile-user-photo {
+  flex-direction: row;
+}
+.profile-user-info {
+  flex-direction: row;
+  text-align: left;
+  padding: 3%;
+}
+.profile-img {
+  height: 150px;
+  width: 150px;
+  margin-top: 30px;
+}
+
+// grid
+
+.flex-container {
+  // width:100%;
+  // height:100%;
+  background-color: #ededed;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wrap {
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+.flex-item {
+  background: white;
+  width: 100px;
+  height: 100px;
+  margin: auto;
+  color: white;
+  font-weight: bold;
+  font-size: 2em;
+  text-align: center;
+  margin: 2px;
+}
+
+.profile-posts {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hike {
+  float:left;
+  width: 32%;
+  padding-bottom: 32%;
+  margin:.5%;
+  background-color: white;
+}

@@ -1,0 +1,56 @@
+.splash-intro {
+	font-family: 'Amatic SC', cursive;
+	flex-direction: column;
+	width:100%;
+	display: block;
+	margin: 10px;
+	margin-top: 25px;
+  font-size: 4em;
+  font-weight: 700;
+}
+
+.google-button {
+	border:none;
+	flex-direction: row;
+	background-color: #fc511d;
+	width:24%;
+	display: block;
+	margin: 25px;
+	height: 50px;
+	color: white;
+	font-family: "Verdana";
+	font-size: 1.2em;
+	justify-content: center;
+	align-items: center;
+	transition: color 1s, width 1s, height 1s, background-color 1s, transform 1s;
+}
+
+.google-button:hover {
+	border:none;
+	flex-direction: row;
+	background-color:white;
+	width:24%;
+	display: block;
+	margin: 25px;
+	height: 50px;
+	color:  #455448;
+	font-family: "Verdana";
+	font-size: 1.2em;
+	justify-content: center;
+	align-items: center;
+}
+
+.splash-content {
+	display: flex;
+	height: 100%;
+	justify-content: center;
+	align-items: center;
+	flex-flow: column wrap;
+  margin-top: -80px;
+}
+
+////
+
+a {
+	text-decoration: none;
+}

@@ -3,20 +3,24 @@ var path = require('path');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var router = express.Router();
+
 var passport = require('passport');
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 var session = require('express-session')
-var env = require('dotenv').load();
+
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var auth = require('./routes/auth')
 
 var app = express();
 
+// google stategy
+
 passport.use(new GoogleStrategy({
-    clientID: process.env.CLIENT_ID,
-    clientSecret: process.env.CLIENT_SECRET,
-    callbackURL: "https://trailmix.firebaseapp.com/views/timeline.html"
+  clientID: '124221571735-b5t8li62qid2pqkk3a714vfkvr1a5k7k.apps.googleusercontent.com',
+  clientSecret: 's4-7rvZmWWRrLtGCh7Tkd_3E',
+  callbackURL: "https://trailmix.firebaseapp.com/views/timeline.html"
   },
   function(accessToken, refreshToken, profile, done) {
     process.nextTick(function() {
@@ -43,15 +47,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(session({
-  secret: 'keyboardcat',
-  resave: true,
-  saveUninitialized: true,
-}))
+
+app.use('/', routes);
+app.use('/users', users);
 
 // user authenication
 app.use(passport.initialize());
 app.use(passport.session());
+
 
 // run authentication
 function ensureAuthenticated(req, res, next) {
@@ -69,7 +72,7 @@ app.get('/auth/google/callback',
   passport.authenticate('google', { failureRedirect: '/login' }),
   function(req, res) {
     // Successful authentication, redirect home.
-    res.redirect('https://trailmix.firebaseapp.com/views/timeline.html');
+    res.redirect('/users');
   });
 
 app.get('/logout', function(req, res, next){
@@ -77,9 +80,20 @@ app.get('/logout', function(req, res, next){
   res.redirect('/')
 })
 
-// Routes
+// auth routes
+
 app.use('/', routes);
 app.use('/users', ensureAuthenticated, users);
+
+// home routes
+
+app.get('/', function(req, res, next){
+  res.redirect('/index.html')
+})
+
+app.get('/timeline.html', function(req, res, next){
+  res.redirect('/timeline.html')
+})
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -87,9 +101,7 @@ app.use(function(req, res, next) {
   err.status = 404;
   next(err);
 });
-
 // error handlers
-
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
@@ -101,7 +113,6 @@ if (app.get('env') === 'development') {
     });
   });
 }
-
 // production error handler
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
@@ -111,9 +122,5 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-
-app.listen(8080, function(){
-  console.log('locked into 8080')
-})
 
 module.exports = app;
