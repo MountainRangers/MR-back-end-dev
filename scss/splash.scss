@@ -50,22 +50,21 @@
 
 .splash-content {
 	height: 100%;
-  margin-top: -80px;
 }
 
 /////////// new stuff
 
-body{
+.splash-body {
 	margin: 0;
 	background: #036;
 	transition: 10s ease;
+	height: 300px;
 }
 .cont {
 	width: 100%;
 	height: 100%;
 	display: block;
 	margin: 0 auto;
-	cursor: pointer;
 }
 .sky{
 	width: 100%;
@@ -106,4 +105,8 @@ body{
 	position: relative;
 	z-index: 10;
 	fill: #036;
+}
+
+.cont {
+	height: 0px;
 }

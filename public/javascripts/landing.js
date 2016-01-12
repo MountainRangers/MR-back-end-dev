@@ -32,9 +32,8 @@ $(document).ready(function(){
 });
 $(".cont").ready(function(){
 	setInterval(function(){
-		var height = $(".foreground").height();
-		var top = $(".foreground").height();
-		var div = $(window).width();
+		// var height = $(".foreground").height();
+		// var top = $(".foreground").height();
 	}, 0.01);
 });
 
