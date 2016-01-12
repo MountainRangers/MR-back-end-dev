@@ -1,13 +1,11 @@
 .splash-intro {
 	font-family: 'Amatic SC', cursive;
 	width:100%;
-	// margin: 10px;
-	// margin-top: 25px;
-	// margin-bottom: 50px;
+	margin-bottom: 10px;
   font-size: 6em;
   font-weight: 700;
 	text-align: center;
-	color: white;
+	color: #603919;
 }
 .front-door {
 	font-family: 'Amatic SC', cursive;
@@ -18,9 +16,6 @@
 	fill: white;
 }
 
-.brand {
-	margin-top: 80px;
-}
 .google-button {
 	border:none;
 	flex-direction: row;
@@ -51,17 +46,21 @@
 
 .splash-content {
 	height: 100%;
+	background-color: #dae8d6;
+}
+#contento {
+	background-color: #dae8d6;
 }
 
 /////////// new stuff
 
 .splash-body {
 	margin: 0;
-	background: #036;
+	background: #dae8d6;
 	transition: 10s ease;
 	height: 300px;
 	width: 100%;
-		margin: 0 auto;
+	margin: 0 auto;
 }
 .cont {
 	width: 100%;
@@ -70,7 +69,7 @@
 }
 .sky{
 	width: 98%;
-	height: 150px;
+	height: 250px;
 	z-index: 2;
 	background: linear-gradient(#036, #17b,#2cb);
 	transition: 5s ease;
@@ -84,7 +83,7 @@
 	background: linear-gradient(#78d, #a8d,#eeb);
 	opacity:0;
 	transition: 5s ease;
-		margin: 0 auto;
+	margin: 0 auto;
 }
 .sky-day{
 	width:100%;
