@@ -54,11 +54,9 @@ router.get('/settings', function(req, res, next) {
   res.render('settings', {title: 'TrailMix'});
 });
 
-router.get('/timeline', function(req, res, next) {
-  res.render('timeline', {title: 'TrailMix'});
-});
-
-router.get('/timeline/:id', function(req, res, next) {
+router.get('/timeline/:userid', function(req, res, next) {
+  console.log('HOLLA');
+  return api.posts.readAll();
   res.render('timeline', {title: 'TrailMix'});
 });
 
