@@ -8,7 +8,7 @@ passport.use(new GoogleStrategy({
   },
   function(accessToken, refreshToken, profile, done) {
     return done(null, {
-      id: profile.id,
+      google_id: profile.id,
       displayName: profile.displayName,
       profilePhoto: profile.photos[0].value
     });

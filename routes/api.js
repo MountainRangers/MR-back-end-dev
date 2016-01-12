@@ -1,7 +1,8 @@
 var env = require('dotenv').load();
+
 var knex = require('knex')({
   client: 'pg',
-  connection: process.env.LOCAL_CONNECT 
+  connection: process.env.DATABASE_URL
 });
 
 module.exports = {
@@ -18,16 +19,14 @@ module.exports = {
     }
   },
   users: {
-    readOne: function(response, id){
-      knex('users').select().where({id: id}).then(function(posts){
-        return response.send(posts);
-      })
+    readOne: function(id){
+      return knex('users').select().where({google_id: id}).first();
     },
     readAll: function(response){
-      knex('users').select().then(function(posts){
-        return response.send(posts);
-      })
+      return knex('users').select();
+    },
+    createUser: function(user) {
+      return knex('users').insert(user, 'id');
     }
   }
 }
-
