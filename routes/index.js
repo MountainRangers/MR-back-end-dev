@@ -73,8 +73,9 @@ router.get('/settings', function(req, res, next) {
 });
 
 router.get('/timeline/:userid', function(req, res, next) {
-  api.posts.readAll().then(function(posts) {
-    res.render('timeline', {post: posts, title: posts.title, lat: posts.latitude, lon: posts.longitude});
+api.posts.readAll().then(function(posts){
+    res.render('timeline', {post: posts, title: posts.title, latitude: posts.latitude, longitude: posts.longitude});
+    console.log(posts)
   });
 });
 
