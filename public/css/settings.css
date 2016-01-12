@@ -14,10 +14,11 @@ main {
     display: flex;
     flex-direction: row;
     justify-content: space-between; }
-    main .edit-settings .change-info {
+    main .edit-settings h3 {
       font-size: 60%;
       align-self: center;
-      color: red; }
+      color: red;
+      cursor: pointer; }
   main .edit-settings:last-child {
     margin-bottom: 30px; }
 

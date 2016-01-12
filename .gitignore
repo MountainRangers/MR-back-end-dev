@@ -2,6 +2,7 @@
 logs
 *.log
 npm-debug.log*
+.sass-cache/**
 
 # Runtime data
 pids
@@ -35,3 +36,9 @@ node_modules
 
 # Environment Variables
 .env
+
+# SASS cache files
+.sass-cache
+
+# Mac Finder Files
+.DS_Store
