@@ -4,23 +4,31 @@
 	display: block;
 	margin: 10px;
 	margin-top: 25px;
-  font-size: 4em;
+	margin-bottom: 50px;
+  font-size: 6em;
   font-weight: 700;
+	text-align: center;
 }
-
+.front-door {
+	font-family: 'Amatic SC', cursive;
+	font-size: 2em;
+	margin-top: 25px;
+}
+.brand {
+	margin-top: 80px;
+}
 .google-button {
 	border:none;
 	flex-direction: row;
 	background-color: #fc511d;
-	width:24%;
+	width:80%;
 	display: block;
-	margin: 25px;
 	height: 50px;
 	color: white;
 	font-family: "Verdana";
 	font-size: 1.2em;
-	justify-content: center;
-	align-items: center;
+	margin: auto;
+	margin-bottom: 50px;
 	transition: color 1s, width 1s, height 1s, background-color 1s, transform 1s;
 }
 
@@ -28,15 +36,12 @@
 	border:none;
 	flex-direction: row;
 	background-color:white;
-	width:24%;
+	width:80%;
 	display: block;
-	margin: 25px;
 	height: 50px;
-	color:  #455448;
+	color: green;
 	font-family: "Verdana";
 	font-size: 1.2em;
-	justify-content: center;
-	align-items: center;
 }
 
 .splash-content {

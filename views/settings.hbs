@@ -1,30 +1,31 @@
 <!-- Nav -->
 <nav class='nav-bar'>
-  <div class='nav-component'><a href='timeline'>Home</a></div>
+  <div class='nav-component'><a href='/timeline/{{profile.id}}'>Home</a></div>
   <div class='nav-component'><h1 class='active'>Settings</h1></div>
-  <div class='nav-component'><a href='editor'>Add Post</a></div>
-  <div class='nav-component'><a href='profile'>Profile</a></div>
+  <div class='nav-component'><a href='/editor/{{profile.id}}'>Add Post</a></div>
+  <div class='nav-component'><a href='/profile/{{profile.id}}'>Profile</a></div>
 </nav>
   <main>
-    <img src="http://placehold.it/150x150" alt="User Profile Photo"/>
+    <img src="{{profile.photo_url}}" alt="User Profile Photo"/>
     <div class="edit-settings">
       <input type="text" value="Display Name" class="hidden">
-      <h2>Display Name</h2>
+      <h2>User Name: {{profile.username}}</h2>
       <h3 class="change-name">Change</h3>
     </div>
     <div class="edit-settings">
       <input type="text" value="Display Name" class="hidden">
-      <h2>Email</h2>
-      <h3 class="change-email">Change</h3>
+      <h2>Member Since: {{profile.date_created}}</h2>
+      <!-- <h3 class="change-email">Change</h3> -->
     </div>
-    <div class="edit-settings">
+    <!-- <div class="edit-settings">
       <input type="text" value="Display Name" class="hidden">
       <h2>Social Media</h2>
       <h3 class="change-social-media">Change</h3>
-    </div>
+    </div> -->
     <div class="edit-settings">
       <input type="text" value="Display Name" class="hidden">
-      <h2>Personal Info</h2>
+      <h2>About Me:</h2>
+      <p>{{profile.personal_info}}</p>
       <h3 class="change-personal-info">Change</h3>
     </div>
   </main>
