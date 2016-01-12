@@ -9,8 +9,9 @@ router.get('/google',
 );
 
 router.get('/google/callback',
-  passport.authenticate('google', { failureRedirect: '/login' }),
+  passport.authenticate('google', { failureRedirect: '/' }),
   function(req, res) {
+    console.log(req);
     res.redirect('/makeprofile');
   }
 );
