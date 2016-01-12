@@ -27,8 +27,7 @@ $(document).ready(function(){
 		}else {
 			var ap = "a";
 		}
-		document.getElementById('clock').innerHTML = hours + ":" + minutes + ap;
-	}, 1000);
+	}, 200);
 });
 $(".cont").ready(function(){
 	setInterval(function(){
@@ -50,7 +49,6 @@ $(document).ready(function(){
 			$('.shape-one').css('fill', dawn);
 			$('.sky-dawn').css('opacity','1');
 			$('.sky-day').css('opacity','1');
-
 		} else if(second < 40) {
 			$('body').css('background', day);
 			$('.shape-one').css('fill', dawn);
