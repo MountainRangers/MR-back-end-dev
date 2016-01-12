@@ -40,9 +40,7 @@ $(".cont").ready(function(){
 		var top = $(".foreground").height();
 		var div = $(window).width();
 		$(".cont").css("height", height + 30);
-		$(".foreground").css("top", -top+15);
-		$("#clock").css("margin-top", - top - div/2.3);
-		$(".text").css("margin-top", top - 60);
+		$(".foreground").css("top", top+15);
 	}, 0.01);
 });
 
