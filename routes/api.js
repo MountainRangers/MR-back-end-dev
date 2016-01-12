@@ -13,13 +13,17 @@ module.exports = {
     readOne: function(response, id){
       knex('posts').select().where({id: id}).then(function(posts){
         return response.send(posts);
-      })
+      });
     }
   },
   users: {
+    read: function(id){
+      return knex('users').select().where({id: id}).first();
+    },
     readOne: function(id){
       return knex('users').select().where({google_id: id}).first();
     },
+
     readAll: function(response){
       return knex('users').select();
     },
@@ -27,4 +31,4 @@ module.exports = {
       return knex('users').insert(user, 'id');
     }
   }
-}
+};

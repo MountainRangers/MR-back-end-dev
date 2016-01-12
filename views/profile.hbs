@@ -1,37 +1,23 @@
 <!-- navigation -->
 <nav class='nav-bar'>
-  <div class='nav-component'><a href='timeline'>Home</a></div>
+  <div class='nav-component'><a href='/timeline/{{profile.id}}'>Home</a></div>
   <div class='nav-component'><h1 class='active'>Profile</h1></div>
-  <div class='nav-component'><a href='editor'>Add Post</a></div>
-  <div class='nav-component'><a href='settings'>Settings</a></div>
+  <div class='nav-component'><a href='/editor/{{profile.id}}'>Add Post</a></div>
+  <div class='nav-component'><a href='/settings/{{profile.id}}'>Settings</a></div>
 </nav>
 
 <!-- user about section -->
 <header class='profile-header'>
   <div class='profile-user-photo half'>
-    <img src='images/profile.png' class='profile-img' />
+    <img src='{{profile.photo_url}}' alt="User Profile Photo" class='profile-img' />
   </div>
   <div class='profile-user-info half'>
-    <h1 class='profile-name'>Name</h1>
-    <p class='member-since'>Member since: 1999</p>
-    <p class='profile-blurb'>Hey! Im a person who does things such as insert thing and insert another.</p>
+    <h1 class='profile-name'>{{profile.username}}</h1>
+    <p class='member-since'>Member since: {{profile.date_created}}</p>
+    <p class='profile-blurb'>{{profile.personal_info}}</p>
   </div>
 </header>
 
-<!-- users post history -->
-<!-- <div class='profile-posts'>
-  <div class="flex-container wrap">
-    <div class="flex-item">1</div>
-    <div class="flex-item">2</div>
-    <div class="flex-item">3</div>
-    <div class="flex-item">4</div>
-    <div class="flex-item">5</div>
-    <div class="flex-item">6</div>
-    <div class="flex-item">7</div>
-    <div class="flex-item">8</div>
-    <div class="flex-item">5</div>
-  </div>
-</div> -->
 
 <!-- 1st row */ -->
 <div class='hike'></div>
