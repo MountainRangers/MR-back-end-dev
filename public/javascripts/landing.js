@@ -31,14 +31,14 @@ $(document).ready(function(){
 			var ap = "a";
 		}
 		document.getElementById('clock').innerHTML = hours + ":" + minutes + ap;
-	}, 1000);
+	}, 100);
 });
 
 $(".cont").ready(function(){
 	setInterval(function(){
 		var height = $(".foreground").height();
 		var top = $(".foreground").height();
-		var div = $(window).width();
+		var cont = $(window).width();
 		$(".cont").css("height", height + 30);
 		$(".foreground").css("top", top+15);
 	}, 0.01);
@@ -50,24 +50,22 @@ $(document).ready(function(){
 		var dawn = '#78d';
 		var day = '#1bf';
 		var dusk = '#036';
-
 		var mood = new Date();
 		var second = mood.getSeconds();
-		if(second < 20){
-			$('body').css('background', dawn);
-			$('.trees').css('fill', dawn);
+		if(second < 10){
+			// $('body').css('background', dawn);
+			$('.shape-one').css('fill', dawn);
 			$('.sky-dawn').css('opacity','1');
 			$('.sky-day').css('opacity','1');
-			$('.hills').css('fill','#c66');
-		} else if(second < 40) {
-			$('body').css('background', day);
-			$('.trees').css('fill', day);
+		} else if(second < 50) {
+			// $('body').css('background', day);
+			$('.shape-one').css('fill', dawn);
 			$('.sky-dawn').css('opacity','0');
 			$('.sky-day').css('opacity','1');
 			$('.hills').css('fill','#db9');
 		} else {
-			$('body').css('background', dusk);
-			$('.trees').css('fill', dusk);
+			// $('body').css('background', dusk);
+			$('.shape-one').css('fill', dawn);
 			$('.sky-day').css('opacity','0');
 			$('.hills').css('fill','#0be');
 		}
