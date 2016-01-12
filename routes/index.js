@@ -16,13 +16,13 @@ router.get('/makeprofile', function(req, res, next) {
     //if they already exist, then redirect to timeline
     if (user) {
       res.redirect('/timeline/' + user.id);
+    } else {
+      //if they do not exist, then render makeprofile view
+      res.render('makeprofile', {
+        title: 'TrailMix',
+        profile: req.user
+      });
     }
-
-    //if they do not exist, then render makeprofile view
-    res.render('makeprofile', {
-      title: 'TrailMix',
-      profile: req.user
-    });
   }).catch(function(error) {
     console.log(error);
   });
