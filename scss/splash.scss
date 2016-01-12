@@ -8,6 +8,7 @@
   font-size: 6em;
   font-weight: 700;
 	text-align: center;
+	color: white;
 }
 .front-door {
 	font-family: 'Amatic SC', cursive;
@@ -24,11 +25,12 @@
 .google-button {
 	border:none;
 	flex-direction: row;
-	background-color: #fc511d;
+
+	// #fc511d;
 	width:80%;
 	display: block;
 	height: 50px;
-	color: white;
+	background-color:white;
 	font-family: "Verdana";
 	font-size: 1.2em;
 	margin: auto;
@@ -39,7 +41,7 @@
 .google-button:hover {
 	border:none;
 	flex-direction: row;
-	background-color:white;
+	background-color: #fc511d;
 	width:80%;
 	display: block;
 	height: 50px;
@@ -59,56 +61,53 @@
 	background: #036;
 	transition: 10s ease;
 	height: 300px;
+	width: 100%;
+		margin: 0 auto;
 }
 .cont {
 	width: 100%;
 	height: 100%;
-	display: block;
 	margin: 0 auto;
 }
 .sky{
 	width: 100%;
 	height: 100%;
-	display: block;
-	position: relative;
 	z-index: 2;
 	top: 0;
 	background: linear-gradient(#036, #17b,#2cb);
 	transition: 10s ease;
+		margin: 0 auto;
 }
 .sky-dawn{
 	width: 100%;
 	height: 100%;
-	display: block;
-	position: relative;
 	z-index: 2;
 	top: 0;
 	background: linear-gradient(#78d, #a8d,#eeb);
 	opacity:0;
 	transition: 10s ease;
+		margin: 0 auto;
 }
 .sky-day{
 	width: 100%;
 	height: 100%;
-	display: block;
-	position: relative;
 	z-index: 2;
 	top: 0;
 	background: linear-gradient(#1bf,#6df,#bfe);
 	opacity:0;
 	transition: 10s ease;
+		margin: 0 auto;
 }
 .show{
 	opacity: 1;
 }
 .foreground{
 	position: relative;
+	width: 100%;
 	z-index: 10;
 	fill: #036;
+		margin: 0 auto;
 }
 .brand {
-		z-index: 12;
-}
-.cont {
-	height: 0px;
+	z-index: 12;
 }

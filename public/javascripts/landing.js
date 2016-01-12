@@ -33,7 +33,6 @@ $(".cont").ready(function(){
 	setInterval(function(){
 	}, 0.01);
 });
-
 //color settings
 $(document).ready(function(){
 	setInterval(function(){
@@ -42,12 +41,12 @@ $(document).ready(function(){
 		var dusk = '#036';
 		var mood = new Date();
 		var second = mood.getSeconds();
-		if(second < 10){
+		if(second < 5){
 			$('body').css('background', dawn);
 			$('.shape-one').css('fill', dawn);
 			$('.sky-dawn').css('opacity','1');
 			$('.sky-day').css('opacity','1');
-		} else if(second < 15) {
+		} else if(second < 10) {
 			$('body').css('background', day);
 			$('.shape-one').css('fill', day);
 			$('.sky-dawn').css('opacity','1');
