@@ -6,11 +6,6 @@ $changepersonalinfo = $('.change-personal-info');
 $main = $('main');
 //$submit = $('.edit settings h3');
 
-
-$main.on('click', function(){
-  tapToCancel($main);
-});
-
 $changename.on('click', function(){
   editInfo($changename);
 });
@@ -33,6 +28,7 @@ function editInfo(info){
   var $submitButton = info.parents('.edit-settings').find('h3');
   $submitButton.text('Submit');
   submitChange($submitButton);
+  tapToCancel($main);
 }
 
 function submitChange(submit){
@@ -43,10 +39,10 @@ function submitChange(submit){
 }
 
 function tapToCancel(main){
-  main.on('click', function(){
-    if($('.hidden').is(':visible')){
+  main.on('click', function(event){
+    if(event.target === this){
       console.log('hide it');
-      main.find('.hidden').hide();
+      $('.hidden:visible').hide();
       main.find('.edit-settings').find('h2').show();
       main.find('.edit-settings').find('h3').text('Change');
     }
