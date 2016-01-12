@@ -1,6 +1,5 @@
 .splash-intro {
 	font-family: 'Amatic SC', cursive;
-	flex-direction: column;
 	width:100%;
 	display: block;
 	margin: 10px;
@@ -41,16 +40,18 @@
 }
 
 .splash-content {
-	display: flex;
 	height: 100%;
-	justify-content: center;
-	align-items: center;
-	flex-flow: column wrap;
   margin-top: -80px;
 }
 
-////
+//// globals
 
 a {
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+}
+a::before {
 	text-decoration: none;
 }
