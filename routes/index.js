@@ -3,11 +3,15 @@ var router = express.Router();
 var api = require('./api');
 
 router.get('/', function(req, res, next) {
-  res.render('landing', {title: 'TrailMix'});
+  res.render('landing', {
+    title: 'TrailMix'
+  });
 });
 
 router.get('/editor', function(req, res, next) {
-  res.render('editor', {title: 'TrailMix'});
+  res.render('editor', {
+    title: 'TrailMix'
+  });
 });
 
 router.get('/makeprofile', function(req, res, next) {
@@ -42,21 +46,35 @@ router.post('/makeprofile', function(req, res, next) {
 });
 
 router.get('/post', function(req, res, next) {
-  res.render('post', {title: 'TrailMix'});
+  res.render('post', {
+    title: 'TrailMix'
+  });
 });
 
-router.get('/profile', function(req, res, next) {
-  res.render('profile', {title: 'TrailMix'});
+router.get('/profile/:userid', function(req, res, next) {
+  api.users.read(req.params.userid).then(function(userdata) {
+    res.render('profile', {
+      title: 'TrailMix',
+      profile: {
+        id: userdata.id,
+        username: userdata.username,
+        date_created: userdata.created_at,
+        personal_info: userdata.personal_info,
+        photo_url: userdata.photo_url
+      }
+    });
+  });
 });
 
 router.get('/settings', function(req, res, next) {
-  res.render('settings', {title: 'TrailMix'});
+  res.render('settings', {
+    title: 'TrailMix'
+  });
 });
 
 router.get('/timeline/:userid', function(req, res, next) {
-api.posts.readAll().then(function(posts){
+  api.posts.readAll().then(function(posts) {
     res.render('timeline', {post: posts, title: posts.title, lat: posts.latitude, lon: posts.longitude});
-    //console.log(posts)
   });
 });
 
