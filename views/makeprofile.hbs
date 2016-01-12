@@ -10,15 +10,16 @@
 <main>
   <header class='create-profile-header'>
     <div class='user-image'>
-      <img src="http://placehold.it/150x150" alt="User Profile Photo" class='create-profile-img' />
+      <img src="{{profile.profilePhoto}}" alt="User Profile Photo" class='create-profile-img' />
+      <p>Welcome {{profile.displayName}}</p>
     </div>
     <div class='choose-name'>
-      <h1>Choose your display name for Trail Mix!</h1>
+      <h1>Choose your user name for Trail Mix!</h1>
     </div>
   </header>
-  <form action='/setdisplayname' method="POST" class='create-profile-form'>
-    <label class='display-name'>Display Name</label>
-    <input type='text' name='displayName' placeholder="What should we call you?">
+  <form action='/makeprofile' method="POST" class='create-profile-form'>
+    <label class='display-name'>User Name</label>
+    <input type='text' name='userName' placeholder="What should we call you?">
     <input type='submit' value="Complete profile" class='submit-button'>
   </form>
 </main>
