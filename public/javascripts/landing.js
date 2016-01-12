@@ -31,8 +31,6 @@ $(document).ready(function(){
 });
 $(".cont").ready(function(){
 	setInterval(function(){
-		// var height = $(".foreground").height();
-		// var top = $(".foreground").height();
 	}, 0.01);
 });
 
@@ -49,16 +47,16 @@ $(document).ready(function(){
 			$('.shape-one').css('fill', dawn);
 			$('.sky-dawn').css('opacity','1');
 			$('.sky-day').css('opacity','1');
-		} else if(second < 40) {
+		} else if(second < 15) {
 			$('body').css('background', day);
-			$('.shape-one').css('fill', dawn);
-			$('.sky-dawn').css('opacity','0');
+			$('.shape-one').css('fill', day);
+			$('.sky-dawn').css('opacity','1');
 			$('.sky-day').css('opacity','1');
 		} else {
-			$('body').css('background', dusk);
-			$('.trees').css('fill', dusk);
-			$('.sky-day').css('opacity','0');
-			$('.hills').css('fill','#0be');
+			$('body').css('background', dawn);
+			$('.shape-one').css('fill', dawn);
+      $('.sky-dawn').css('opacity','1');
+			$('.sky-day').css('opacity','1');
 		}
 	});
 });

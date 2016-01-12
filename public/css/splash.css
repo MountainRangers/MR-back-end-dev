@@ -99,6 +99,9 @@
   z-index: 10;
   fill: #036; }
 
+.brand {
+  z-index: 12; }
+
 .cont {
   height: 0px; }
 
