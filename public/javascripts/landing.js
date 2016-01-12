@@ -27,7 +27,6 @@ $(document).ready(function(){
 		}else {
 			var ap = "a";
 		}
-		document.getElementById('clock').innerHTML = hours + ":" + minutes + ap;
 	}, .0001);
 });
 
