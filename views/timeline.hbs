@@ -39,94 +39,25 @@
   </div>
 
   <!-- sample post # 1 -->
-  <article class='post'>
-    <div class='tl-user-info third'>
-      <img class='profile-img-placeholder' src='/images/profile.png' />
-      <p class='tl-user-name'>User Name</p>
-    </div>
-    <div class='tl-hike-info third'>
-      <h1 class='tl-hike-name'>Hike Name</h1>
-      <p class='tl-hike-location'>Location</p>
-    </div>
-    <div class='tl-tag third'>
-      <img src='/images/gem.png' class='icon'/>
-    </div>
-  </article>
+  <!-- <div id="timeline-posts">
 
-  <!-- sample post # 2 -->
+  </div> -->
+  {{#each post}}
   <article class='post'>
     <div class='tl-user-info third'>
       <img class='profile-img-placeholder' src='/images/profile.png' />
-      <p class='tl-user-name'>User Name</p>
+      <p class='tl-user-name'>{{username}}</p>
     </div>
     <div class='tl-hike-info third'>
-      <h1 class='tl-hike-name'>Hike Name</h1>
-      <p class='tl-hike-location'>Location</p>
+      <h1 class='tl-hike-name'>{{title}}</h1>
+      <p class='tl-hike-location'>{{lat}}, {{lon}}</p>
     </div>
     <div class='tl-tag third'>
       <img src='/images/gem.png' class='icon'/>
     </div>
   </article>
+  {{/each}}
 
-  <!-- sample post # 3 -->
-  <article class='post'>
-    <div class='tl-user-info third'>
-      <img class='profile-img-placeholder' src='/images/profile.png' />
-      <p class='tl-user-name'>User Name</p>
-    </div>
-    <div class='tl-hike-info third'>
-      <h1 class='tl-hike-name'>Hike Name</h1>
-      <p class='tl-hike-location'>Location</p>
-    </div>
-    <div class='tl-tag third'>
-      <img src='/images/gem.png' class='icon'/>
-    </div>
-  </article>
-
-  <!-- sample post # 4 -->
-  <article class='post'>
-    <div class='tl-user-info third'>
-      <img class='profile-img-placeholder' src='/images/profile.png' />
-      <p class='tl-user-name'>User Name</p>
-    </div>
-    <div class='tl-hike-info third'>
-      <h1 class='tl-hike-name'>Hike Name</h1>
-      <p class='tl-hike-location'>Location</p>
-    </div>
-    <div class='tl-tag third'>
-      <img src='/images/gem.png' class='icon'/>
-    </div>
-  </article>
-
-  <!-- sample post # 5 -->
-  <article class='post'>
-    <div class='tl-user-info third'>
-      <img class='profile-img-placeholder' src='/images/profile.png' />
-      <p class='tl-user-name'>User Name</p>
-    </div>
-    <div class='tl-hike-info third'>
-      <h1 class='tl-hike-name'>Hike Name</h1>
-      <p class='tl-hike-location'>Location</p>
-    </div>
-    <div class='tl-tag third'>
-      <img src='/images/gem.png' class='icon'/>
-    </div>
-  </article>
-
-  <!-- sample post # 6 -->
-  <article class='post'>
-    <div class='tl-user-info third'>
-      <img class='profile-img-placeholder' src='/images/profile.png' />
-      <p class='tl-user-name'>User Name</p>
-    </div>
-    <div class='tl-hike-info third'>
-      <h1 class='tl-hike-name'>Hike Name</h1>
-      <p class='tl-hike-location'>Location</p>
-    </div>
-    <div class='tl-tag third'>
-      <img src='/images/gem.png' class='icon'/>
-    </div>
-  </article>
 </div>  <!-- End of timeline feature -->
 
 <!-- Footer -->
