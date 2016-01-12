@@ -1,10 +1,9 @@
 .splash-intro {
 	font-family: 'Amatic SC', cursive;
 	width:100%;
-	display: block;
-	margin: 10px;
-	margin-top: 25px;
-	margin-bottom: 50px;
+	// margin: 10px;
+	// margin-top: 25px;
+	// margin-bottom: 50px;
   font-size: 6em;
   font-weight: 700;
 	text-align: center;
@@ -70,11 +69,11 @@
 	margin: 0 auto;
 }
 .sky{
-	width: 90%;
+	width: 98%;
 	height: 150px;
 	z-index: 2;
 	background: linear-gradient(#036, #17b,#2cb);
-	transition: 10s ease;
+	transition: 5s ease;
 	margin: 0 auto;
 }
 .sky-dawn{
@@ -84,7 +83,7 @@
 	top: 0;
 	background: linear-gradient(#78d, #a8d,#eeb);
 	opacity:0;
-	transition: 10s ease;
+	transition: 5s ease;
 		margin: 0 auto;
 }
 .sky-day{
@@ -94,8 +93,8 @@
 	top: 0;
 	background: linear-gradient(#1bf,#6df,#bfe);
 	opacity:0;
-	transition: 10s ease;
-		margin: 0 auto;
+	transition: 5s ease;
+	margin: 0 auto;
 }
 .show{
 	opacity: 1;
@@ -106,7 +105,4 @@
 	z-index: 10;
 	fill: #036;
 	margin: 0 auto;
-}
-.brand {
-	z-index: 12;
 }
