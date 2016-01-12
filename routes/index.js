@@ -87,8 +87,8 @@ router.get('/timeline/:userid', function(req, res, next) {
     res.render('timeline', {
       post: posts,
       title: posts.title,
-      lat: posts.latitude,
-      lon: posts.longitude
+      latitude: posts.latitude,
+      longitude: posts.longitude
     });
   });
 });
