@@ -1,7 +1,8 @@
 .splash-intro {
   font-family: 'Amatic SC', cursive;
   width: 100%;
-  margin-bottom: 10px;
+  margin-top: 25px;
+  margin-bottom: 25px;
   font-size: 6em;
   font-weight: 700;
   text-align: center;
@@ -18,6 +19,7 @@
 .google-button {
   border: none;
   flex-direction: row;
+  margin-top: 35px;
   width: 80%;
   display: block;
   height: 50px;
@@ -25,9 +27,11 @@
   font-family: "Verdana";
   font-size: 1.2em;
   margin: auto;
-  margin-bottom: 50px; }
+  margin-bottom: 50px;
+  transition: color 1s, width 1s, height 1s, background-color 1s, transform 1s; }
 
 .google-button:hover {
+  margin-top: 35px;
   border: none;
   flex-direction: row;
   background-color: #fc511d;
@@ -59,12 +63,13 @@
   margin: 0 auto; }
 
 .sky {
-  width: 98%;
+  width: 100%;
   height: 250px;
   z-index: 2;
   background: linear-gradient(#036, #17b, #2cb);
   transition: 5s ease;
-  margin: 0 auto; }
+  margin: 0 auto;
+  margin-bottom: 35px; }
 
 .sky-dawn {
   width: 100%;
