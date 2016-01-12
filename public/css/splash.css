@@ -14,6 +14,9 @@
   font-size: 2em;
   margin-top: 25px; }
 
+.color-white {
+  fill: white; }
+
 .brand {
   margin-top: 80px; }
 
@@ -28,8 +31,7 @@
   font-family: "Verdana";
   font-size: 1.2em;
   margin: auto;
-  margin-bottom: 50px;
-  transition: color 1s, width 1s, height 1s, background-color 1s, transform 1s; }
+  margin-bottom: 50px; }
 
 .google-button:hover {
   border: none;
