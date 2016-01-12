@@ -1,1 +1,32 @@
 // scss for a single blog post view
+.single-post-description > p {
+  text-align: left;
+  padding: 10%;
+}
+.single-post-description-title {
+  text-align: left;
+  padding: 10%;
+}
+.post-header {
+  display: flex;
+  height: 100px;
+  background-color: white;
+  width: 100%;
+}
+.single-post-description-text {
+  text-align: left;
+  margin-left: 10%;
+  color: blue;
+}
+.single-post-tag-container {
+  text-align: left;
+  height: 100px;
+}
+.single-post-tag-title {
+  text-align: left;
+  margin-left: 10%;
+}
+.single-post-tag-image {
+  text-align: left;
+  margin-left: 10%;
+}
