@@ -17,7 +17,8 @@ main {
     main .edit-settings h3 {
       font-size: 60%;
       align-self: center;
-      color: red; }
+      color: red;
+      cursor: pointer; }
   main .edit-settings:last-child {
     margin-bottom: 30px; }
 

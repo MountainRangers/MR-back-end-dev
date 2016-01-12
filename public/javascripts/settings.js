@@ -3,6 +3,7 @@ $changename = $('.change-name');
 $changeemail = $('.change-email');
 $changesocialmedia = $('.change-social-media');
 $changepersonalinfo = $('.change-personal-info');
+$submit = $('.edit settings h3');
 
 $changename.on('click', function(){
   editInfo($changename);
@@ -23,5 +24,11 @@ $changepersonalinfo.on('click', function(){
 function editInfo(info){
   info.parents('.edit-settings').find('h2').hide();
   info.parents('.edit-settings').find('.hidden').show();
-  info.parents('.edit-settings').find('h3').text("submit");
+  info.parents('.edit-settings').find('h3').text('Submit');
+}
+
+function submitChange(submit){
+  submit.on('click', function(){
+    console.log('submitted');
+  })
 }
