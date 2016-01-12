@@ -39,3 +39,6 @@ node_modules
 
 # SASS cache files
 .sass-cache
+
+# Mac Finder Files
+.DS_Store
