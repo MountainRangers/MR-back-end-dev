@@ -5,21 +5,23 @@ $changesocialmedia = $('.change-social-media');
 $changepersonalinfo = $('.change-personal-info');
 
 $changename.on('click', function(){
-  editInfo($changename.parents('.edit-settings').find('h2').text());
+  editInfo($changename);
 });
 
 $changeemail.on('click', function(){
-  editInfo($changeemail.parents('.edit-settings').find('h2').text());
+  editInfo($changeemail);
 });
 
 $changesocialmedia.on('click', function(){
-  editInfo($changesocialmedia.parents('.edit-settings').find('h2').text());
+  editInfo($changesocialmedia);
 });
 
 $changepersonalinfo.on('click', function(){
-  editInfo($changepersonalinfo.parents('.edit-settings').find('h2').text());
+  editInfo($changepersonalinfo);
 });
 
 function editInfo(info){
-  console.log('you clicked ' + info);
+  info.parents('.edit-settings').find('h2').hide();
+  info.parents('.edit-settings').find('.hidden').show();
+  info.parents('.edit-settings').find('h3').text("submit");
 }
