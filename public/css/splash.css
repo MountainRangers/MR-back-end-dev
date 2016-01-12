@@ -1,14 +1,12 @@
 .splash-intro {
   font-family: 'Amatic SC', cursive;
   width: 100%;
-  display: block;
-  margin: 10px;
   margin-top: 25px;
-  margin-bottom: 50px;
+  margin-bottom: 25px;
   font-size: 6em;
   font-weight: 700;
   text-align: center;
-  color: white; }
+  color: #603919; }
 
 .front-door {
   font-family: 'Amatic SC', cursive;
@@ -18,12 +16,10 @@
 .color-white {
   fill: white; }
 
-.brand {
-  margin-top: 80px; }
-
 .google-button {
   border: none;
   flex-direction: row;
+  margin-top: 35px;
   width: 80%;
   display: block;
   height: 50px;
@@ -31,9 +27,11 @@
   font-family: "Verdana";
   font-size: 1.2em;
   margin: auto;
-  margin-bottom: 50px; }
+  margin-bottom: 50px;
+  transition: color 1s, width 1s, height 1s, background-color 1s, transform 1s; }
 
 .google-button:hover {
+  margin-top: 35px;
   border: none;
   flex-direction: row;
   background-color: #fc511d;
@@ -45,29 +43,33 @@
   font-size: 1.2em; }
 
 .splash-content {
-  height: 100%; }
+  height: 100%;
+  background-color: #dae8d6; }
+
+#contento {
+  background-color: #dae8d6; }
 
 .splash-body {
   margin: 0;
-  background: #036;
+  background: #dae8d6;
   transition: 10s ease;
   height: 300px;
   width: 100%;
   margin: 0 auto; }
 
 .cont {
-  width: 50%;
+  width: 100%;
   height: 0;
   margin: 0 auto; }
 
 .sky {
-  width: 50%;
-  height: 50%;
+  width: 100%;
+  height: 250px;
   z-index: 2;
-  margin-top: 30px;
   background: linear-gradient(#036, #17b, #2cb);
-  transition: 10s ease;
-  margin: 0 auto; }
+  transition: 5s ease;
+  margin: 0 auto;
+  margin-bottom: 35px; }
 
 .sky-dawn {
   width: 100%;
@@ -76,7 +78,7 @@
   top: 0;
   background: linear-gradient(#78d, #a8d, #eeb);
   opacity: 0;
-  transition: 10s ease;
+  transition: 5s ease;
   margin: 0 auto; }
 
 .sky-day {
@@ -86,7 +88,7 @@
   top: 0;
   background: linear-gradient(#1bf, #6df, #bfe);
   opacity: 0;
-  transition: 10s ease;
+  transition: 5s ease;
   margin: 0 auto; }
 
 .show {
@@ -98,8 +100,5 @@
   z-index: 10;
   fill: #036;
   margin: 0 auto; }
-
-.brand {
-  z-index: 12; }
 
 /*# sourceMappingURL=splash.css.map */
