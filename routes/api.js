@@ -8,10 +8,7 @@ var knex = require('knex')({
 module.exports = {
   posts: {
     readAll: function(){
-      knex('posts').select().then(function(posts){
-        return console.log(posts);
-//        return response.send(posts);
-      })
+      return knex('posts').select();
     },
     readOne: function(response, id){
       knex('posts').select().where({id: id}).then(function(posts){
