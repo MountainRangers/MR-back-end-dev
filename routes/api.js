@@ -8,7 +8,7 @@ var knex = require('knex')({
 module.exports = {
   posts: {
     readAll: function(){
-      return knex('posts').select();
+      return knex('posts').select().innerJoin("users", "posts.user_id", "users.id");
     },
     readOne: function(response, id){
       knex('posts').select().where({id: id}).then(function(posts){

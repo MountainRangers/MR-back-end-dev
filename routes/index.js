@@ -53,7 +53,6 @@ router.get('/post', function(req, res, next) {
 
 router.get('/profile/:userid', function(req, res, next) {
   api.users.read(req.params.userid).then(function(userdata) {
-    console.log(userdata);
     res.render('profile', {
       title: 'TrailMix',
       profile: {
@@ -84,9 +83,11 @@ router.get('/settings/:userid', function(req, res, next) {
 
 router.get('/timeline/:userid', function(req, res, next) {
   api.posts.readAll().then(function(posts) {
+    console.log(posts);
     res.render('timeline', {
       post: posts,
       title: posts.title,
+      photo_url: posts.photo_url,
       latitude: posts.latitude,
       longitude: posts.longitude
     });
