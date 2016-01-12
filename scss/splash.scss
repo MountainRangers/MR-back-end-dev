@@ -1,56 +1,109 @@
 .splash-intro {
 	font-family: 'Amatic SC', cursive;
-	flex-direction: column;
 	width:100%;
 	display: block;
 	margin: 10px;
 	margin-top: 25px;
-  font-size: 4em;
+	margin-bottom: 50px;
+  font-size: 6em;
   font-weight: 700;
+	text-align: center;
+}
+.front-door {
+	font-family: 'Amatic SC', cursive;
+	font-size: 2em;
+	margin-top: 25px;
+}
+.color-white {
+	fill: white;
 }
 
+.brand {
+	margin-top: 80px;
+}
 .google-button {
 	border:none;
 	flex-direction: row;
 	background-color: #fc511d;
-	width:24%;
+	width:80%;
 	display: block;
-	margin: 25px;
 	height: 50px;
 	color: white;
 	font-family: "Verdana";
 	font-size: 1.2em;
-	justify-content: center;
-	align-items: center;
-	transition: color 1s, width 1s, height 1s, background-color 1s, transform 1s;
+	margin: auto;
+	margin-bottom: 50px;
+	// transition: color 1s, width 1s, height 1s, background-color 1s, transform 1s;
 }
 
 .google-button:hover {
 	border:none;
 	flex-direction: row;
 	background-color:white;
-	width:24%;
+	width:80%;
 	display: block;
-	margin: 25px;
 	height: 50px;
-	color:  #455448;
+	color: green;
 	font-family: "Verdana";
 	font-size: 1.2em;
-	justify-content: center;
-	align-items: center;
 }
 
 .splash-content {
-	display: flex;
 	height: 100%;
-	justify-content: center;
-	align-items: center;
-	flex-flow: column wrap;
   margin-top: -80px;
 }
 
-////
+/////////// new stuff
 
-a {
-	text-decoration: none;
+body{
+	margin: 0;
+	background: #036;
+	transition: 10s ease;
+}
+.cont {
+	width: 100%;
+	height: 100%;
+	display: block;
+	margin: 0 auto;
+	cursor: pointer;
+}
+.sky{
+	width: 100%;
+	height: 100%;
+	display: block;
+	position: relative;
+	z-index: 2;
+	top: 0;
+	background: linear-gradient(#036, #17b,#2cb);
+	transition: 10s ease;
+}
+.sky-dawn{
+	width: 100%;
+	height: 100%;
+	display: block;
+	position: relative;
+	z-index: 2;
+	top: 0;
+	background: linear-gradient(#78d, #a8d,#eeb);
+	opacity:0;
+	transition: 10s ease;
+}
+.sky-day{
+	width: 100%;
+	height: 100%;
+	display: block;
+	position: relative;
+	z-index: 2;
+	top: 0;
+	background: linear-gradient(#1bf,#6df,#bfe);
+	opacity:0;
+	transition: 10s ease;
+}
+.show{
+	opacity: 1;
+}
+.foreground{
+	position: relative;
+	z-index: 10;
+	fill: #036;
 }

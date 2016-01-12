@@ -24,10 +24,21 @@ time, mark, audio, video {
 a {
 	text-decoration: none;
 }
-a:visited {
-  text-decoration: none;
-	color: white;
+
+a {
+	text-decoration: none;
 }
+a:visited {
+	text-decoration: none;
+}
+a::before {
+	text-decoration: none;
+}
+
+
+
+
+
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
