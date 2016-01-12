@@ -31,7 +31,6 @@ router.get('/makeprofile', function(req, res, next) {
 router.post('/makeprofile', function(req, res, next) {
   //insert user data to database
   api.users.createUser({
-    date_joined: '1/11/2016',
     username: req.body.userName,
     google_id: req.user.google_id,
     photo_url: req.user.profilePhoto,
@@ -52,10 +51,6 @@ router.get('/profile', function(req, res, next) {
 
 router.get('/settings', function(req, res, next) {
   res.render('settings', {title: 'TrailMix'});
-});
-
-router.get('/timeline', function(req, res, next) {
-  res.render('timeline', {title: 'TrailMix'});
 });
 
 router.get('/timeline/:id', function(req, res, next) {
