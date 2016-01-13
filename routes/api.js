@@ -10,7 +10,7 @@ module.exports = {
     readAll: function(){
       return knex('posts').select().innerJoin("users", "posts.user_id", "users.id");
     },
-    readOne: function(response, id){
+    readOne: function(id){
       return knex('posts').select().where({id: id});
     }
   },

@@ -53,18 +53,22 @@ router.get('/post', function(req, res, next) {
   });
 });
 
-router.get('/post/postid', function(req, res, next) {
-  api.posts.readOne().then(function(postid) {
-    var date = formatDate(created_at);
+router.get('/post/:postid', function(req, res, next) {
+  api.posts.readOne(req.params.postid).then(function(postdata) {
+    postdata[0].date = formatDate(postdata[0].created_at);
     res.render('post', {
-      post: posts,
-      title: posts.title,
-      username: posts.username,
-      body:posts.body,
-      photo_url: posts.photo_url,
-      latitude: posts.latitude,
-      longitude: posts.longitude,
-      created_at: date
+      title: 'TrailMix',
+      post: postdata[0]
+      // {
+      //   id: postdata.id,
+      //   title: postdata.title,
+      //   username: postdata.username,
+      //   body: postdata.body,
+      //   photo_url: postdata.photo_url,
+      //   latitude: postdata.latitude,
+      //   longitude: postdata.longitude,
+      //   // created_at: date
+      // }
     });
   });
 });
@@ -114,7 +118,7 @@ router.get('/timeline/:userid', function(req, res, next) {
   });
 });
 
-function formatDate(dateString){
+function formatDate(dateString) {
   var newDate = (dateString).toString().split(' ');
   var formattedDate = newDate[1] + ' ' + newDate[2] + ", " + newDate[3];
   return formattedDate;
