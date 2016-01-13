@@ -1,9 +1,5 @@
-<!-- navigation -->
-<nav class='nav-bar'>
-  <div class='nav-component third'><a href='/timeline/{{profile.id}}'>Home</a></div>
-  <div class='nav-component third'><a href='/editor/{{profile.id}}'>Add Post</a></div>
-  <div class='nav-component third'><a href='/settings/{{profile.id}}'>Settings</a></div>
-</nav>
+<!-- Navigation -->
+{{> navbar id=profile.id}}
 
 <!-- user about section -->
 <header class='profile-header'>

@@ -1,0 +1,15 @@
+<nav class='nav-bar'>
+  <div class='nav-component third'>
+    <a href='/timeline'>Home</a>
+  </div>
+  <div class='nav-component third'>
+    <a href='/addpost'>Add Post</a>
+  </div>
+  <div class='nav-component third'>
+    {{#if showSettings}}
+      <a href='/settings'>Settings</a>
+    {{else}}
+      <a href='/profile/{{id}}'>Profile</a>
+    {{/if}}
+  </div>
+</nav>
