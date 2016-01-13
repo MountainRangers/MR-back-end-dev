@@ -1,45 +1,47 @@
-//if(jQuery)console.log('jQ loadded');
-$changename = $('.change-name');
-$changeemail = $('.change-email');
-$changesocialmedia = $('.change-social-media');
-$changepersonalinfo = $('.change-personal-info');
-$main = $('main');
-//$submit = $('.edit settings h3');
-
-$changename.on('click', function(){
-  editInfo($changename);
-});
-
-$changeemail.on('click', function(){
-  editInfo($changeemail);
-});
-
-$changesocialmedia.on('click', function(){
-  editInfo($changesocialmedia);
-});
-
-$changepersonalinfo.on('click', function(){
-  editInfo($changepersonalinfo);
+$(document).ready(function(){
+  $changename = $('.change-name');
+  $changepersonalinfo = $('.change-personal-info');
+  $main = $('main');
+  
+  $changename.on('click', function(event){
+    if($changename.text() == 'Change'){
+      editInfo($changename);
+    }
+    if($changename.text() == 'Submit'){
+      submitChange($changename);
+    }
+  });
+  
+  $changepersonalinfo.on('click', function(){
+    if($changepersonalinfo.text() == 'Change'){
+      editInfo($changepersonalinfo);
+    }
+    if($changepersonalinfo.text() == 'Submit'){
+      submitChange($changepersonalinfo);
+    }
+  });
 });
 
 function editInfo(info){
-  info.parents('.edit-settings').find('h2').hide();
-  info.parents('.edit-settings').find('.hidden').show();
-  var $submitButton = info.parents('.edit-settings').find('h3');
-  $submitButton.text('Submit');
-  submitChange($submitButton);
+  var $dataNearButton = info.parent('.edit-settings').find('h2');
+  var $inputNearButton = info.parent('.edit-settings').find('.hidden');
+  $dataNearButton.hide();
+  $inputNearButton.val($dataNearButton.text());
+  $inputNearButton.show();
+  info.text('Submit');
   tapToCancel($main);
 }
+
 
 function submitChange(submit){
   submit.on('click', function(){
     console.log('submitted');
-    $.post('/makeprofile', function(data){
-      
-    })
+    //$.post('/makeprofile', function(data){
+    // ajax request 
+    //})
     $('.hidden:visible').hide();
     submit.parent('.edit-settings').find('h2').show();
-    submit.parent('.edit-settings').find('h3').text('Change');
+    submit.text('Change');
   })
 }
 
