@@ -53,8 +53,6 @@
 	background-color: #dae8d6;
 }
 
-/////////// new stuff
-
 .splash-body {
 	margin: 0;
 	background: #dae8d6;
@@ -106,4 +104,13 @@
 	z-index: 10;
 	fill: #036;
 	margin: 0 auto;
+}
+.tagline{
+	p {
+		font-family: 'Amatic SC', cursive;
+		width:100%;
+	  font-size: 3em;
+	  font-weight: 700;
+		color: #603919;
+	}
 }
