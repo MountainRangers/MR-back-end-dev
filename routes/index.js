@@ -39,14 +39,7 @@ router.post('/makeprofile', ensureAuthenticated, function(req, res, next) {
   });
 });
 
-router.get('/post', ensureAuthenticatedandUser, function(req, res, next) {
-  res.render('post', {
-    title: 'TrailMix',
-    id: req.user.id
-  });
-});
-
-router.get('/post/:postid', function(req, res, next) {
+router.get('/post/:postid', ensureAuthenticatedandUser, function(req, res, next) {
   api.posts.readOne(req.params.postid).then(function(postdata) {
     postdata.posts[0].date = formatDate(postdata.posts[0].created_at);
     console.log(postdata.tags[0].name);
@@ -57,7 +50,6 @@ router.get('/post/:postid', function(req, res, next) {
     });
   });
 });
-
 
 router.get('/profile/:userid', ensureAuthenticatedandUser, function(req, res, next) {
   api.users.getUser(req.params.userid).then(function(userdata) {
