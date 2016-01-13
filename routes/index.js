@@ -39,6 +39,15 @@ router.post('/makeprofile', ensureAuthenticated, function(req, res, next) {
   });
 });
 
+router.put('/makeprofile', ensureAuthenticated, function(req, res, next) {
+  api.users.updateUser(
+    req.user.id,
+    req.body.userinfo
+  ).then(function(data){
+      res.end('data');
+  });
+});
+
 router.get('/post/:postid', ensureAuthenticatedandUser, function(req, res, next) {
   api.posts.readOne(req.params.postid).then(function(postdata) {
     postdata.posts[0].date = formatDate(postdata.posts[0].created_at);
