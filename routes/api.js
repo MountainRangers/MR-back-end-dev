@@ -41,9 +41,29 @@ module.exports = {
       }).catch(function(err) {
         console.log(err);
       });
+    },
+    deleteOne: function(id){
+       return knex('posts').where({'posts.id': id}).del();
     }
   },
   users: {
+    getUsersPosts: function(id) {
+      return Promise.all([
+        knex('users').select().where({
+          id: id
+        }).first(),
+        knex('posts').select().where({
+          id: id
+        })
+      ]).then(function(data){
+        return Promise.resolve({
+          user: data[0],
+          post: data[1]
+        })
+      }).catch(function(error){
+        console.log('alex messed up!')
+      })
+    },
     getUser: function(id) {
       return knex('users').select().where({
         id: id
@@ -59,6 +79,9 @@ module.exports = {
     },
     createUser: function(user) {
       return knex('users').insert(user, 'id');
+    },
+    updateUser: function(user, userbio) {
+      return knex('users').where('id', user).update('personal_info', userbio);
     }
   }
 };

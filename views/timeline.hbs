@@ -23,12 +23,13 @@
 
 <!-- Beginning of timeline feed -->
 <div class='time-line'>
-  </div> -->
   {{#each posts}}
   <article class='post'>
     <div class='tl-user-info third'>
-      <img class='profile-img-placeholder' src='{{photo_url}}' alt='User Profile Photo'>
-      <p class='tl-user-name'>{{username}}</p>
+      <a href='/profile/other/{{id}}'>
+        <img class='profile-img-placeholder' src='{{photo_url}}' alt='User Profile Photo'>
+        <p class='tl-user-name'>{{username}}</p>
+      </a>
     </div>
     <div class='tl-hike-info third'>
       <h1 class='tl-hike-name'>{{post_title}}</h1>

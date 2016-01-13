@@ -37,15 +37,24 @@ function changeInfo(info){
 
 //DOM manipulation when user presses 'Submit'
 function submitChange(submit){
-  console.log('submitted');
-  //$.post('/makeprofile', function(data){
-  // need ajax request 
-  //})
   var $dataNearButton = submit.parent('.edit-settings').find('h2');
   var $inputNearButton = submit.parent('.edit-settings').find('.hidden');
+  var personalinfo = $inputNearButton.val();
+  console.log('submitted');
   $('.hidden').hide();
-  $dataNearButton.text($inputNearButton.val()).show();
+  $dataNearButton.show();
   submit.text('Change');
+  $.ajax({  
+    url: '/makeprofile',
+    method: 'PUT',
+    data: {userinfo: personalinfo},
+    success: function(data){
+      location.reload();
+    },
+    error: function(data){
+      console.error('profile update failed');
+    }
+  });
 }
 
 //Tap outside of input box to cancel changes in progress

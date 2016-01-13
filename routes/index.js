@@ -39,20 +39,39 @@ router.post('/makeprofile', ensureAuthenticated, function(req, res, next) {
   });
 });
 
+router.put('/makeprofile', ensureAuthenticated, function(req, res, next) {
+  api.users.updateUser(
+    req.user.id,
+    req.body.userinfo
+  ).then(function(data){
+      res.end('data');
+  });
+});
+
 router.get('/post/:postid', ensureAuthenticatedandUser, function(req, res, next) {
   api.posts.readOne(req.params.postid).then(function(postdata) {
     postdata.posts[0].date = formatDate(postdata.posts[0].created_at);
-    console.log(postdata.tags[0].name);
+    var deleteButton = postdata.id === req.user.id ? true : false;
     res.render('post', {
       title: 'TrailMix',
+      deleteButton: deleteButton,
       post: postdata.posts[0],
       tag: postdata.tags[0]
     });
   });
 });
 
+router.delete('/post/:postid', function(req, res, next){
+  api.posts.deleteOne(req.params.postid).then(function(postdata){
+    // res.redirect('/timeline');
+    res.end('worked?');
+  });
+});
+
+// your own profile
 router.get('/profile/:userid', ensureAuthenticatedandUser, function(req, res, next) {
   api.users.getUser(req.params.userid).then(function(userdata) {
+    console.log(userdata)
     var date = formatDate(userdata.created_at);
     var showSettings = userdata.id === req.user.id ? true : false;
     res.render('profile', {
@@ -62,6 +81,31 @@ router.get('/profile/:userid', ensureAuthenticatedandUser, function(req, res, ne
         id: userdata.id,
         username: userdata.username,
         date_created: date,
+        personal_info: userdata.personal_info,
+        photo_url: userdata.photo_url
+      }
+    });
+  }).catch(function(err) {
+    res.redirect('/timeline');
+  });
+});
+
+// someone elses profile
+router.get('/profile/other/:userid', ensureAuthenticatedandUser, function(req, res, next) {
+  api.users.getUsersPosts(req.params.userid).then(function(userdata) {
+    console.log(userdata.post)
+    console.log(userdata.user)
+    // var date = formatDate(userdata.created_at);
+    // var showSettings = userdata.id === req.user.id ? true : false;
+    res.render('profile', {
+      title: 'Profile',
+      showSettings: showSettings,
+      profile: {
+        id: userdata.id,
+        username: userdata.username,
+        date_created: date,
+        post: userdata.post,
+        tag: userdata.user,
         personal_info: userdata.personal_info,
         photo_url: userdata.photo_url
       }

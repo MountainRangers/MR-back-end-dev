@@ -13,19 +13,14 @@
   </div>
 </header>
 
-
 <!-- 1st row */ -->
-<div class='hike'></div>
-<div class='hike'></div>
-<div class='hike'></div>
-<!-- 2nd row */ -->
-<div class='hike'></div>
-<div class='hike'></div>
-<div class='hike'></div>
-<!-- 3rd row */ -->
-<div class='hike'></div>
-<div class='hike'></div>
-<div class='hike'></div>
+{{#each post}}
+<div class='hike'>
+  <h1>{{title}}</h1>
+  <img src='{{profile.photo_url}}' />
+  <p>{{latitude}}, {{longitude}}</p>
+</div>
+{{/each}}
 
 <footer class='app-footer'>
   <p>Copyright, Mountain Rangers 2016. All rights reserved.</p>
