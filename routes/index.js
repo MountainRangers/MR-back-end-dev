@@ -91,11 +91,7 @@ router.get('/timeline', ensureAuthenticatedandUser, function(req, res, next) {
   api.posts.readAll().then(function(posts) {
     res.render('timeline', {
       id: req.user.id,
-      post: posts,
-      title: posts.title,
-      photo_url: posts.photo_url,
-      latitude: posts.latitude,
-      longitude: posts.longitude
+      posts: posts
     });
   });
 });
