@@ -9,10 +9,10 @@ router.get('/', function(req, res, next) {
   });
 });
 
-router.get('/editor/:userid', function(req, res, next) {
-  res.render('editor', {
+router.get('/addpost', ensureAuthenticatedandUser, function(req, res, next) {
+  res.render('addpost', {
     title: 'TrailMix',
-      id: req.params.userid,
+      id: req.user.id,
   });
 });
 
@@ -41,15 +41,18 @@ router.post('/makeprofile', ensureAuthenticated, function(req, res, next) {
 
 router.get('/post', ensureAuthenticatedandUser, function(req, res, next) {
   res.render('post', {
-    title: 'TrailMix'
+    title: 'TrailMix',
+    id: req.user.id
   });
 });
 
 router.get('/profile/:userid', ensureAuthenticatedandUser, function(req, res, next) {
   api.users.getUser(req.params.userid).then(function(userdata) {
     var date = formatDate(userdata.created_at);
+    var showSettings = userdata.id === req.user.id ? true : false;
     res.render('profile', {
       title: 'TrailMix',
+      showSettings: showSettings,
       profile: {
         id: userdata.id,
         username: userdata.username,
@@ -58,11 +61,13 @@ router.get('/profile/:userid', ensureAuthenticatedandUser, function(req, res, ne
         photo_url: userdata.photo_url
       }
     });
+  }).catch(function(err) {
+    res.redirect('/timeline');
   });
 });
 
-router.get('/settings/:userid', ensureAuthenticatedandUser, function(req, res, next) {
-  api.users.getUser(req.params.userid).then(function(userdata) {
+router.get('/settings', ensureAuthenticatedandUser, function(req, res, next) {
+  api.users.getUser(req.user.id).then(function(userdata) {
     var date = formatDate(userdata.created_at);
     res.render('settings', {
       title: 'TrailMix',
@@ -80,7 +85,7 @@ router.get('/settings/:userid', ensureAuthenticatedandUser, function(req, res, n
 router.get('/timeline', ensureAuthenticatedandUser, function(req, res, next) {
   api.posts.readAll().then(function(posts) {
     res.render('timeline', {
-      id: req.params.userid,
+      id: req.user.id,
       post: posts,
       title: posts.title,
       photo_url: posts.photo_url,
