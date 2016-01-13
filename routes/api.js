@@ -64,7 +64,7 @@ module.exports = {
       .innerJoin("posts_tags", "posts.id", "posts_tags.post_id")
       .innerJoin("tags", "tags.id", "posts_tags.tag_id")
       .where('user_id', id)
-      // .orderBy('post_created_at', 'desc');
+      .orderBy('post_created_at', 'desc');
     },
     getUser: function(id) {
       return knex('users').select().where({

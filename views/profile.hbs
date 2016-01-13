@@ -21,9 +21,9 @@
 
 {{#each post}}
 <div class='hike'>
-  <h1>{{post_title}}</h1>
-  <img src='{{/images/{{tag_name}}.png}}' />
-  <p>{{latitude}}, {{longitude}}</p>
+  <h1>{{userdata.post_title}}</h1>
+  <img src='{{/images/{{userdata.tag_name}}.png}}' />
+  <p>{{userdata.latitude}}, {{userdata.longitude}}</p>
 </div>
 {{/each}}
 <!-- {{/if}} -->

@@ -58,38 +58,37 @@ router.delete('/post/:postid', function(req, res, next){
   });
 });
 
-
 router.get('/profile/:userid', ensureAuthenticatedandUser, function(req, res, next) {
   api.users.getUsersPosts(req.params.userid).then(function(userdata) {
-    console.log(userdata)
-    var date = formatDate(userdata.created_at);
     var noPosts = userdata.length > 0 ? true : false;
     var showSettings = userdata.id === req.user.id ? true : false;
-    res.render('profile', {
-      title: 'TrailMix',
-      showSettings: showSettings,
-      noPosts: noPosts,
-      profile: {
-
-        user_id: user_id,
-        photo_url: photo_url,
-        username: username,
-        description: description,
-        memberSince: memberSince,
-
-        post_created_at: post_created_at,
-        post_title: post_title,
-        latitude: lat,
-        longitude: long,
-
-        tag_name: tag_name
-      }
-    });
+    if(noPosts) {
+      console.log('theres stuff here!')
+      res.render('profile', {
+        title: 'TrailMix',
+        showSettings: showSettings,
+        noPosts: noPosts,
+        profile: {
+          user_id: userdata.user_id,
+          photo_url: userdata.photo_url,
+          username: userdata.username,
+          description: userdata.description,
+          memberSince: userdata.memberSince,
+          post_created_at: userdata.post_created_at,
+          post_title: userdata.post_title,
+          latitude: userdata.lat,
+          longitude: userdata.long,
+          tag_name: userdata.tag_name
+        }
+      })
+    } else {
+      console.log('not working!')
+      res.render('landing')
+    }
   }).catch(function(err) {
     console.log(err);
   });
 });
-
 
 router.get('/settings', ensureAuthenticatedandUser, function(req, res, next) {
   api.users.getUser(req.user.id).then(function(userdata) {
