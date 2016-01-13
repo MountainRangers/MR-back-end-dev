@@ -46,6 +46,9 @@ module.exports = {
     },
     createUser: function(user) {
       return knex('users').insert(user, 'id');
+    },
+    updateUser: function(user, userbio) {
+      return knex('users').where(user, 'id').update(userbio, 'userinfo');
     }
   }
 };
