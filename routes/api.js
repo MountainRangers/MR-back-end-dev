@@ -11,14 +11,14 @@ module.exports = {
       return knex('posts').select().innerJoin("users", "posts.user_id", "users.id");
     },
     readOne: function(response, id){
-      knex('posts').select().where({id: id});
+      return knex('posts').select().where({id: id});
     }
   },
   users: {
     getUser: function(id){
       return knex('users').select().where({id: id}).first();
     },
-    getUser_googleid: function(id){
+    getUser_GoogleID: function(id){
       return knex('users').select().where({google_id: id}).first();
     },
     readAll: function(response){
