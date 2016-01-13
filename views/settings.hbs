@@ -6,26 +6,18 @@
   <div class='nav-component'><a href='/profile/{{profile.id}}'>Profile</a></div>
 </nav>
   <main>
-    <img src="{{profile.photo_url}}" alt="User Profile Photo"/>
+    <img src="{{profile.photo_url}}" width="150px" height="150px" alt="User Profile Photo"/>
     <div class="edit-settings">
-      <input type="text" value="Display Name" class="hidden">
-      <h2>User Name: {{profile.username}}</h2>
+      <input type="text" value={{profile.username}} class="hidden">
+      <h2>{{profile.username}}</h2>
       <h3 class="change-name">Change</h3>
     </div>
     <div class="edit-settings">
-      <input type="text" value="Display Name" class="hidden">
-      <h2>Member Since: {{profile.date_created}}</h2>
-      <!-- <h3 class="change-email">Change</h3> -->
+      <h2>Member Since:</br>{{profile.date_created}}</h2>
     </div>
-    <!-- <div class="edit-settings">
-      <input type="text" value="Display Name" class="hidden">
-      <h2>Social Media</h2>
-      <h3 class="change-social-media">Change</h3>
-    </div> -->
     <div class="edit-settings">
-      <input type="text" value="Display Name" class="hidden">
-      <h2>About Me:</h2>
-      <p>{{profile.personal_info}}</p>
+      <input type="text" value={{profile.personal_info}} class="hidden">
+      <h2>{{profile.personal_info}}</h2>
       <h3 class="change-personal-info">Change</h3>
     </div>
   </main>
@@ -34,4 +26,4 @@
 <footer class='app-footer'>
   <p>Copyright, Mountain Rangers 2016. All rights reserved.</p>
 </footer>
-<script src="javascripts/settings.js"></script>
+<script src="/../javascripts/settings.js"></script>

@@ -1,10 +1,10 @@
 $(document).ready(function(){
   $('.google-button').mouseover(function(){
-    $('.shape-one').css('stroke', 'white')
-    $('.shape-two').css('stroke', 'white')
+    $('.shape-one').css('fill', 'white')
   })
 })
 
+//clock
 $(document).ready(function(){
 	setInterval(function(){
 		var now = new Date();
@@ -27,14 +27,7 @@ $(document).ready(function(){
 		}else {
 			var ap = "a";
 		}
-		document.getElementById('clock').innerHTML = hours + ":" + minutes + ap;
-	}, 1000);
-});
-$(".cont").ready(function(){
-	setInterval(function(){
-		// var height = $(".foreground").height();
-		// var top = $(".foreground").height();
-	}, 0.01);
+	}, .0001);
 });
 
 //color settings
@@ -45,20 +38,70 @@ $(document).ready(function(){
 		var dusk = '#036';
 		var mood = new Date();
 		var second = mood.getSeconds();
-		if(second < 10){
-			$('body').css('background', dawn);
+		if(second < 5){
+			// $('body').css('background', dawn);
 			$('.shape-one').css('fill', dawn);
 			$('.sky-dawn').css('opacity','1');
 			$('.sky-day').css('opacity','1');
-
-		} else if(second < 40) {
-			$('body').css('background', day);
+		} else if(second < 10) {
+			// $('body').css('background', day);
 			$('.shape-one').css('fill', dawn);
 			$('.sky-dawn').css('opacity','0');
 			$('.sky-day').css('opacity','1');
-		} else {
-			$('body').css('background', dusk);
-			$('.trees').css('fill', dusk);
+			$('.hills').css('fill','#db9');
+  	} else if(second < 15){
+  		// $('body').css('background', dawn);
+  		$('.shape-one').css('fill', dawn);
+  		$('.sky-dawn').css('opacity','1');
+  		$('.sky-day').css('opacity','1');
+  	} else if(second < 20) {
+  		// $('body').css('background', day);
+  		$('.shape-one').css('fill', dawn);
+  		$('.sky-dawn').css('opacity','0');
+  		$('.sky-day').css('opacity','1');
+  		$('.hills').css('fill','#db9');
+    } else if (second < 25){
+      // $('body').css('background', dawn);
+      $('.shape-one').css('fill', dawn);
+      $('.sky-dawn').css('opacity','1');
+      $('.sky-day').css('opacity','1');
+    } else if(second < 30) {
+      // $('body').css('background', day);
+      $('.shape-one').css('fill', dawn);
+      $('.sky-dawn').css('opacity','0');
+      $('.sky-day').css('opacity','1');
+      $('.hills').css('fill','#db9');
+    } else if (second < 35){
+      // $('body').css('background', dawn);
+      $('.shape-one').css('fill', dawn);
+      $('.sky-dawn').css('opacity','1');
+      $('.sky-day').css('opacity','1');
+    } else if(second < 40) {
+      // $('body').css('background', day);
+      $('.shape-one').css('fill', dawn);
+      $('.sky-dawn').css('opacity','0');
+      $('.sky-day').css('opacity','1');
+      $('.hills').css('fill','#db9');
+    } else if(second < 45){
+      // $('body').css('background', dawn);
+      $('.shape-one').css('fill', dawn);
+      $('.sky-dawn').css('opacity','1');
+      $('.sky-day').css('opacity','1');
+    } else if(second < 50) {
+      // $('body').css('background', day);
+      $('.shape-one').css('fill', dawn);
+      $('.sky-dawn').css('opacity','0');
+      $('.sky-day').css('opacity','1');
+      $('.hills').css('fill','#db9');
+    } else if(second < 55) {
+      // $('body').css('background', day);
+      $('.shape-one').css('fill', dawn);
+      $('.sky-dawn').css('opacity','0');
+      $('.sky-day').css('opacity','1');
+      $('.hills').css('fill','#db9');
+    }  else {
+			// $('body').css('background', dusk);
+			$('.shape-one').css('fill', dawn);
 			$('.sky-day').css('opacity','0');
 			$('.hills').css('fill','#0be');
 		}

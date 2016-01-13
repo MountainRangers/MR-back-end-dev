@@ -18,7 +18,7 @@ router.get('/editor', function(req, res, next) {
 
 router.get('/makeprofile', function(req, res, next) {
   //check to see if user exists in the database
-  api.users.readOne(req.user.google_id).then(function(user) {
+  api.users.getUser_googleid(req.user.google_id).then(function(user) {
     //if they already exist, then redirect to timeline
     if (user) {
       res.redirect('/timeline/' + user.id);
@@ -54,7 +54,7 @@ router.get('/post', function(req, res, next) {
 });
 
 router.get('/profile/:userid', function(req, res, next) {
-  api.users.read(req.params.userid).then(function(userdata) {
+  api.users.getUser(req.params.userid).then(function(userdata) {
     var date = formatDate(userdata.created_at);
     res.render('profile', {
       title: 'TrailMix',
@@ -70,7 +70,7 @@ router.get('/profile/:userid', function(req, res, next) {
 });
 
 router.get('/settings/:userid', function(req, res, next) {
-  api.users.read(req.params.userid).then(function(userdata) {
+  api.users.getUser(req.params.userid).then(function(userdata) {
     var date = formatDate(userdata.created_at);
     res.render('settings', {
       title: 'TrailMix',
@@ -87,7 +87,6 @@ router.get('/settings/:userid', function(req, res, next) {
 
 router.get('/timeline/:userid', function(req, res, next) {
   api.posts.readAll().then(function(posts) {
-    console.log(posts);
     res.render('timeline', {
       post: posts,
       title: posts.title,

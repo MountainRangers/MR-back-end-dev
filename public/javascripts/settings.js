@@ -34,7 +34,12 @@ function editInfo(info){
 function submitChange(submit){
   submit.on('click', function(){
     console.log('submitted');
-    //ajax request
+    $.post('/makeprofile', function(data){
+      
+    })
+    $('.hidden:visible').hide();
+    submit.parent('.edit-settings').find('h2').show();
+    submit.parent('.edit-settings').find('h3').text('Change');
   })
 }
 
