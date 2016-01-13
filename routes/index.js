@@ -51,7 +51,7 @@ router.get('/post/:postid', ensureAuthenticatedandUser, function(req, res, next)
   });
 });
 
-
+// your own profile
 router.get('/profile/:userid', ensureAuthenticatedandUser, function(req, res, next) {
   api.users.getUser(req.params.userid).then(function(userdata) {
     console.log(userdata)
@@ -72,6 +72,7 @@ router.get('/profile/:userid', ensureAuthenticatedandUser, function(req, res, ne
     res.redirect('/timeline');
   });
 });
+
 // someone elses profile
 router.get('/profile/other/:userid', ensureAuthenticatedandUser, function(req, res, next) {
   api.users.getUser(req.params.userid).then(function(userdata) {
