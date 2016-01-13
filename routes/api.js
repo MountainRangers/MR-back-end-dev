@@ -11,7 +11,7 @@ module.exports = {
       return knex('posts').select().innerJoin("users", "posts.user_id", "users.id");
     },
     readOne: function(response, id){
-      knex('posts').select().where({id: id});
+      return knex('posts').select().where({id: id});
     }
   },
   users: {

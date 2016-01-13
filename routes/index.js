@@ -53,6 +53,23 @@ router.get('/post', function(req, res, next) {
   });
 });
 
+router.get('/post/postid', function(req, res, next) {
+  api.posts.readOne().then(function(postid) {
+    var date = formatDate(created_at);
+    res.render('post', {
+      post: posts,
+      title: posts.title,
+      username: posts.username,
+      body:posts.body,
+      photo_url: posts.photo_url,
+      latitude: posts.latitude,
+      longitude: posts.longitude,
+      created_at: date
+    });
+  });
+});
+
+
 router.get('/profile/:userid', function(req, res, next) {
   api.users.getUser(req.params.userid).then(function(userdata) {
     var date = formatDate(userdata.created_at);
