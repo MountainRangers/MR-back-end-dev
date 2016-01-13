@@ -3,26 +3,28 @@ $(document).ready(function(){
   $changepersonalinfo = $('.change-personal-info');
   $main = $('main');
   
-  $changename.on('click', function(event){
-    if($changename.text() == 'Change'){
-      editInfo($changename);
-    }
-    if($changename.text() == 'Submit'){
-      submitChange($changename);
-    }
-  });
-  
+  //Attach Click Handlers
+  //$changename.on('click', function(event){
+  //  editInfo($changename);
+  //});
   $changepersonalinfo.on('click', function(){
-    if($changepersonalinfo.text() == 'Change'){
-      editInfo($changepersonalinfo);
-    }
-    if($changepersonalinfo.text() == 'Submit'){
-      submitChange($changepersonalinfo);
-    }
+    editInfo($changepersonalinfo);
   });
 });
 
+//Is user changing or submitting info?
 function editInfo(info){
+  var $changetext = info.text();
+    console.log('current text is ', $changetext);
+    if(info.text() == 'Change'){
+      changeInfo(info);
+    } else if (info.text() == 'Submit'){
+      submitChange(info);
+    }
+}
+
+//DOM manipulation when user presses 'Change'
+function changeInfo(info){
   var $dataNearButton = info.parent('.edit-settings').find('h2');
   var $inputNearButton = info.parent('.edit-settings').find('.hidden');
   $dataNearButton.hide();
@@ -33,18 +35,20 @@ function editInfo(info){
 }
 
 
+//DOM manipulation when user presses 'Submit'
 function submitChange(submit){
-  submit.on('click', function(){
-    console.log('submitted');
-    //$.post('/makeprofile', function(data){
-    // ajax request 
-    //})
-    $('.hidden:visible').hide();
-    submit.parent('.edit-settings').find('h2').show();
-    submit.text('Change');
-  })
+  console.log('submitted');
+  //$.post('/makeprofile', function(data){
+  // need ajax request 
+  //})
+  var $dataNearButton = submit.parent('.edit-settings').find('h2');
+  var $inputNearButton = submit.parent('.edit-settings').find('.hidden');
+  $('.hidden').hide();
+  $dataNearButton.text($inputNearButton.val()).show();
+  submit.text('Change');
 }
 
+//Tap outside of input box to cancel changes in progress
 function tapToCancel(main){
   main.on('click', function(event){
     if(event.target === this){

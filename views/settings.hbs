@@ -1,22 +1,21 @@
 <!-- Navigation -->
 {{> navbar id=profile.id }}
-
-<main>
-  <img src="{{profile.photo_url}}" width="150px" height="150px" alt="User Profile Photo"/>
-  <div class="edit-settings">
-    <input type="text" value={{profile.username}} class="hidden">
-    <h2>{{profile.username}}</h2>
-    <h3 class="change-name">Change</h3>
-  </div>
-  <div class="edit-settings">
-    <h2>Member Since:</br>{{profile.date_created}}</h2>
-  </div>
-  <div class="edit-settings">
-    <input type="text" value={{profile.personal_info}} class="hidden">
-    <h2>{{profile.personal_info}}</h2>
-    <h3 class="change-personal-info">Change</h3>
-  </div>
-</main>
+  <main>
+    <img src="{{profile.photo_url}}" width="150px" height="150px" alt="User Profile Photo"/>
+    <div class="edit-settings">
+      <!-- <input type="text" value={{profile.username}} class="hidden"> -->
+      <h2>{{profile.username}}</h2>
+      <!-- <h3 class="change-name">Change</h3> -->
+    </div>
+    <div class="edit-settings">
+      <h2>Member Since:</br>{{profile.date_created}}</h2>
+    </div>
+    <div class="edit-settings">
+      <input type="text" value={{profile.personal_info}} class="hidden">
+      <h2>{{profile.personal_info}}</h2>
+      <h3 class="change-personal-info">Change</h3>
+    </div>
+  </main>
 
 <!-- Footer -->
 <footer class='app-footer'>
