@@ -24,6 +24,10 @@ main {
       color: red;
       cursor: pointer;
       padding-left: 5px; }
+    main .edit-settings input {
+      height: 30px;
+      font-size: 0.8em;
+      align-self: center; }
   main .edit-settings:last-child {
     margin-bottom: 30px; }
 
