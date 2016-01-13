@@ -10,11 +10,6 @@ router.get('/', function(req, res, next) {
   });
 });
 
-router.get('/editor', function(req, res, next) {
-  res.render('editor', {
-    title: 'TrailMix'
-  });
-});
 
 router.get('/makeprofile', function(req, res, next) {
   //check to see if user exists in the database
@@ -69,6 +64,13 @@ router.get('/profile/:userid', function(req, res, next) {
   });
 });
 
+router.get('/editor/:userid', function(req, res, next) {
+  res.render('editor', {
+    title: 'TrailMix',
+      id: req.params.userid,
+  });
+});
+
 router.get('/settings/:userid', function(req, res, next) {
   api.users.getUser(req.params.userid).then(function(userdata) {
     var date = formatDate(userdata.created_at);
@@ -88,6 +90,7 @@ router.get('/settings/:userid', function(req, res, next) {
 router.get('/timeline/:userid', function(req, res, next) {
   api.posts.readAll().then(function(posts) {
     res.render('timeline', {
+      id: req.params.userid,
       post: posts,
       title: posts.title,
       photo_url: posts.photo_url,
