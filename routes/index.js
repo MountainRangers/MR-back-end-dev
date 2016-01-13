@@ -51,13 +51,13 @@ router.get('/post/:postid', ensureAuthenticatedandUser, function(req, res, next)
   });
 });
 
-// your own profile
 router.delete('/post/:postid', function(req, res, next){
   api.posts.deleteOne(req.params.postid).then(function(postdata){
     res.render('timeline');
   });
 });
 
+// your own profile
 router.get('/profile/:userid', ensureAuthenticatedandUser, function(req, res, next) {
   api.users.getUser(req.params.userid).then(function(userdata) {
     console.log(userdata)
@@ -84,10 +84,10 @@ router.get('/profile/other/:userid', ensureAuthenticatedandUser, function(req, r
   api.users.getUsersPosts(req.params.userid).then(function(userdata) {
     console.log(userdata.post)
     console.log(userdata.user)
-    var date = formatDate(userdata.created_at);
-    var showSettings = userdata.id === req.user.id ? true : false;
+    // var date = formatDate(userdata.created_at);
+    // var showSettings = userdata.id === req.user.id ? true : false;
     res.render('profile', {
-      title: 'TrailMix',
+      title: 'Profile',
       showSettings: showSettings,
       profile: {
         id: userdata.id,
@@ -103,7 +103,6 @@ router.get('/profile/other/:userid', ensureAuthenticatedandUser, function(req, r
     res.redirect('/timeline');
   });
 });
-
 
 router.get('/settings', ensureAuthenticatedandUser, function(req, res, next) {
   api.users.getUser(req.user.id).then(function(userdata) {
