@@ -8,7 +8,20 @@ var knex = require('knex')({
 module.exports = {
   posts: {
     readAll: function() {
-      return knex('posts').select().innerJoin("users", "posts.user_id", "users.id");
+      return knex('posts').select(
+        'posts.id as post_id',
+        'posts.created_at as post_created_at',
+        'posts.title as post_title',
+        'posts.latitude as lat',
+        'posts.longitude as long',
+        'posts.body as posts_body',
+        'users.photo_url as photo_url',
+        'users.username as username',
+        'tags.name as tag_name'
+      ).innerJoin("users", "posts.user_id", "users.id")
+      .innerJoin("posts_tags", "posts.id", "posts_tags.post_id")
+      .innerJoin("tags", "tags.id", "posts_tags.tag_id")
+      .orderBy('post_created_at', 'desc');
     },
     readOne: function(id) {
       return Promise.all([
@@ -26,7 +39,7 @@ module.exports = {
           tags: data[0]
         });
       }).catch(function(err) {
-        console.log('ben fucked up:', err);
+        console.log(err);
       });
     },
     deleteOne: function(id){
