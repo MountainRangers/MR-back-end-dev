@@ -31,6 +31,11 @@ module.exports = {
     }
   },
   users: {
+    getUserPosts: function(id) {
+      return knex('users').select().where({
+        id: id
+      }).first();
+    },
     getUser: function(id) {
       return knex('users').select().where({
         id: id
