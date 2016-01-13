@@ -28,6 +28,9 @@ module.exports = {
       }).catch(function(err) {
         console.log('ben fucked up:', err);
       });
+    },
+    deleteOne: function(id){
+       return knex('posts').where({'posts.id': id}).del();
     }
   },
   users: {
