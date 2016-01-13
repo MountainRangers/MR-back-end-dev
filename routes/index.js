@@ -42,7 +42,7 @@ router.post('/makeprofile', ensureAuthenticated, function(req, res, next) {
 router.get('/post/:postid', ensureAuthenticatedandUser, function(req, res, next) {
   api.posts.readOne(req.params.postid).then(function(postdata) {
     postdata.posts[0].date = formatDate(postdata.posts[0].created_at);
-    console.log(postdata.tags[0].name);
+    // console.log(postdata.tags[0].name);
     res.render('post', {
       title: 'TrailMix',
       post: postdata.posts[0],
@@ -51,7 +51,15 @@ router.get('/post/:postid', ensureAuthenticatedandUser, function(req, res, next)
   });
 });
 
+
 // your own profile
+
+router.delete('/post/:postid', function(req, res, next){
+  api.posts.deleteOne(req.params.postid).then(function(postdata){
+    res.render('timeline');
+  });
+});
+
 router.get('/profile/:userid', ensureAuthenticatedandUser, function(req, res, next) {
   api.users.getUser(req.params.userid).then(function(userdata) {
     console.log(userdata)
