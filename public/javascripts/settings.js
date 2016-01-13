@@ -48,7 +48,13 @@ function submitChange(submit){
     url: '/makeprofile',
     method: 'PUT',
     data: {userinfo: personalinfo}
-  });
+  })
+    .done(function(){
+      alert('success');
+    })
+    .fail(function(){
+      alert('failure')
+    });
 }
 
 //Tap outside of input box to cancel changes in progress

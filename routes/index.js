@@ -40,11 +40,12 @@ router.post('/makeprofile', ensureAuthenticated, function(req, res, next) {
 });
 
 router.put('/makeprofile', ensureAuthenticated, function(req, res, next) {
-  api.users.updateUser({
-    user: req.user.id,
-    userbio: req.userinfo
-  }).then(function(data){
-      res.redirect('/settings');
+  api.users.updateUser(
+    req.user.id,
+    req.body.userinfo
+  ).then(function(data){
+      console.log(data);
+      res.redirect(303, '/settings');
   });
 });
 
