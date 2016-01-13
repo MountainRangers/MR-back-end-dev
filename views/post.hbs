@@ -3,26 +3,28 @@
 
 <header class="post-header">
   <div class="post-header-component fourth">
-    <img src="../public/images/profile.png" class='single-post-image' />
+    <img src="{{post.photo_url}}"  alt="User Profile Photo" class='single-post-profile-img' />
+    <!-- <p>
+      ::{{post.photo_url}}
+    </p> -->
   </div>
   <div class="post-header-component fourth">
-    <h1>Title</h1>
-    <p>Date</p>
-    <p>Location</p>
+    <h1>{{title}}</h1>
+    <p>{{post.date}}</p>
+    <p>{{post.latitude}}, {{post.longitude}}</p>
   </div>
   <div class="post-header-component half">
   </div>
 </header>
 <div class="single-post-description">
-  <h2 class="single-post-description-title">Description
+  <h2 class="single-post-description-title">{{post.title}}
     <h2/>
-    <p class="single-post-description-text">&nbsp;Bacon ipsum dolor amet tail cow filet mignon cupim landjaeger pastrami. Fatback pork belly ball tip beef ribs bacon sausage. Boudin andouille capicola turducken beef ribs pastrami alcatra cupim t-bone. Tri-tip ball tip venison pork loin shoulder
-      turducken pork chicken landjaeger meatball strip steak hamburger salami.</p>
-    <strong class="single-post-author">--User</strong>
+    <p class="single-post-description-text">{{post.body}}
+    <strong class="single-post-author">-- {{post.username}}</strong>
 </div>
 <div class="single-post-tag-container">
-  <h2 class="single-post-tag-title">Tag</h2>
-  <img src="../public/images/urban.png" class="icon single-post-tag-image" />
+  <h2 class="single-post-tag-title"> {{tag.name}}</h2>
+  <img src="/images/{{tag.name}}.png" class="icon single-post-tag-image" />
 </div>
 <footer class='app-footer'>
   <p>Copyright, Mountain Rangers 2016. All rights reserved.</p>

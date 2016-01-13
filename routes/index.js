@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) {
 router.get('/addpost', ensureAuthenticatedandUser, function(req, res, next) {
   res.render('addpost', {
     title: 'TrailMix',
-      id: req.user.id,
+    id: req.user.id,
   });
 });
 
@@ -45,6 +45,19 @@ router.get('/post', ensureAuthenticatedandUser, function(req, res, next) {
     id: req.user.id
   });
 });
+
+router.get('/post/:postid', function(req, res, next) {
+  api.posts.readOne(req.params.postid).then(function(postdata) {
+    postdata.posts[0].date = formatDate(postdata.posts[0].created_at);
+    console.log(postdata.tags[0].name);
+    res.render('post', {
+      title: 'TrailMix',
+      post: postdata.posts[0],
+      tag: postdata.tags[0]
+    });
+  });
+});
+
 
 router.get('/profile/:userid', ensureAuthenticatedandUser, function(req, res, next) {
   api.users.getUser(req.params.userid).then(function(userdata) {
@@ -95,7 +108,7 @@ router.get('/timeline', ensureAuthenticatedandUser, function(req, res, next) {
   });
 });
 
-function formatDate(dateString){
+function formatDate(dateString) {
   var newDate = (dateString).toString().split(' ');
   var formattedDate = newDate[1] + ' ' + newDate[2] + ", " + newDate[3];
   return formattedDate;
@@ -105,14 +118,14 @@ function ensureAuthenticatedandUser(req, res, next) {
   if (req.isAuthenticated() && req.user.id) {
     return next();
   }
- res.redirect('/');
+  res.redirect('/');
 }
 
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) {
     return next();
   }
- res.redirect('/');
+  res.redirect('/');
 }
 
 module.exports = router;
