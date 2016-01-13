@@ -6,7 +6,6 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var passport = require('passport');
 var session = require('express-session');
-var handlebars = require('hbs');
 
 var routes = require('./routes/index');
 var auth = require('./routes/auth');
@@ -42,42 +41,8 @@ app.use(function (req, res, next) {
   next();
 });
 
-
 app.use('/', routes);
 app.use('/auth', auth);
-
-
-
-
-
-
-// home routes
-
-// app.get('/', function(req, res, next){
-//   res.redirect('/index.html')
-// })
-//
-// app.get('/timeline.html', function(req, res, next){
-//   res.redirect('/timeline.html')
-// })
-//
-// app.get('/posts/read', function(request, response){
-//   api.posts.readAll(response);
-// });
-//
-// app.get('/posts/:id', function(request, response){
-//   api.posts.readOne(response, request.params.id);
-// });
-//
-// app.get('/user/read', function(request, response){
-//   api.users.readAll(response);
-// });
-//
-// app.get('/user/:id', function(request, response){
-//   api.users.readOne(response, request.params.id);
-// });
-//
-//
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
