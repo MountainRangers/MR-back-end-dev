@@ -47,14 +47,14 @@ function submitChange(submit){
   $.ajax({  
     url: '/makeprofile',
     method: 'PUT',
-    data: {userinfo: personalinfo}
-  })
-    .done(function(){
-      alert('success');
-    })
-    .fail(function(){
-      alert('failure')
-    });
+    data: {userinfo: personalinfo},
+    success: function(data){
+      location.reload();
+    },
+    error: function(data){
+      console.error('profile update failed');
+    }
+  });
 }
 
 //Tap outside of input box to cancel changes in progress

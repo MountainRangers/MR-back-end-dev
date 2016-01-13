@@ -44,8 +44,7 @@ router.put('/makeprofile', ensureAuthenticated, function(req, res, next) {
     req.user.id,
     req.body.userinfo
   ).then(function(data){
-      console.log(data);
-      res.redirect(303, '/settings');
+      res.end('data');
   });
 });
 
