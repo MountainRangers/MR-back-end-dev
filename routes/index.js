@@ -58,47 +58,35 @@ router.delete('/post/:postid', function(req, res, next){
   });
 });
 
+
 router.get('/profile/:userid', ensureAuthenticatedandUser, function(req, res, next) {
-  api.users.getUser(req.params.userid).then(function(userdata) {
+  api.users.getUsersPosts(req.params.userid).then(function(userdata) {
     console.log(userdata)
     var date = formatDate(userdata.created_at);
+    var noPosts = userdata.length > 0 ? true : false;
     var showSettings = userdata.id === req.user.id ? true : false;
     res.render('profile', {
       title: 'TrailMix',
       showSettings: showSettings,
+      noPosts: noPosts,
       profile: {
-        id: userdata.id,
-        username: userdata.username,
-        date_created: date,
-        personal_info: userdata.personal_info,
-        photo_url: userdata.photo_url
-      }
-    });
-  }).catch(function(err) {
-    res.redirect('/timeline');
-  });
-});
 
-// someone elses profile
-router.get('/profile/other/:userid', ensureAuthenticatedandUser, function(req, res, next) {
-  api.users.getUsersPosts(req.params.userid).then(function(userdata) {
-    console.log(userdata.post)
-    console.log(userdata.user)
-    var date = formatDate(userdata.created_at);
-    var showSettings = userdata.id === req.user.id ? true : false;
-    res.render('profile', {
-      title: 'TrailMix',
-      showSettings: showSettings,
-      profile: {
-        id: userdata.id,
-        username: userdata.username,
-        date_created: date,
-        personal_info: userdata.personal_info,
-        photo_url: userdata.photo_url
+        user_id: user_id,
+        photo_url: photo_url,
+        username: username,
+        description: description,
+        memberSince: memberSince,
+
+        post_created_at: post_created_at,
+        post_title: post_title,
+        latitude: lat,
+        longitude: long,
+
+        tag_name: tag_name
       }
     });
   }).catch(function(err) {
-    res.redirect('/timeline');
+    console.log(err);
   });
 });
 
