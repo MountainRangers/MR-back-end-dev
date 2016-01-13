@@ -2,57 +2,57 @@ var express = require('express');
 var router = express.Router();
 var api = require('./api');
 
-
-
 router.get('/', function(req, res, next) {
+  req.session.destroy();
   res.render('landing', {
     title: 'TrailMix'
   });
 });
 
-
-router.get('/makeprofile', function(req, res, next) {
-  //check to see if user exists in the database
-  api.users.getUser_googleid(req.user.google_id).then(function(user) {
-    //if they already exist, then redirect to timeline
-    if (user) {
-      res.redirect('/timeline/' + user.id);
-    } else {
-      //if they do not exist, then render makeprofile view
-      res.render('makeprofile', {
-        title: 'TrailMix',
-        profile: req.user
-      });
-    }
-  }).catch(function(error) {
-    console.log(error);
+router.get('/addpost', ensureAuthenticatedandUser, function(req, res, next) {
+  res.render('addpost', {
+    title: 'TrailMix',
+      id: req.user.id,
   });
 });
 
-router.post('/makeprofile', function(req, res, next) {
-  //insert user data to database
+router.get('/makeprofile', ensureAuthenticated, function(req, res, next) {
+  if (req.user.id) {
+    res.redirect('/timeline');
+  } else {
+    res.render('makeprofile', {
+      title: 'TrailMix',
+      profile: req.user
+    });
+  }
+});
+
+router.post('/makeprofile', ensureAuthenticated, function(req, res, next) {
   api.users.createUser({
+    email: req.user.email,
     username: req.body.userName,
     google_id: req.user.google_id,
     photo_url: req.user.profilePhoto,
-    personal_info: 'none'
+    personal_info: 'Please add some personal info'
   }).then(function(id) {
-    //redirect to timeline with userid in url
-    res.redirect('/timeline/' + id);
+    res.redirect('/timeline');
   });
 });
 
-router.get('/post', function(req, res, next) {
+router.get('/post', ensureAuthenticatedandUser, function(req, res, next) {
   res.render('post', {
-    title: 'TrailMix'
+    title: 'TrailMix',
+    id: req.user.id
   });
 });
 
-router.get('/profile/:userid', function(req, res, next) {
+router.get('/profile/:userid', ensureAuthenticatedandUser, function(req, res, next) {
   api.users.getUser(req.params.userid).then(function(userdata) {
     var date = formatDate(userdata.created_at);
+    var showSettings = userdata.id === req.user.id ? true : false;
     res.render('profile', {
       title: 'TrailMix',
+      showSettings: showSettings,
       profile: {
         id: userdata.id,
         username: userdata.username,
@@ -61,18 +61,13 @@ router.get('/profile/:userid', function(req, res, next) {
         photo_url: userdata.photo_url
       }
     });
+  }).catch(function(err) {
+    res.redirect('/timeline');
   });
 });
 
-router.get('/editor/:userid', function(req, res, next) {
-  res.render('editor', {
-    title: 'TrailMix',
-      id: req.params.userid,
-  });
-});
-
-router.get('/settings/:userid', function(req, res, next) {
-  api.users.getUser(req.params.userid).then(function(userdata) {
+router.get('/settings', ensureAuthenticatedandUser, function(req, res, next) {
+  api.users.getUser(req.user.id).then(function(userdata) {
     var date = formatDate(userdata.created_at);
     res.render('settings', {
       title: 'TrailMix',
@@ -87,10 +82,10 @@ router.get('/settings/:userid', function(req, res, next) {
   });
 });
 
-router.get('/timeline/:userid', function(req, res, next) {
+router.get('/timeline', ensureAuthenticatedandUser, function(req, res, next) {
   api.posts.readAll().then(function(posts) {
     res.render('timeline', {
-      id: req.params.userid,
+      id: req.user.id,
       post: posts,
       title: posts.title,
       photo_url: posts.photo_url,
@@ -106,6 +101,18 @@ function formatDate(dateString){
   return formattedDate;
 }
 
+function ensureAuthenticatedandUser(req, res, next) {
+  if (req.isAuthenticated() && req.user.id) {
+    return next();
+  }
+ res.redirect('/');
+}
 
+function ensureAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next();
+  }
+ res.redirect('/');
+}
 
 module.exports = router;
