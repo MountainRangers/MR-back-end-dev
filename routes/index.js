@@ -55,10 +55,12 @@ router.get('/post', function(req, res, next) {
 
 router.get('/post/:postid', function(req, res, next) {
   api.posts.readOne(req.params.postid).then(function(postdata) {
-    postdata[0].date = formatDate(postdata[0].created_at);
+    postdata.posts[0].date = formatDate(postdata.posts[0].created_at);
+    console.log(postdata.tags[0].name);
     res.render('post', {
       title: 'TrailMix',
-      post: postdata[0]
+      post: postdata.posts[0],
+      tag: postdata.tags[0]
       // {
       //   id: postdata.id,
       //   title: postdata.title,
