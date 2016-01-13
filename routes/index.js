@@ -9,9 +9,10 @@ router.get('/', function(req, res, next) {
   });
 });
 
-router.get('/editor', ensureAuthenticatedandUser, function(req, res, next) {
+router.get('/editor/:userid', function(req, res, next) {
   res.render('editor', {
-    title: 'TrailMix'
+    title: 'TrailMix',
+      id: req.params.userid,
   });
 });
 
@@ -79,6 +80,7 @@ router.get('/settings/:userid', ensureAuthenticatedandUser, function(req, res, n
 router.get('/timeline', ensureAuthenticatedandUser, function(req, res, next) {
   api.posts.readAll().then(function(posts) {
     res.render('timeline', {
+      id: req.params.userid,
       post: posts,
       title: posts.title,
       photo_url: posts.photo_url,

@@ -30,9 +30,11 @@ a {
 }
 a:visited {
 	text-decoration: none;
+	color: #83f9ff;
 }
-a::before {
+a:before {
 	text-decoration: none;
+	color: #83f9ff;
 }
 
 

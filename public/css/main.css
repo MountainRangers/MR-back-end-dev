@@ -25,10 +25,12 @@ a {
   text-decoration: none; }
 
 a:visited {
-  text-decoration: none; }
+  text-decoration: none;
+  color: #83f9ff; }
 
-a::before {
-  text-decoration: none; }
+a:before {
+  text-decoration: none;
+  color: #83f9ff; }
 
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
