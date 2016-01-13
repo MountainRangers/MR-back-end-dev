@@ -51,9 +51,7 @@ router.get('/post/:postid', ensureAuthenticatedandUser, function(req, res, next)
   });
 });
 
-
 // your own profile
-
 router.delete('/post/:postid', function(req, res, next){
   api.posts.deleteOne(req.params.postid).then(function(postdata){
     res.render('timeline');
@@ -83,8 +81,9 @@ router.get('/profile/:userid', ensureAuthenticatedandUser, function(req, res, ne
 
 // someone elses profile
 router.get('/profile/other/:userid', ensureAuthenticatedandUser, function(req, res, next) {
-  api.users.getUser(req.params.userid).then(function(userdata) {
-    console.log(userdata)
+  api.users.getUsersPosts(req.params.userid).then(function(userdata) {
+    console.log(userdata.post)
+    console.log(userdata.user)
     var date = formatDate(userdata.created_at);
     var showSettings = userdata.id === req.user.id ? true : false;
     res.render('profile', {
@@ -94,6 +93,8 @@ router.get('/profile/other/:userid', ensureAuthenticatedandUser, function(req, r
         id: userdata.id,
         username: userdata.username,
         date_created: date,
+        post: userdata.post,
+        tag: userdata.user,
         personal_info: userdata.personal_info,
         photo_url: userdata.photo_url
       }

@@ -34,10 +34,22 @@ module.exports = {
     }
   },
   users: {
-    getUserPosts: function(id) {
-      return knex('users').select().where({
-        id: id
-      }).first();
+    getUsersPosts: function(id) {
+      return Promise.all([
+        knex('users').select().where({
+          id: id
+        }).first(),
+        knex('posts').select().where({
+          id: id
+        })
+      ]).then(function(data){
+        return Promise.resolve({
+          user: data[0],
+          post: data[1]
+        })
+      }).catch(function(error){
+        console.log('alex messed up!')
+      })
     },
     getUser: function(id) {
       return knex('users').select().where({
