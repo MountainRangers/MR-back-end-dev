@@ -19,10 +19,8 @@ time, mark, audio, video {
   vertical-align: baseline; }
 
 a {
-  text-decoration: none; }
-
-a {
-  text-decoration: none; }
+  text-decoration: none;
+  color: #83f9ff; }
 
 a:visited {
   text-decoration: none;
