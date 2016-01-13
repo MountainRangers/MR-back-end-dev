@@ -10,4 +10,4 @@
 ```
 ### Running live at:
 
-https://trailmixinserver.herokuapp.com/
+https://trailmixin.herokuapp.com/

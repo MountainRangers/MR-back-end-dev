@@ -93,8 +93,6 @@ router.get('/profile/other/:userid', ensureAuthenticatedandUser, function(req, r
         id: userdata.id,
         username: userdata.username,
         date_created: date,
-        post: userdata.post,
-        tag: userdata.user,
         personal_info: userdata.personal_info,
         photo_url: userdata.photo_url
       }
@@ -125,11 +123,7 @@ router.get('/timeline', ensureAuthenticatedandUser, function(req, res, next) {
   api.posts.readAll().then(function(posts) {
     res.render('timeline', {
       id: req.user.id,
-      post: posts,
-      title: posts.title,
-      photo_url: posts.photo_url,
-      latitude: posts.latitude,
-      longitude: posts.longitude
+      posts: posts
     });
   });
 });
