@@ -25,9 +25,11 @@
 <div class="single-post-tag-container">
   <h2 class="single-post-tag-title"> {{tag.name}}</h2>
   <img src="/images/{{tag.name}}.png" class="icon single-post-tag-image" />
-</div>
-<div class="single-post-delete-container">
+  <div id= {{post.id}} class="single-post-delete-container">
+    <h3>Delete this post!</h3>
+  </div>
 </div>
 <footer class='app-footer'>
   <p>Copyright, Mountain Rangers 2016. All rights reserved.</p>
 </footer>
+<script src="/javascripts/singlepost.js"></script>
