@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var passport = require('passport');
 var session = require('express-session');
+var hbs = require('hbs');
 
 var routes = require('./routes/index');
 var auth = require('./routes/auth');
@@ -15,6 +16,7 @@ require('dotenv').load();
 var app = express();
 
 // view engine setup
+hbs.registerPartials(path.join(__dirname, '/views/partials'));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
