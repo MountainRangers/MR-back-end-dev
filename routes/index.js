@@ -17,33 +17,24 @@ router.get('/editor', function(req, res, next) {
 });
 
 router.get('/makeprofile', function(req, res, next) {
-  //check to see if user exists in the database
-  api.users.getUser_googleid(req.user.google_id).then(function(user) {
-    //if they already exist, then redirect to timeline
-    if (user) {
-      res.redirect('/timeline/' + user.id);
-    } else {
-      //if they do not exist, then render makeprofile view
-      res.render('makeprofile', {
-        title: 'TrailMix',
-        profile: req.user
-      });
-    }
-  }).catch(function(error) {
-    console.log(error);
+  res.render('makeprofile', {
+    title: 'TrailMix',
+    profile: req.user
   });
 });
 
 router.post('/makeprofile', function(req, res, next) {
-  //insert user data to database
   api.users.createUser({
+    email: req.user.email,
     username: req.body.userName,
     google_id: req.user.google_id,
     photo_url: req.user.profilePhoto,
-    personal_info: 'none'
+    personal_info: 'Please add some personal info'
   }).then(function(id) {
-    //redirect to timeline with userid in url
-    res.redirect('/timeline/' + id);
+
+
+
+    res.redirect('/timeline/' + id[0]);
   });
 });
 

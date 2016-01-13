@@ -1,17 +1,26 @@
 var express = require('express');
 var router = express.Router();
 var passport = require('passport');
+var api = require('./api');
 
 router.get('/google',
   passport.authenticate('google', {
-    scope: 'https://www.googleapis.com/auth/plus.login'
+    scope: 'email https://www.googleapis.com/auth/plus.login'
   })
 );
 
 router.get('/google/callback',
   passport.authenticate('google', { failureRedirect: '/' }),
   function(req, res) {
-    res.redirect('/makeprofile');
+    api.users.getUser_GoogleID(req.user.google_id).then(function(user) {
+      if (user) {
+        res.redirect('/timeline/' + user.id);
+      } else {
+        res.redirect('/makeprofile');
+      }
+    }).catch(function(error) {
+      console.log(error);
+    });
   }
 );
 
