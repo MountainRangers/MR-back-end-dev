@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
   });
 });
 
-router.get('/editor', ensureAuthenticated, function(req, res, next) {
+router.get('/editor', ensureAuthenticatedandUser, function(req, res, next) {
   res.render('editor', {
     title: 'TrailMix'
   });
@@ -38,13 +38,13 @@ router.post('/makeprofile', ensureAuthenticated, function(req, res, next) {
   });
 });
 
-router.get('/post', ensureAuthenticated, function(req, res, next) {
+router.get('/post', ensureAuthenticatedandUser, function(req, res, next) {
   res.render('post', {
     title: 'TrailMix'
   });
 });
 
-router.get('/profile/:userid', ensureAuthenticated, function(req, res, next) {
+router.get('/profile/:userid', ensureAuthenticatedandUser, function(req, res, next) {
   api.users.getUser(req.params.userid).then(function(userdata) {
     var date = formatDate(userdata.created_at);
     res.render('profile', {
@@ -60,7 +60,7 @@ router.get('/profile/:userid', ensureAuthenticated, function(req, res, next) {
   });
 });
 
-router.get('/settings/:userid', ensureAuthenticated, function(req, res, next) {
+router.get('/settings/:userid', ensureAuthenticatedandUser, function(req, res, next) {
   api.users.getUser(req.params.userid).then(function(userdata) {
     var date = formatDate(userdata.created_at);
     res.render('settings', {
@@ -76,7 +76,7 @@ router.get('/settings/:userid', ensureAuthenticated, function(req, res, next) {
   });
 });
 
-router.get('/timeline', ensureAuthenticated, function(req, res, next) {
+router.get('/timeline', ensureAuthenticatedandUser, function(req, res, next) {
   api.posts.readAll().then(function(posts) {
     res.render('timeline', {
       post: posts,
@@ -92,6 +92,13 @@ function formatDate(dateString){
   var newDate = (dateString).toString().split(' ');
   var formattedDate = newDate[1] + ' ' + newDate[2] + ", " + newDate[3];
   return formattedDate;
+}
+
+function ensureAuthenticatedandUser(req, res, next) {
+  if (req.isAuthenticated() && req.user.id) {
+    return next();
+  }
+ res.redirect('/');
 }
 
 function ensureAuthenticated(req, res, next) {
