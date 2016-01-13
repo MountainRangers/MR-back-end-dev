@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 var api = require('./api');
 
+
+
 router.get('/', function(req, res, next) {
   res.render('landing', {
     title: 'TrailMix'
@@ -53,12 +55,13 @@ router.get('/post', function(req, res, next) {
 
 router.get('/profile/:userid', function(req, res, next) {
   api.users.read(req.params.userid).then(function(userdata) {
+    var date = formatDate(userdata.created_at);
     res.render('profile', {
       title: 'TrailMix',
       profile: {
         id: userdata.id,
         username: userdata.username,
-        date_created: userdata.created_at,
+        date_created: date,
         personal_info: userdata.personal_info,
         photo_url: userdata.photo_url
       }
@@ -68,12 +71,13 @@ router.get('/profile/:userid', function(req, res, next) {
 
 router.get('/settings/:userid', function(req, res, next) {
   api.users.read(req.params.userid).then(function(userdata) {
+    var date = formatDate(userdata.created_at);
     res.render('settings', {
       title: 'TrailMix',
       profile: {
         id: userdata.id,
         username: userdata.username,
-        date_created: userdata.created_at,
+        date_created: date,
         personal_info: userdata.personal_info,
         photo_url: userdata.photo_url
       }
@@ -93,5 +97,13 @@ router.get('/timeline/:userid', function(req, res, next) {
     });
   });
 });
+
+function formatDate(dateString){
+  var newDate = (dateString).toString().split(' ');
+  var formattedDate = newDate[1] + ' ' + newDate[2] + ", " + newDate[3];
+  return formattedDate;
+}
+
+
 
 module.exports = router;

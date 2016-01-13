@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var passport = require('passport');
 var session = require('express-session');
+var handlebars = require('hbs');
 
 var routes = require('./routes/index');
 var auth = require('./routes/auth');
@@ -40,6 +41,7 @@ app.use(function (req, res, next) {
   res.locals.user = req.user;
   next();
 });
+
 
 app.use('/', routes);
 app.use('/auth', auth);
