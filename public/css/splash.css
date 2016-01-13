@@ -101,4 +101,11 @@
   fill: #036;
   margin: 0 auto; }
 
+.tagline p {
+  font-family: 'Amatic SC', cursive;
+  width: 100%;
+  font-size: 3em;
+  font-weight: 700;
+  color: #603919; }
+
 /*# sourceMappingURL=splash.css.map */

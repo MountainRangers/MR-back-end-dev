@@ -1,48 +1,54 @@
-//if(jQuery)console.log('jQ loadded');
-$changename = $('.change-name');
-$changeemail = $('.change-email');
-$changesocialmedia = $('.change-social-media');
-$changepersonalinfo = $('.change-personal-info');
-$main = $('main');
-//$submit = $('.edit settings h3');
-
-$changename.on('click', function(){
-  editInfo($changename);
+$(document).ready(function(){
+  $changename = $('.change-name');
+  $changepersonalinfo = $('.change-personal-info');
+  $main = $('main');
+  
+  //Attach Click Handlers
+  //$changename.on('click', function(event){
+  //  editInfo($changename);
+  //});
+  $changepersonalinfo.on('click', function(){
+    editInfo($changepersonalinfo);
+  });
 });
 
-$changeemail.on('click', function(){
-  editInfo($changeemail);
-});
-
-$changesocialmedia.on('click', function(){
-  editInfo($changesocialmedia);
-});
-
-$changepersonalinfo.on('click', function(){
-  editInfo($changepersonalinfo);
-});
-
+//Is user changing or submitting info?
 function editInfo(info){
-  info.parents('.edit-settings').find('h2').hide();
-  info.parents('.edit-settings').find('.hidden').show();
-  var $submitButton = info.parents('.edit-settings').find('h3');
-  $submitButton.text('Submit');
-  submitChange($submitButton);
+  var $changetext = info.text();
+    console.log('current text is ', $changetext);
+    if(info.text() == 'Change'){
+      changeInfo(info);
+    } else if (info.text() == 'Submit'){
+      submitChange(info);
+    }
+}
+
+//DOM manipulation when user presses 'Change'
+function changeInfo(info){
+  var $dataNearButton = info.parent('.edit-settings').find('h2');
+  var $inputNearButton = info.parent('.edit-settings').find('.hidden');
+  $dataNearButton.hide();
+  $inputNearButton.val($dataNearButton.text());
+  $inputNearButton.show();
+  info.text('Submit');
   tapToCancel($main);
 }
 
+
+//DOM manipulation when user presses 'Submit'
 function submitChange(submit){
-  submit.on('click', function(){
-    console.log('submitted');
-    $.post('/makeprofile', function(data){
-      
-    })
-    $('.hidden:visible').hide();
-    submit.parent('.edit-settings').find('h2').show();
-    submit.parent('.edit-settings').find('h3').text('Change');
-  })
+  console.log('submitted');
+  //$.post('/makeprofile', function(data){
+  // need ajax request 
+  //})
+  var $dataNearButton = submit.parent('.edit-settings').find('h2');
+  var $inputNearButton = submit.parent('.edit-settings').find('.hidden');
+  $('.hidden').hide();
+  $dataNearButton.text($inputNearButton.val()).show();
+  submit.text('Change');
 }
 
+//Tap outside of input box to cancel changes in progress
 function tapToCancel(main){
   main.on('click', function(event){
     if(event.target === this){
