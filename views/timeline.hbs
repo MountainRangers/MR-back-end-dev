@@ -12,14 +12,12 @@
 
   <!-- Filter bar hidden -->
   <div id='filter-drop-down' class='hidden drop-down'>
-
     <div class='tag-icon'><img src='/images/tag_images/desert.png' class='icon background'/></div>
     <div class='tag-icon'><img src='/images/tag_images/feather.png' class='icon background'/></div>
     <div class='tag-icon'><img src='/images/tag_images/lake.png' class='icon background'/></div>
     <div class='tag-icon'><img src='/images/tag_images/urban.png' class='icon background'/></div>
     <div class='tag-icon'><img src='/images/tag_images/tree.png' class='icon background'/></div>
     <div class='tag-icon'><img src='/images/tag_images/all.png' class='icon background'/></div>
-
   </div>
 </div>
 
@@ -40,7 +38,7 @@
         <p class='tl-hike-location'>{{lat}}, {{long}}</p>
       </div>
       <div class='tl-tag third' data-tag="{{tag_name}}">
-        <img src='/images/{{tag_name}}.png' class='icon'/>
+        <img src='/images/tag_images/{{tag_name}}.png' class='icon'/>
       </div>
     </article>
   {{/each}}
