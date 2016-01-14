@@ -1,12 +1,24 @@
 // scss for create a blog post view
+.add-post-container {
+  height: 820px;
+  background-color: white;
+}
 label {
   display: block;
 }
 input {
   margin-top: 10px;
   margin-bottom: 40px;
-  width: 80%;
+  margin-left: 10%;
+  width: 90%;
   height: 4em;
+  background-color: white;
+  border:none;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border-bottom: 2px solid #138a3d;
+
   .description-input{
     font-size: 1em;
   }
@@ -50,7 +62,7 @@ input {
   height:60px;
   font-size: 1.3em;
 }
-.submit-button {
+.add-that-post-button {
   border-radius: 0;
   width: 80%;
   height: 75px;
@@ -58,8 +70,8 @@ input {
   color: white;
   font-family: "Verdana";
   font-size: 1.2em;
-  background-color: green;
-  box-shadow: 0 8px 0 #006400,
+  background-color: #fc511d;
+  box-shadow: 0 8px 0 rgb(183,9,0),
   0 15px 20px rgba(0,0,0,.35);
   text-transform: uppercase;
   transition: .4s all ease-in;
@@ -67,9 +79,9 @@ input {
   cursor: pointer;
   text-align: center;
   -webkit-user-select: none;
-  -webkit-tap-highlight-color: green;
+  // -webkit-tap-highlight-color: green;
 }
-.submit-button:hover {
+.add-that-post-button:hover {
   border-radius: 0;
   width: 80%;
   height: 75px;
