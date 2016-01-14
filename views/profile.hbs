@@ -1,32 +1,31 @@
 <!-- Navigation -->
-{{> navbar id=profile.id}}
+{{> navbar id=user.user_id}}
 
 <!-- user about section -->
 <header class='profile-header'>
   <div class='profile-user-photo half'>
-    <img src='{{profile.photo_url}}' alt="User Profile Photo" class='profile-img' />
+    <img src='{{user.photo_url}}' alt="User Profile Photo" class='profile-img' />
   </div>
   <div class='profile-user-info half'>
-    <h1 class='profile-name'>{{profile.username}}</h1>
-    <p class='member-since'>Member since: {{profile.date_created}}</p>
-    <p class='profile-blurb'>{{profile.personal_info}}</p>
+    <h1 class='profile-name'>{{user.username}}</h1>
+    <p class='member-since'>Member since: {{date}}</p>
+    <p class='profile-blurb'>{{user.description}}</p>
   </div>
 </header>
 
-<!-- 1st row */ -->
-
-<!-- {{#if noPosts}}
-<div>Add some posts!</div>
-{{#else}} -->
-
-{{#each post}}
-<div class='hike'>
-  <h1>{{userdata.post_title}}</h1>
-  <img src='{{/images/{{userdata.tag_name}}.png}}' />
-  <p>{{userdata.latitude}}, {{userdata.longitude}}</p>
-</div>
-{{/each}}
-<!-- {{/if}} -->
+{{#if noPosts}}
+  <div class='no-user-posts'>
+    <p>Go take a hike!</p>
+  </div>
+{{else}}
+  {{#each posts}}
+    <div class='hike'>
+      <h1>{{post_title}}</h1>
+      <img src='/images/{{tag_name}}.png'/>
+      <p>{{latitude}}, {{longitude}}</p>
+    </div>
+  {{/each}}
+{{/if}}
 
 <footer class='app-footer'>
   <p>Copyright, Mountain Rangers 2016. All rights reserved.</p>
