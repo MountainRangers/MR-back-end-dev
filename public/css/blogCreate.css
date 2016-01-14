@@ -1,13 +1,48 @@
+.add-post-container {
+  height: 820px;
+  background-color: white; }
+
 label {
   display: block; }
 
 input {
   margin-top: 10px;
   margin-bottom: 40px;
-  width: 80%;
-  height: 4em; }
+  margin-left: 10%;
+  width: 90%;
+  height: 4em;
+  background-color: white;
+  border: none;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border-bottom: 2px solid #138a3d; }
   input .description-input {
     font-size: 1em; }
+
+input::-webkit-input-placeholder {
+  /* Safari, Chrome and Opera */
+  color: #e6e6e6; }
+
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: #e6e6e6; }
+
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #e6e6e6; }
+
+:-ms-input-placeholder {
+  /* IE 10+ */
+  color: #e6e6e6; }
+
+::-ms-input-placeholder {
+  /* Edge */
+  color: #e6e6e6; }
+
+:placeholder-shown {
+  /* Standard one last! */
+  color: #e6e6e6; }
 
 .call-to-edit {
   font-family: 'Amatic SC';
@@ -42,13 +77,15 @@ input {
   text-align: left;
   margin-left: 10%;
   font-family: 'Amatic SC';
-  font-size: 2em; }
+  font-size: 2em;
+  margin-bottom: 30px;
+  margin-top: 20px; }
 
 .title-input, .body-input {
   height: 60px;
   font-size: 1.3em; }
 
-.submit-button {
+.add-that-post-button {
   border-radius: 0;
   width: 80%;
   height: 75px;
@@ -56,17 +93,16 @@ input {
   color: white;
   font-family: "Verdana";
   font-size: 1.2em;
-  background-color: green;
-  box-shadow: 0 8px 0 #006400, 0 15px 20px rgba(0, 0, 0, 0.35);
+  background-color: #fc511d;
+  box-shadow: 0 8px 0 #b70900, 0 15px 20px rgba(0, 0, 0, 0.35);
   text-transform: uppercase;
   transition: .4s all ease-in;
   outline: none;
   cursor: pointer;
   text-align: center;
-  -webkit-user-select: none;
-  -webkit-tap-highlight-color: green; }
+  -webkit-user-select: none; }
 
-.submit-button:hover {
+.add-that-post-button:hover {
   border-radius: 0;
   width: 80%;
   height: 75px;

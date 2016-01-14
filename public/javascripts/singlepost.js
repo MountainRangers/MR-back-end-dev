@@ -2,13 +2,11 @@ $(document).ready(function() {
   formatGeo($('[data-js~=geolocation]'));
   $deletePost = $('.delete-post');
   $postId = $('.single-post-delete-container').attr('id');
-
   $deletePost.on('click', function(event) {
     $.ajax({
       url: '/post/' + $postId,
       method: 'DELETE',
       success: function() {
-        console.log("Success!");
         location.pathname = '/timeline';
       },
       error: function(data) {
