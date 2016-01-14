@@ -1,5 +1,6 @@
 .settings-container {
-  background-color: white; }
+  background-color: white;
+  height: 100%; }
 
 main {
   display: flex;
@@ -44,7 +45,6 @@ main {
   font-size: .5em;
   background-color: #fc511d;
   box-shadow: 0 8px 0 #b70900, 0 15px 20px rgba(0, 0, 0, 0.35);
-  text-transform: uppercase;
   transition: .4s all ease-in;
   outline: none;
   cursor: pointer;
