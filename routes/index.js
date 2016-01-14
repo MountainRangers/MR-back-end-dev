@@ -17,10 +17,9 @@ router.get('/addpost', ensureAuthenticatedandUser, function(req, res, next) {
 });
 
 router.post('/addpost', ensureAuthenticatedandUser, function(req, res, next) {
-  req.body.id = req.user.id;
-  console.log(req.body);
-  api.posts.createOne(req.body).then(function(){
-    res.json({id: req.user.id});
+  req.body.userid = req.user.id;
+  api.posts.createOne(req.body).then(function(data){
+    res.json({rowCount: data.rowCount});
   });
 });
 
@@ -49,11 +48,13 @@ router.post('/makeprofile', ensureAuthenticated, function(req, res, next) {
 
 router.get('/post/:postid', ensureAuthenticatedandUser, function(req, res, next) {
   api.posts.readOne(req.params.postid).then(function(postdata) {
+    console.log(postdata);
     postdata.posts[0].date = formatDate(postdata.posts[0].created_at);
     res.render('post', {
       title: 'TrailMix',
       post: postdata.posts[0],
-      tag: postdata.tags[0]
+      tag: postdata.tags[0],
+      user: postdata.posts[0].user_id === req.user.id ? true : false
     });
   });
 });
@@ -106,7 +107,6 @@ router.put('/settings', ensureAuthenticated, function(req, res, next) {
 
 router.get('/timeline', ensureAuthenticatedandUser, function(req, res, next) {
   api.posts.readAll().then(function(posts) {
-    console.log(posts);
     res.render('timeline', {
       id: req.user.id,
       posts: posts
