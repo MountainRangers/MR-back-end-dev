@@ -1,3 +1,7 @@
+.settings-container {
+  background-color: white;
+  height: 100%; }
+
 main {
   display: flex;
   flex-direction: column;
@@ -30,5 +34,31 @@ main {
       align-self: center; }
   main .edit-settings:last-child {
     margin-bottom: 30px; }
+
+.change-button {
+  border-radius: 0;
+  width: 20%;
+  height: 25px;
+  border: none;
+  color: white;
+  font-family: "Verdana";
+  font-size: .5em;
+  background-color: #fc511d;
+  box-shadow: 0 8px 0 #b70900, 0 15px 20px rgba(0, 0, 0, 0.35);
+  transition: .4s all ease-in;
+  outline: none;
+  cursor: pointer;
+  text-align: center;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent; }
+
+.settings-input {
+  background-color: white;
+  border: none;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border-bottom: 2px solid black;
+  width: 60%; }
 
 /*# sourceMappingURL=settings.css.map */

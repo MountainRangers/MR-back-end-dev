@@ -1,6 +1,6 @@
 <!-- Navigation -->
 {{> navbar id=profile.id }}
-  <main>
+  <main class='settings-container'>
     <img src="{{profile.photo_url}}" width="150px" height="150px" alt="User Profile Photo"/>
     <div class="edit-settings">
       <h2>{{profile.username}}</h2>
@@ -9,12 +9,11 @@
       <h2>Member Since:</br>{{profile.date_created}}</h2>
     </div>
     <div class="edit-settings" data-js='edit-settings'>
-      <input type="text" value={{profile.personal_info}} class="hidden" data-js='hidden-edit'>
+      <input type="text" value={{profile.personal_info}} class="settings-input hidden" data-js='hidden-edit'>
       <h2>{{profile.personal_info}}</h2>
-      <h3 class="change-personal-info" data-js='change-personal-info'>Change</h3>
+      <button class="change-personal-info change-button" data-js='change-personal-info'>Change</button>
     </div>
   </main>
-
 <!-- Footer -->
 <footer class='app-footer'>
   <p>Copyright, Mountain Rangers 2016. All rights reserved.</p>
