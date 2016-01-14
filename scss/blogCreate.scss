@@ -3,7 +3,7 @@
 label {
   display: block;
 }
-input, textarea {
+input {
   margin-top: 10px;
   margin-bottom: 40px;
   width: 80%;
@@ -41,31 +41,17 @@ input, textarea {
   font-family: 'Amatic SC';
   font-size: 2em;
 }
-.post-location {
-  text-align: left;
-  margin-left: 10%;
-  font-family: 'Amatic SC';
-  font-size: 2em;
-}
 .post-description {
   text-align: left;
   margin-left: 10%;
   font-family: 'Amatic SC';
   font-size: 2em;
 }
-.title-input {
-  height:60px;
-  font-size: 1.3em;
-}
-.location-input {
+.title-input, .description-input {
   height:60px;
   font-size: 1.3em;
 }
 
- .description-input, .title-input[type=text]:placeholder-shown, .location-input[type=text]:placeholder-shown {
-  line-height: 2em;
-  padding: .5em;
-}
 .submit-button {
 	border:none;
 	background-color: #fc511d;
@@ -77,6 +63,7 @@ input, textarea {
 	font-family: 'Amatic SC';
 	font-size: 1em;
 	transition: color 1s, width 1s, height 1s, background-color 1s, transform 1s;
+  margin-bottom: 10px;
 }
 
 .submit-button:hover {

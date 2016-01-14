@@ -5,18 +5,14 @@
 <h1 class='call-to-edit'>Tell the world about your hike</h1>
 
 <!-- Create a post form -->
-<form class='create-blog-form' action='/submitblog' method="POST">
-  <label class='post-title'>Title</label>
+<form class='create-post-form' name="post" action='/addpost' method="POST">
+  <label for="title"class='post-title'>Title</label>
   <input name='title' type='text' placeholder="Title" class='title-input'>
-  <label class='post-location'>Location</label>
-  <input name='location' type='text' placeholder="Near City, State" class='location-input'>
-  <label class='post-description'>Description</label>
-  <textarea name='description' rows="10" cols="50" class='description-input'>
-    Share your hiking experience!
-    What did you love?
-    What would you do differently?
-    What amenities are available/not available?
-  </textarea>
+  <label for="body" class='post-body'>Description</label>
+  <input type="textarea" name='body' rows="10" cols="50" class='body-input' placeholder="Give us the dirt!">
+  <label for="add-tags" class='post-tags'>Tag Your Hike</label>
+  <input type="multi" name="add-tags" value="">
+  </input>
 
   <!-- <div class='tag-container'>
     <input type="radio" name="adventerous" class='tag-toggle'>
@@ -31,3 +27,6 @@
 <footer class='app-footer'>
   <p>Copyright, Mountain Rangers 2016. All rights reserved.</p>
 </footer>
+<script type="text/javascript" src='javascripts/makepost.js'>
+
+</script>
