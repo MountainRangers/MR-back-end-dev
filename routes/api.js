@@ -48,21 +48,23 @@ module.exports = {
   },
   users: {
     getUsersPosts: function(id) {
-      return Promise.all([
-        knex('users').select().where({
-          id: id
-        }).first(),
-        knex('posts').select().where({
-          id: id
-        })
-      ]).then(function(data){
-        return Promise.resolve({
-          user: data[0],
-          post: data[1]
-        })
-      }).catch(function(error){
-        console.log('alex messed up!')
-      })
+      return knex('users').select(
+        'posts.id as post_id',
+        'posts.created_at as post_created_at',
+        'posts.title as post_title',
+        'posts.latitude as latitude',
+        'posts.longitude as longitude',
+        'users.id as user_id',
+        'users.photo_url as photo_url',
+        'users.username as username',
+        'users.personal_info as description',
+        'users.created_at as memberSince',
+        'tags.name as tag_name'
+      ).innerJoin("posts", "posts.user_id", "users.id")
+      .innerJoin("posts_tags", "posts.id", "posts_tags.post_id")
+      .innerJoin("tags", "tags.id", "posts_tags.tag_id")
+      .where('user_id', id)
+      .orderBy('post_created_at', 'desc');
     },
     getUser: function(id) {
       return knex('users').select().where({

@@ -14,13 +14,19 @@
 </header>
 
 <!-- 1st row */ -->
+
+<!-- {{#if noPosts}}
+<div>Add some posts!</div>
+{{#else}} -->
+
 {{#each post}}
 <div class='hike'>
-  <h1>{{title}}</h1>
-  <img src='{{profile.photo_url}}' />
-  <p>{{latitude}}, {{longitude}}</p>
+  <h1>{{userdata.post_title}}</h1>
+  <img src='{{/images/{{userdata.tag_name}}.png}}' />
+  <p>{{userdata.latitude}}, {{userdata.longitude}}</p>
 </div>
 {{/each}}
+<!-- {{/if}} -->
 
 <footer class='app-footer'>
   <p>Copyright, Mountain Rangers 2016. All rights reserved.</p>

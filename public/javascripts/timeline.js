@@ -15,7 +15,6 @@ $(document).ready(function(){
     filterTags(event.currentTarget.dataset.tag);
     $('.drop-down').toggleClass('hidden');
   })
-
 })
 
 function filterTags(tag) {

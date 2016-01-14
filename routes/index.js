@@ -59,49 +59,36 @@ router.delete('/post/:postid', ensureAuthenticatedandUser, function(req, res, ne
 });
 
 router.get('/profile/:userid', ensureAuthenticatedandUser, function(req, res, next) {
-  api.users.getUser(req.params.userid).then(function(userdata) {
-    console.log(userdata)
-    var date = formatDate(userdata.created_at);
-    var showSettings = userdata.id === req.user.id ? true : false;
-    res.render('profile', {
-      title: 'TrailMix',
-      showSettings: showSettings,
-      profile: {
-        id: userdata.id,
-        username: userdata.username,
-        date_created: date,
-        personal_info: userdata.personal_info,
-        photo_url: userdata.photo_url
-      }
-    });
-  }).catch(function(err) {
-    res.redirect('/timeline');
-  });
-});
-
-// someone elses profile
-router.get('/profile/other/:userid', ensureAuthenticatedandUser, function(req, res, next) {
   api.users.getUsersPosts(req.params.userid).then(function(userdata) {
-    console.log(userdata.post)
-    console.log(userdata.user)
-    var date = formatDate(userdata.created_at);
+    var noPosts = userdata.length > 0 ? true : false;
     var showSettings = userdata.id === req.user.id ? true : false;
-    res.render('profile', {
-      title: 'TrailMix',
-      showSettings: showSettings,
-      profile: {
-        id: userdata.id,
-        username: userdata.username,
-        date_created: date,
-        personal_info: userdata.personal_info,
-        photo_url: userdata.photo_url
-      }
-    });
+    if(noPosts) {
+      console.log('theres stuff here!')
+      res.render('profile', {
+        title: 'TrailMix',
+        showSettings: showSettings,
+        noPosts: noPosts,
+        profile: {
+          user_id: userdata.user_id,
+          photo_url: userdata.photo_url,
+          username: userdata.username,
+          description: userdata.description,
+          memberSince: userdata.memberSince,
+          post_created_at: userdata.post_created_at,
+          post_title: userdata.post_title,
+          latitude: userdata.lat,
+          longitude: userdata.long,
+          tag_name: userdata.tag_name
+        }
+      })
+    } else {
+      console.log('not working!')
+      res.render('landing')
+    }
   }).catch(function(err) {
-    res.redirect('/timeline');
+    console.log(err);
   });
 });
-
 
 router.get('/settings', ensureAuthenticatedandUser, function(req, res, next) {
   api.users.getUser(req.user.id).then(function(userdata) {
