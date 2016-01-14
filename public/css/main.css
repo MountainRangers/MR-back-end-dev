@@ -94,6 +94,11 @@ table {
   color: #83f9ff;
   text-decoration: underline; }
 
+.background {
+  background-color: white;
+  border-radius: 50%;
+}
+
 footer {
   height: 120px;
   width: 100%;
