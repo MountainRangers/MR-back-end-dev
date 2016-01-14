@@ -25,11 +25,18 @@ module.exports = {
     },
     readOne: function(id) {
       return Promise.all([
-        knex('tags').select('tags.id as id', 'tags.name as name')
-        .innerJoin('posts_tags', 'posts_tags.tag_id', 'tags.id').where({
-          'posts_tags.post_id': id
-        }),
-        knex('posts').select('posts.*', 'users.photo_url as photo_url')
+        knex('tags').select(
+          'tags.id as id',
+           'tags.name as name'
+         )
+        .innerJoin('posts_tags', 'posts_tags.tag_id', 'tags.id').where(
+          {'posts_tags.post_id': id}
+        ),
+        knex('posts').select(
+          'posts.*',
+          'users.username as username',
+          'users.photo_url as photo_url'
+        )
         .innerJoin('users', 'posts.user_id', 'users.id').where({
           'posts.id': id
         })
@@ -60,7 +67,7 @@ module.exports = {
           return knex('posts_tags').insert({post_id: data.post_id, tag_id: data.tag_id})
             .then(function(results){
               data.rowCount = results.rowCount;
-              return data; 
+              return data;
             })
           })
         .catch(function(error){
