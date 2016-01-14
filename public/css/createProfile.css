@@ -1,3 +1,14 @@
+.tag-container {
+  display: flex;
+  width: 100%; }
+
+.create-post-form {
+  width: 90%; }
+
+.tag {
+  flex-direction: row;
+  width: 15%; }
+
 label {
   display: block; }
 
