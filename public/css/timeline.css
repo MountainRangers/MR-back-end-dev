@@ -82,7 +82,7 @@
 .tl-hike-location {
   color: #b7b3b0;
   font-weight: lighter;
-  font-size: .4em;
+  font-size: .4 em;
   margin-top: 25px; }
 
 .tl-hike-name {
@@ -97,8 +97,8 @@
 
 .profile-img-placeholder {
   margin-top: 20px;
-  height: 90px;
-  width: 90px;
+  height: 60px;
+  width: 60px;
   border-radius: 50%;
   margin-bottom: 20px;
   margin-left: 10px; }
