@@ -31,8 +31,8 @@
   list-style: none;
 }
 .icon {
-  height:40px;
-  width:40px;
+  height:80px;
+  width:80px;
 }
 .tag-icon {
   display: inline-block;
@@ -42,7 +42,10 @@
 .down-arrow {
   border: none;
   background: transparent;
+  height: 40px;
+  width: 40px;
 }
+
 
 .hidden {
   display: none;
