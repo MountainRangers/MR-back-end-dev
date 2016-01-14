@@ -2,28 +2,21 @@
 {{> navbar }}
 
 <header class="post-header">
-  <div class="post-header-component fourth">
+  <div class="post-header-component half">
     <img src="{{post.photo_url}}" alt="User Profile Photo" class='single-post-profile-img' />
-    <!-- <p>
-      ::{{post.photo_url}}
-    </p> -->
   </div>
-  <div class="post-header-component fourth">
-    <h1>{{title}}</h1>
+  <div class="post-header-component half">
     <p>{{post.date}}</p>
     <p>{{post.latitude}}, {{post.longitude}}</p>
   </div>
-  <div class="post-header-component half">
-  </div>
 </header>
 <div class="single-post-description">
-  <h2 class="single-post-description-title">{{post.title}}
-    <h2/>
+  <h2 class="single-post-description-title">{{post.title}}<h2/>
     <p class="single-post-description-text">{{post.body}}
-      <strong class="single-post-author">-- {{post.username}}</strong>
+    <strong class="single-post-author">-- {{post.username}}</strong>
 </div>
 <div class="single-post-tag-container">
-  <h2 class="single-post-tag-title"> {{tag.name}}</h2>
+  <h2 class="single-post-tag-title">{{tag.name}}</h2>
   <img src="/images/tag_images/{{tag.name}}.png" class="icon single-post-tag-image" />
   <div id= {{post.id}} class="single-post-delete-container">
     <h3>Delete this post!</h3>
