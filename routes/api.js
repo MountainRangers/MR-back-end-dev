@@ -43,7 +43,7 @@ module.exports = {
       });
     },
     createOne:function(post){
-      return knex('posts').insert({title: post.title, body: post.body});
+      return knex('posts').insert({title: post.title, body: post.body, user_id: post.id});
     },
     deleteOne: function(id){
       return knex('posts').where({'posts.id': id}).del();
