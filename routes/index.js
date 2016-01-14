@@ -83,7 +83,7 @@ router.get('/profile/:userid', ensureAuthenticatedandUser, function(req, res, ne
       })
     } else {
       console.log('not working!')
-      res.render('landing')
+      res.render('profile')
     }
   }).catch(function(err) {
     console.log(err);
