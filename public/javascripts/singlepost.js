@@ -1,5 +1,6 @@
 $(document).ready(function() {
-  $deletePost = $('.single-post-delete-container').find('h3');
+  console.log('ready');
+  $deletePost = $('.delete-post');
   $postId = $('.single-post-delete-container').attr('id');
   console.log($postId);
   $deletePost.on('click', function(event) {
