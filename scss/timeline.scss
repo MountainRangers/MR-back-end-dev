@@ -12,13 +12,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 .filter-component {
   flex-direction: row;
+
 }
 // Drop down menu styles
 .drop-down {
-  height: 80px;
+  height: 100px;
+  margin-top: -8px;
   background-color: #bf9271;
   display: flex;
   align-items: center;
@@ -26,14 +29,24 @@
   position: absolute;
   width:100%;
 }
+#filter-drop-down {
+  width: 100%;
+}
+
 // Icon stylings
-.tag-icons {
-  list-style: none;
+.tag-icon {
+  padding: auto;
+  margin: auto;
+}
+.navicon {
+  height:40px;
+  width:40px;
 }
 .icon {
-  height:80px;
-  width:80px;
+  height:40px;
+  width:40px;
 }
+
 .tag-icon {
   display: inline-block;
   flex-direction: row;
@@ -45,7 +58,10 @@
   height: 40px;
   width: 40px;
 }
-
+// time line styling
+.time-line {
+  margin-top: 0;
+}
 
 .hidden {
   display: none;
@@ -80,13 +96,13 @@
   color:#b7b3b0;
   font-weight: lighter;
   font-size: .7em;
-  margin-top: 110px;
+  margin-top: 25px;
 }
 
 .tl-hike-name {
   font-weight: bolder;
   font-size: .8em;
-  margin-bottom: 50px;
+  margin-bottom: 5px;
 }
 
 .filter-call {

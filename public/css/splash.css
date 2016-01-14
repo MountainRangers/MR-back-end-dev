@@ -17,30 +17,45 @@
   fill: white; }
 
 .google-button {
-  border: none;
-  flex-direction: row;
-  margin-top: 35px;
+  border-radius: 0;
   width: 80%;
-  display: block;
-  height: 50px;
-  background-color: white;
+  height: 75px;
+  border: none;
+  color: white;
   font-family: "Verdana";
   font-size: 1.2em;
-  margin: auto;
-  margin-bottom: 50px;
-  transition: color 1s, width 1s, height 1s, background-color 1s, transform 1s; }
+  background-color: #fc511d;
+  box-shadow: 0 8px 0 #b70900, 0 15px 20px rgba(0, 0, 0, 0.35);
+  text-transform: uppercase;
+  transition: .4s all ease-in;
+  outline: none;
+  cursor: pointer;
+  text-align: center;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent; }
 
 .google-button:hover {
-  margin-top: 35px;
-  border: none;
-  flex-direction: row;
-  background-color: #fc511d;
+  border-radius: 0;
   width: 80%;
-  display: block;
-  height: 50px;
-  color: green;
+  height: 75px;
+  border: none;
+  color: white;
   font-family: "Verdana";
-  font-size: 1.2em; }
+  font-size: 1.2em;
+  background-color: white;
+  box-shadow: white, 0 15px 20px white;
+  transition: .4s all ease-in;
+  outline: none;
+  cursor: pointer;
+  text-align: center;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  padding-top: 3px;
+  transform: translateY(2px);
+  box-shadow: 0 4px 0 white, 0 8px 6px rgba(0, 0, 0, 0.45); }
+
+.google-button span {
+  position: relative; }
 
 .splash-content {
   height: 100%;

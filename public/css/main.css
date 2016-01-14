@@ -20,14 +20,17 @@ time, mark, audio, video {
 
 a {
   text-decoration: none;
-  color: #83f9ff; }
+  color: black; }
 
 a:visited {
   text-decoration: none;
-  color: #83f9ff; }
+  color: black; }
 
 a:before {
   text-decoration: none;
+  color: black; }
+
+.nav-text {
   color: #83f9ff; }
 
 /* HTML5 display-role reset for older browsers */
@@ -93,11 +96,6 @@ table {
   font-weight: 700;
   color: #83f9ff;
   text-decoration: underline; }
-
-.background {
-  background-color: white;
-  border-radius: 50%;
-}
 
 footer {
   height: 120px;
