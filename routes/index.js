@@ -50,13 +50,28 @@ router.post('/makeprofile', ensureAuthenticated, function(req, res, next) {
 router.get('/post/:postid', ensureAuthenticatedandUser, function(req, res, next) {
   api.posts.readOne(req.params.postid).then(function(postdata) {
     postdata.posts[0].date = formatDate(postdata.posts[0].created_at);
+    // var showSettings = userdata.id === req.user.id ? true : false;
+    // console.log(showSettings);
     res.render('post', {
       title: 'TrailMix',
       post: postdata.posts[0],
-      tag: postdata.tags[0]
+      tag: postdata.tags[0],
+      showSettings: showSettings
     });
   });
 });
+
+
+// router.get('/post/:postid', ensureAuthenticatedandUser, function(req, res, next) {
+//   api.posts.readOne(req.params.postid).then(function(postdata) {
+//     postdata.posts[0].date = formatDate(postdata.posts[0].created_at);
+//     res.render('post', {
+//       title: 'TrailMix',
+//       post: postdata.posts[0],
+//       tag: postdata.tags[0]
+//     });
+//   });
+// });
 
 router.delete('/post/:postid', ensureAuthenticatedandUser, function(req, res, next){
   api.posts.deleteOne(req.params.postid).then(function(postdata){
