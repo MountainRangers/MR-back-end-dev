@@ -59,7 +59,6 @@ router.get('/post/:postid', ensureAuthenticatedandUser, function(req, res, next)
   });
 });
 
-// your own profile
 router.delete('/post/:postid', ensureAuthenticatedandUser, function(req, res, next){
   api.posts.deleteOne(req.params.postid).then(function(postdata){
     res.render('/timeline');
@@ -67,32 +66,15 @@ router.delete('/post/:postid', ensureAuthenticatedandUser, function(req, res, ne
 });
 
 router.get('/profile/:userid', ensureAuthenticatedandUser, function(req, res, next) {
-  api.users.getUsersPosts(req.params.userid).then(function(userdata) {
-    var noPosts = userdata.length > 0 ? true : false;
-    var showSettings = userdata.id === req.user.id ? true : false;
-    if(noPosts) {
-      console.log('theres stuff here!')
-      res.render('profile', {
-        title: 'TrailMix',
-        showSettings: showSettings,
-        noPosts: noPosts,
-        profile: {
-          user_id: userdata.user_id,
-          photo_url: userdata.photo_url,
-          username: userdata.username,
-          description: userdata.description,
-          memberSince: userdata.memberSince,
-          post_created_at: userdata.post_created_at,
-          post_title: userdata.post_title,
-          latitude: userdata.lat,
-          longitude: userdata.long,
-          tag_name: userdata.tag_name
-        }
-      })
-    } else {
-      console.log('not working!')
-      res.render('profile')
-    }
+  api.users.getUsersPosts(req.params.userid).then(function(data) {
+    res.render('profile', {
+      title: 'TrailMix',
+      noPosts: data.userposts <= 0 ? true : false,
+      date: formatDate(data.user.memberSince),
+      showSettings: data.user.user_id === req.user.id ? true : false,
+      user: data.user,
+      posts: data.userposts
+    })
   }).catch(function(err) {
     console.log(err);
   });

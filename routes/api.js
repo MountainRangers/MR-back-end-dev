@@ -35,8 +35,8 @@ module.exports = {
         })
       ]).then(function(data) {
         return Promise.resolve({
-          posts: data[1],
-          tags: data[0]
+          tags: data[0],
+          posts: data[1]
         });
       }).catch(function(err) {
         console.log(err);
@@ -51,23 +51,35 @@ module.exports = {
   },
   users: {
     getUsersPosts: function(id) {
-      return knex('users').select(
-        'posts.id as post_id',
-        'posts.created_at as post_created_at',
-        'posts.title as post_title',
-        'posts.latitude as latitude',
-        'posts.longitude as longitude',
-        'users.id as user_id',
-        'users.photo_url as photo_url',
-        'users.username as username',
-        'users.personal_info as description',
-        'users.created_at as memberSince',
-        'tags.name as tag_name'
-      ).innerJoin("posts", "posts.user_id", "users.id")
-      .innerJoin("posts_tags", "posts.id", "posts_tags.post_id")
-      .innerJoin("tags", "tags.id", "posts_tags.tag_id")
-      .where('user_id', id)
-      .orderBy('post_created_at', 'desc');
+      return Promise.all([
+        knex('users').select(
+          'posts.id as post_id',
+          'users.id as user_id',
+          'posts.created_at as post_created_at',
+          'posts.title as post_title',
+          'posts.latitude as latitude',
+          'posts.longitude as longitude',
+          'tags.name as tag_name'
+        ).innerJoin("posts", "posts.user_id", "users.id")
+          .innerJoin("posts_tags", "posts.id", "posts_tags.post_id")
+          .innerJoin("tags", "tags.id", "posts_tags.tag_id")
+          .where('user_id', id)
+          .orderBy('post_created_at', 'desc'),
+        knex('users').select(
+          'users.id as user_id',
+          'users.photo_url as photo_url',
+          'users.username as username',
+          'users.personal_info as description',
+          'users.created_at as memberSince'
+        ).where('id', id).first()
+      ]).then(function(data) {
+        return Promise.resolve({
+          userposts: data[0],
+          user: data[1]
+        });
+      }).catch(function(err) {
+        console.log(err);
+      });
     },
     getUser: function(id) {
       return knex('users').select().where({
