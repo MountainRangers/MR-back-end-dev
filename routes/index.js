@@ -61,7 +61,8 @@ router.get('/post/:postid', ensureAuthenticatedandUser, function(req, res, next)
 
 router.delete('/post/:postid', ensureAuthenticatedandUser, function(req, res, next){
   api.posts.deleteOne(req.params.postid).then(function(postdata){
-    res.render('/timeline');
+    res.end();
+    //res.render('/timeline');
   });
 });
 
