@@ -13,8 +13,8 @@ function sendPost(position){
     url: '/addpost',
     method: 'POST',
     data: {
-      title: $('.title-input').val(),
-      body: $('.body-input').val(),
+      title: $('[data-js~=title-input]').val(),
+      body: $('[data-js~=body-input]').val(),
       latitude: position.coords.latitude,
       longitude: position.coords.longitude,
       tag: $('input[type="radio"]:checked').val()
