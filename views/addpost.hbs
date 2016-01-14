@@ -6,20 +6,39 @@
 
 <!-- Create a post form -->
 <form class='create-post-form' name="post" action='/addpost' method="POST">
-  <label for="title"class='post-title'>Title</label>
+  <label for="title" class='post-title'>Title</label>
   <input name='title' type='text' placeholder="Title" class='title-input'>
   <label for="body" class='post-body'>Description</label>
   <input type="textarea" name='body' rows="10" cols="50" class='body-input' placeholder="Give us the dirt!">
   <label for="add-tags" class='post-tags'>Tag Your Hike</label>
-  <input type="multi" name="add-tags" value="">
-  </input>
-
-  <!-- <div class='tag-container'>
-    <input type="radio" name="adventerous" class='tag-toggle'>
-    <input type="radio" name="Awesome" class='tag-toggle'>
-    <input type="radio" name="Relaxing" class='tag-toggle'>
-  </div> -->
-
+  <!-- <input type="multi" name="add-tags" value="">
+  </input> -->
+  <div class='tag-container'>
+    <div>
+      <img src="/images/tag_images/mountain.png" class="icon create-post-tag-image" />
+      <input type="radio" value="mountain" name="tag">
+    </div>
+    <div>
+      <img src="/images/tag_images/desert.png" class="icon create-post-tag-image" />
+      <input type="radio" value="desert" name="tag">
+    </div>
+    <div>
+      <img src="/images/tag_images/lake.png" class="icon create-post-tag-image" />
+      <input type="radio" value="lake" name="tag" class='tag-toggle'>
+    </div>
+    <div>
+      <img src="/images/tag_images/urban.png" class="icon create-post-tag-image" />
+      <input type="radio" value="urban" name="tag" class='tag-toggle'>
+    </div>
+    <div>
+      <img src="/images/tag_images/tree.png" class="icon create-post-tag-image" />
+      <input type="radio" value="tree" name="tag" class='tag-toggle'>
+    </div>
+    <div>
+      <img src="/images/tag_images/feather.png" class="icon create-post-tag-image" />
+      <input type="radio" value="feather"name="tag" class='tag-toggle'>
+    </div>
+  </div>
   <input type='submit' value='submit' class='submit-button'>
 </form>
 
@@ -28,5 +47,4 @@
   <p>Copyright, Mountain Rangers 2016. All rights reserved.</p>
 </footer>
 <script type="text/javascript" src='javascripts/makepost.js'>
-
 </script>
