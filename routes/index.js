@@ -61,7 +61,8 @@ router.get('/post/:postid', ensureAuthenticatedandUser, function(req, res, next)
 
 router.delete('/post/:postid', ensureAuthenticatedandUser, function(req, res, next){
   api.posts.deleteOne(req.params.postid).then(function(postdata){
-    res.render('/timeline');
+    res.end();
+    //res.render('/timeline');
   });
 });
 
@@ -101,7 +102,7 @@ router.put('/settings', ensureAuthenticated, function(req, res, next) {
     req.user.id,
     req.body.userinfo
   ).then(function(data){
-      res.end('data');
+      res.end();
   });
 });
 

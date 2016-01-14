@@ -1,4 +1,3 @@
-console.log("Success!");
 $(document).ready(function() {
   $deletePost = $('.single-post-delete-container').find('h3');
   $postId = $('.single-post-delete-container').attr('id');
@@ -8,6 +7,7 @@ $(document).ready(function() {
       url: '/post/' + $postId,
       method: 'DELETE',
       success: function() {
+        console.log("Success!");
         location.pathname = '/timeline';
       },
       error: function(data) {

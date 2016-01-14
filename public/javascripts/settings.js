@@ -45,7 +45,7 @@ function submitChange(submit){
   $dataNearButton.show();
   submit.text('Change');
   $.ajax({  
-    url: '/makeprofile',
+    url: '/settings',
     method: 'PUT',
     data: {userinfo: personalinfo},
     success: function(data){
