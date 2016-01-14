@@ -15,6 +15,23 @@ $(document).ready(function(){
     filterTags(event.currentTarget.dataset.tag);
     $('.drop-down').toggleClass('hidden');
   })
+
+  $(window).scroll(
+    {
+        previousTop: 0
+    },
+    function () {
+    var currentTop = $(window).scrollTop();
+    if (currentTop < this.previousTop) {
+        $(".tl-header").fadeIn(300);
+
+    } else {
+        $(".tl-header").fadeOut(300);
+    }
+    this.previousTop = currentTop;
+});
+
+
 })
 
 function filterTags(tag) {
