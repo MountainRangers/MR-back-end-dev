@@ -19,7 +19,7 @@ $(document).ready(function(){
             },
       success: function(data){
         console.log('success')
-        location.pathname = '/profile/' + data.id;
+        location.pathname = '/timeline';
       },
       error: function(){
         console.error('failed to make post');
