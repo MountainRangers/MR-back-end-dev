@@ -20,7 +20,9 @@
 {{else}}
   {{#each posts}}
     <div class='hike'>
-      <h1>{{post_title}}</h1>
+      <a href="/post/{{post_id}}">
+        <h1>{{post_title}}</h1>
+      </a>
       <img src='/images/{{tag_name}}.png'/>
       <p>{{latitude}}, {{longitude}}</p>
     </div>

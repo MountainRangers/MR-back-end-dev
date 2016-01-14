@@ -52,6 +52,7 @@ router.get('/post/:postid', ensureAuthenticatedandUser, function(req, res, next)
     postdata.posts[0].date = formatDate(postdata.posts[0].created_at);
     res.render('post', {
       title: 'TrailMix',
+      id: postdata.posts[0].user_id,
       post: postdata.posts[0],
       tag: postdata.tags[0],
       user: postdata.posts[0].user_id === req.user.id ? true : false
