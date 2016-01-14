@@ -10,7 +10,8 @@
 .filter-components {
   display: flex;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  width: 100%; }
 
 .filter-component {
   flex-direction: row; }
@@ -25,8 +26,16 @@
   position: absolute;
   width: 100%; }
 
+#filter-drop-down {
+  width: 100%; }
+
 .tag-icon {
-  list-style: none; }
+  padding: auto;
+  margin: auto; }
+
+.navicon {
+  height: 40px;
+  width: 40px; }
 
 .icon {
   height: 40px;

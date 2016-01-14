@@ -12,9 +12,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 .filter-component {
   flex-direction: row;
+
 }
 // Drop down menu styles
 .drop-down {
@@ -27,14 +29,24 @@
   position: absolute;
   width:100%;
 }
+#filter-drop-down {
+  width: 100%;
+}
+
 // Icon stylings
 .tag-icon {
-  list-style: none;
+  padding: auto;
+  margin: auto;
+}
+.navicon {
+  height:40px;
+  width:40px;
 }
 .icon {
   height:40px;
   width:40px;
 }
+
 .tag-icon {
   display: inline-block;
   flex-direction: row;
