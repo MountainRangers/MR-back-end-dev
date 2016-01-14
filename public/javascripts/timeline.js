@@ -3,17 +3,17 @@ if (window.location.href[window.location.href.length - 1] === '#') {
 }
 
 $(document).ready(function(){
-  $('.down-arrow').on('click', function(){
-    $('.drop-down').toggleClass('hidden');
+  $('[data-js~=down-arrow]').on('click', function(){
+    $('[data-js~=drop-down]').toggleClass('hidden');
   })
 
-  $('.tl-tag').on('click', function(event) {
+  $('[data-js~=tl-tag]').on('click', function(event) {
     filterTags(event.currentTarget.dataset.tag);
   })
 
-  $('.tag-icon').on('click', function(event) {
+  $('[data-js~=tag-icon]').on('click', function(event) {
     filterTags(event.currentTarget.dataset.tag);
-    $('.drop-down').toggleClass('hidden');
+    $('[data-js~=drop-down]').toggleClass('hidden');
   })
 
 //   $(window).scroll(
@@ -35,7 +35,7 @@ $(document).ready(function(){
 })
 
 function filterTags(tag) {
-  var $posts = $('.post');
+  var $posts = $('[data-js~=post]');
   for (var i = 0; i < $posts.length; i++) {
     if (tag === 'all') {
       $posts[i].style.display = '';
