@@ -8,10 +8,10 @@
     <div class="edit-settings">
       <h2>Member Since:</br>{{profile.date_created}}</h2>
     </div>
-    <div class="edit-settings">
-      <input type="text" value={{profile.personal_info}} class="hidden">
+    <div class="edit-settings" data-js='edit-settings'>
+      <input type="text" value={{profile.personal_info}} class="hidden" data-js='hidden-edit'>
       <h2>{{profile.personal_info}}</h2>
-      <h3 class="change-personal-info" data-js=''>Change</h3>
+      <h3 class="change-personal-info" data-js='change-personal-info'>Change</h3>
     </div>
   </main>
 
