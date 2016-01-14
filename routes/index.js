@@ -106,7 +106,7 @@ router.get('/settings', ensureAuthenticatedandUser, function(req, res, next) {
   });
 });
 
-router.put('/makeprofile', ensureAuthenticated, function(req, res, next) {
+router.put('/settings', ensureAuthenticated, function(req, res, next) {
   api.users.updateUser(
     req.user.id,
     req.body.userinfo
