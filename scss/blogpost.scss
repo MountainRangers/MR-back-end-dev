@@ -6,6 +6,7 @@
   background-color: white;
   width: 100%;
   border-bottom: 2px solid rgba(247,247,247,0.56);
+  font-family: "Verdana";
 }
 .post-header-component {
   text-align: left;
@@ -22,6 +23,7 @@
 .single-post-description > p {
   text-align: left;
   padding: 10%;
+  font-family: "Verdana";
 }
 .single-post-description {
   border-bottom: 2px solid rgba(247,247,247,0.56);
@@ -62,6 +64,7 @@
 .single-post-author {
   display: block;
   color: #424242;
+  margin-top: 20px;
 }
 .delete-post {
   border-radius: 0;
