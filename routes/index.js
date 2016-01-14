@@ -101,7 +101,7 @@ router.put('/settings', ensureAuthenticated, function(req, res, next) {
     req.user.id,
     req.body.userinfo
   ).then(function(data){
-      res.end('data');
+      res.end();
   });
 });
 
