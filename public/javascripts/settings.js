@@ -5,6 +5,9 @@ $(document).ready(function(){
   $changepersonalinfo.on('click', function(){
     editInfo($changepersonalinfo);
   });
+  
+  tapToCancel($main);
+
 });
 
 //Is user changing or submitting info?
@@ -25,7 +28,6 @@ function changeInfo(info){
   $inputNearButton.val($dataNearButton.text());
   $inputNearButton.show();
   info.text('Submit');
-  tapToCancel($main);
 }
 
 
@@ -53,10 +55,11 @@ function submitChange(submit){
 //Tap outside of input box to cancel changes in progress
 function tapToCancel(main){
   main.on('click', function(event){
-    if(event.target === this){
+    if(event.target === this && main.find('[data-js~=edit-settings]').find('button').text() == 'Submit'){
+      console.log('it runs');
       $('[data-js~=hidden-edit]').hide();
       main.find('[data-js~=edit-settings]').find('h2').show();
-      main.find('[data-js~=edit-settings]').find('h3').text('Change');
+      main.find('[data-js~=edit-settings]').find('button').text('Change');
     }
   })
 }
