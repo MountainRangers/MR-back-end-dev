@@ -16,6 +16,13 @@ router.get('/addpost', ensureAuthenticatedandUser, function(req, res, next) {
   });
 });
 
+router.post('/addpost', ensureAuthenticatedandUser, function(req, res, next) {
+  api.posts.createOne(req.body).then(function(data){
+    console.log(data);
+    res.redirect('/profile/' + id);
+  });
+});
+
 router.get('/makeprofile', ensureAuthenticated, function(req, res, next) {
   if (req.user.id) {
     res.redirect('/timeline');
