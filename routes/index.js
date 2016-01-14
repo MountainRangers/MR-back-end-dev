@@ -52,9 +52,9 @@ router.get('/post/:postid', ensureAuthenticatedandUser, function(req, res, next)
 });
 
 // your own profile
-router.delete('/post/:postid', function(req, res, next){
+router.delete('/post/:postid', ensureAuthenticatedandUser, function(req, res, next){
   api.posts.deleteOne(req.params.postid).then(function(postdata){
-    res.render('timeline');
+    res.render('/timeline');
   });
 });
 
@@ -108,6 +108,7 @@ router.get('/settings', ensureAuthenticatedandUser, function(req, res, next) {
 
 router.get('/timeline', ensureAuthenticatedandUser, function(req, res, next) {
   api.posts.readAll().then(function(posts) {
+    console.log(posts);
     res.render('timeline', {
       id: req.user.id,
       posts: posts
