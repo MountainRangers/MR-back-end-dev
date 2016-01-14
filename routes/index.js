@@ -16,6 +16,14 @@ router.get('/addpost', ensureAuthenticatedandUser, function(req, res, next) {
   });
 });
 
+router.post('/addpost', ensureAuthenticatedandUser, function(req, res, next) {
+  req.body.id = req.user.id;
+  console.log(req.body);
+  api.posts.createOne(req.body).then(function(){
+    res.json({id: req.user.id});
+  });
+});
+
 router.get('/makeprofile', ensureAuthenticated, function(req, res, next) {
   if (req.user.id) {
     res.redirect('/timeline');
@@ -88,7 +96,7 @@ router.get('/settings', ensureAuthenticatedandUser, function(req, res, next) {
   });
 });
 
-router.put('/makeprofile', ensureAuthenticated, function(req, res, next) {
+router.put('/settings', ensureAuthenticated, function(req, res, next) {
   api.users.updateUser(
     req.user.id,
     req.body.userinfo

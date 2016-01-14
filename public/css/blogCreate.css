@@ -1,12 +1,12 @@
 label {
   display: block; }
 
-input, textarea {
+input {
   margin-top: 10px;
   margin-bottom: 40px;
   width: 80%;
   height: 4em; }
-  input .description-input, textarea .description-input {
+  input .description-input {
     font-size: 1em; }
 
 .call-to-edit {
@@ -38,29 +38,15 @@ input, textarea {
   font-family: 'Amatic SC';
   font-size: 2em; }
 
-.post-location {
+.post-body, .post-tags {
   text-align: left;
   margin-left: 10%;
   font-family: 'Amatic SC';
   font-size: 2em; }
 
-.post-description {
-  text-align: left;
-  margin-left: 10%;
-  font-family: 'Amatic SC';
-  font-size: 2em; }
-
-.title-input {
+.title-input, .body-input {
   height: 60px;
   font-size: 1.3em; }
-
-.location-input {
-  height: 60px;
-  font-size: 1.3em; }
-
-.description-input, .title-input[type=text]:placeholder-shown, .location-input[type=text]:placeholder-shown {
-  line-height: 2em;
-  padding: .5em; }
 
 .submit-button {
   border: none;
@@ -72,7 +58,8 @@ input, textarea {
   color: white;
   font-family: 'Amatic SC';
   font-size: 1em;
-  transition: color 1s, width 1s, height 1s, background-color 1s, transform 1s; }
+  transition: color 1s, width 1s, height 1s, background-color 1s, transform 1s;
+  margin-bottom: 10px; }
 
 .submit-button:hover {
   border: none;
