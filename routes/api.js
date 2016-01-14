@@ -43,7 +43,29 @@ module.exports = {
       });
     },
     createOne:function(post){
-      return knex('posts').insert({title: post.title, body: post.body, user_id: post.id});
+      return knex('posts').insert({
+        title: post.title,
+        body: post.body,
+        user_id: post.userid,
+        latitude: post.latitude,
+        longitude: post.longitude
+      }, 'id')
+        .then(function(post_id){
+          return knex('tags').select('id').where({name: post.tag})
+            .then(function(tag_id){
+              return {post_id: post_id[0], tag_id: tag_id[0].id}
+            })
+          })
+        .then(function(data){
+          return knex('posts_tags').insert({post_id: data.post_id, tag_id: data.tag_id})
+            .then(function(results){
+              data.rowCount = results.rowCount;
+              return data; 
+            })
+          })
+        .catch(function(error){
+          console.error(error)
+        })
     },
     deleteOne: function(id){
       return knex('posts').where({'posts.id': id}).del();

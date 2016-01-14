@@ -17,10 +17,9 @@ router.get('/addpost', ensureAuthenticatedandUser, function(req, res, next) {
 });
 
 router.post('/addpost', ensureAuthenticatedandUser, function(req, res, next) {
-  req.body.id = req.user.id;
-  console.log(req.body);
-  api.posts.createOne(req.body).then(function(){
-    res.json({id: req.user.id});
+  req.body.userid = req.user.id;
+  api.posts.createOne(req.body).then(function(data){
+    res.json({rowCount: data.rowCount});
   });
 });
 
@@ -106,7 +105,6 @@ router.put('/settings', ensureAuthenticated, function(req, res, next) {
 
 router.get('/timeline', ensureAuthenticatedandUser, function(req, res, next) {
   api.posts.readAll().then(function(posts) {
-    console.log(posts);
     res.render('timeline', {
       id: req.user.id,
       posts: posts
