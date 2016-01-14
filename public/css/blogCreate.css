@@ -48,7 +48,7 @@ input {
   height: 60px;
   font-size: 1.3em; }
 
-.google-button {
+.submit-button {
   border-radius: 0;
   width: 80%;
   height: 75px;
@@ -66,7 +66,7 @@ input {
   -webkit-user-select: none;
   -webkit-tap-highlight-color: green; }
 
-.google-button:hover {
+.submit-button:hover {
   border-radius: 0;
   width: 80%;
   height: 75px;
