@@ -3,12 +3,13 @@
 <!-- Page call to action -->
 <!-- <h1 class='call-to-edit'>Tell the world about your hike</h1> -->
 <!-- Create a post form -->
+
 <div class='add-post-container'>
   <form class='create-post-form' name="post" action='/addpost' method="POST">
     <label for="title" class='post-title'>Title</label>
-    <input name='title' type='text' placeholder="Title" class='title-input'>
+    <input name='title' type='text' placeholder="Title" class='title-input' data-js='title-input'>
     <label for="body" class='post-body'>Description</label>
-    <input type="textarea" name='body' rows="10" cols="50" class='body-input' placeholder="Give us the dirt!">
+    <input type="textarea" name='body' rows="10" cols="50" class='body-input' data-js='body-input' placeholder="Give us the dirt!">
     <label for="add-tags" class='post-tags'>Tag Your Hike</label>
     <div class='tag-container'>
       <div class='tag'>

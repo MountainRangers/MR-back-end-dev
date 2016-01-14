@@ -1,12 +1,7 @@
 $(document).ready(function(){
-  $changename = $('.change-name');
-  $changepersonalinfo = $('.change-personal-info');
+  $changepersonalinfo = $('[data-js~=change-personal-info]');
   $main = $('main');
   
-  //Attach Click Handlers
-  //$changename.on('click', function(event){
-  //  editInfo($changename);
-  //});
   $changepersonalinfo.on('click', function(){
     editInfo($changepersonalinfo);
   });
@@ -15,7 +10,6 @@ $(document).ready(function(){
 //Is user changing or submitting info?
 function editInfo(info){
   var $changetext = info.text();
-    console.log('current text is ', $changetext);
     if(info.text() == 'Change'){
       changeInfo(info);
     } else if (info.text() == 'Submit'){
@@ -25,8 +19,8 @@ function editInfo(info){
 
 //DOM manipulation when user presses 'Change'
 function changeInfo(info){
-  var $dataNearButton = info.parent('.edit-settings').find('h2');
-  var $inputNearButton = info.parent('.edit-settings').find('.hidden');
+  var $dataNearButton = info.parent('[data-js~=edit-settings]').find('h2');
+  var $inputNearButton = info.parent('[data-js~=edit-settings]').find('[data-js~=hidden-edit]');
   $dataNearButton.hide();
   $inputNearButton.val($dataNearButton.text());
   $inputNearButton.show();
@@ -37,11 +31,10 @@ function changeInfo(info){
 
 //DOM manipulation when user presses 'Submit'
 function submitChange(submit){
-  var $dataNearButton = submit.parent('.edit-settings').find('h2');
-  var $inputNearButton = submit.parent('.edit-settings').find('.hidden');
+  var $dataNearButton = submit.parent('[data-js~=edit-settings]').find('h2');
+  var $inputNearButton = submit.parent('[data-js~=edit-settings]').find('[data-js~=hidden-edit]');
   var personalinfo = $inputNearButton.val();
-  console.log('submitted');
-  $('.hidden').hide();
+  $('[data-js~=hidden-edit]').hide();
   $dataNearButton.show();
   submit.text('Change');
   $.ajax({  
@@ -61,10 +54,9 @@ function submitChange(submit){
 function tapToCancel(main){
   main.on('click', function(event){
     if(event.target === this){
-      console.log('hide it');
-      $('.hidden:visible').hide();
-      main.find('.edit-settings').find('h2').show();
-      main.find('.edit-settings').find('h3').text('Change');
+      $('[data-js~=hidden-edit]').hide();
+      main.find('[data-js~=edit-settings]').find('h2').show();
+      main.find('[data-js~=edit-settings]').find('h3').text('Change');
     }
   })
 }

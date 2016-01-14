@@ -7,20 +7,20 @@
   <div id='filter-bar' class='filter'>
     <div class='filter-components'>
       <p class='filter-component half filter-call' style='text-align:left;'>Filter by category</p>
-      <button class='down-arrow filter-component half'>
+      <button class='down-arrow filter-component half' data-js='down-arrow'>
         <img src='/images/nav_images/down_arrow.png' style='height:40px;width:40px;'/>
       </button>
     </div>
 
   <!-- Filter bar hidden -->
-  <div id='filter-drop-down' class='hidden drop-down'>
-    <div class='tag-icon' data-tag="desert"><img src='/images/tag_images/desert.png' class='navicon'/></div>
-    <div class='tag-icon' data-tag="feather"><img src='/images/tag_images/feather.png' class='navicon'/></div>
-    <div class='tag-icon' data-tag="lake"><img src='/images/tag_images/lake.png' class='navicon'/></div>
-    <div class='tag-icon' data-tag="urban"><img src='/images/tag_images/urban.png' class='navicon'/></div>
-    <div class='tag-icon' data-tag="tree"><img src='/images/tag_images/tree.png' class='navicon'/></div>
-    <div class='tag-icon' data-tag="mountain"><img src='/images/tag_images/mountain.png' class='navicon'/></div>
-    <div class='tag-icon' data-tag="all"><img src='/images/tag_images/all.png' class='navicon'/></div>
+  <div id='filter-drop-down' class='hidden drop-down' data-js='drop-down'>
+    <div class='tag-icon' data-tag="desert" data-js='tag-icon'><img src='/images/tag_images/desert.png' class='navicon'/></div>
+    <div class='tag-icon' data-tag="feather" data-js='tag-icon'><img src='/images/tag_images/feather.png' class='navicon'/></div>
+    <div class='tag-icon' data-tag="lake" data-js='tag-icon'><img src='/images/tag_images/lake.png' class='navicon'/></div>
+    <div class='tag-icon' data-tag="urban" data-js='tag-icon'><img src='/images/tag_images/urban.png' class='navicon'/></div>
+    <div class='tag-icon' data-tag="tree" data-js='tag-icon'><img src='/images/tag_images/tree.png' class='navicon'/></div>
+    <div class='tag-icon' data-tag="mountain" data-js='tag-icon'><img src='/images/tag_images/mountain.png' class='navicon'/></div>
+    <div class='tag-icon' data-tag="all" data-js='tag-icon'><img src='/images/tag_images/all.png' class='navicon'/></div>
 
   </div>
 
@@ -28,7 +28,7 @@
 <!-- Beginning of timeline feed -->
 <div class='time-line'>
   {{#each posts}}
-    <article class='post' data-tag="{{tag_name}}">
+    <article class='post' data-tag="{{tag_name}}" data-js='post'>
       <div class='tl-user-info third'>
         <a href='/profile/{{id}}'>
           <img class='profile-img-placeholder' src='{{photo_url}}' alt='User Profile Photo'>
@@ -41,7 +41,7 @@
         </a>
         <p class='tl-hike-location'>{{lat}}, {{long}}</p>
       </div>
-      <div class='tl-tag third' data-tag="{{tag_name}}">
+      <div class='tl-tag third' data-tag="{{tag_name}}" data-js='tl-tag'>
         <img src='/images/tag_images/{{tag_name}}.png' class='icon'/>
       </div>
     </article>
