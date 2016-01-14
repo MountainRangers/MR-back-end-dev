@@ -2,34 +2,35 @@ if (window.location.href[window.location.href.length - 1] === '#') {
   window.location.href = window.location.href.substring(0, window.location.href.length - 1);
 }
 
-$(document).ready(function(){
-  $('[data-js~=down-arrow]').on('click', function(){
-    $('[data-js~=drop-down]').toggleClass('hidden');
-  })
+$(document).ready(function() {
+  formatGeo($('[data-js~=geolocation]'));
+  $('.down-arrow').on('click', function() {
+    $('.drop-down').toggleClass('hidden');
+  });
 
   $('[data-js~=tl-tag]').on('click', function(event) {
     filterTags(event.currentTarget.dataset.tag);
-  })
+  });
 
   $('[data-js~=tag-icon]').on('click', function(event) {
     filterTags(event.currentTarget.dataset.tag);
     $('[data-js~=drop-down]').toggleClass('hidden');
-  })
+  });
 
-//   $(window).scroll(
-//     {
-//         previousTop: 0
-//     },
-//     function () {
-//     var currentTop = $(window).scrollTop();
-//     if (currentTop < this.previousTop) {
-//         $(".tl-header").fadeIn(300);
-//
-//     } else {
-//         $(".tl-header").fadeOut(300);
-//     }
-//     this.previousTop = currentTop;
-// });
+  //   $(window).scroll(
+  //     {
+  //         previousTop: 0
+  //     },
+  //     function () {
+  //     var currentTop = $(window).scrollTop();
+  //     if (currentTop < this.previousTop) {
+  //         $(".tl-header").fadeIn(300);
+  //
+  //     } else {
+  //         $(".tl-header").fadeOut(300);
+  //     }
+  //     this.previousTop = currentTop;
+  // });
 
 
 })
@@ -46,5 +47,20 @@ function filterTags(tag) {
         $posts[i].style.display = '';
       }
     }
+  }
+}
+
+
+function formatGeo(geoObjects) {
+  console.log(geoObjects);
+  for (var i = 0; i < geoObjects.length; i++) {
+    geoObjects[i].textContent = formatGeostring(geoObjects[0].textContent);
+  }
+
+  function formatGeostring(stringCoords) {
+    var coords = stringCoords.split(', ');
+    coords[0] = coords[0].substr(0, 7);
+    coords[1] = coords[1].substr(0, 7);
+    return coords.join(', ');
   }
 }
