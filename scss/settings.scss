@@ -1,4 +1,6 @@
-
+.settings-container {
+  background-color: white;
+}
 main {
   display: flex;
   flex-direction: column;
@@ -37,6 +39,36 @@ main {
   .edit-settings:last-child {
     margin-bottom: 30px;
   }
+}
+
+.change-button {
+  border-radius: 0;
+  width: 20%;
+  height: 25px;
+  border: none;
+  color: white;
+  font-family: "Verdana";
+  font-size: .5em;
+  background-color: #fc511d;
+  box-shadow: 0 8px 0 rgb(183,9,0),
+  0 15px 20px rgba(0,0,0,.35);
+  text-transform: uppercase;
+  transition: .4s all ease-in;
+  outline: none;
+  cursor: pointer;
+  text-align: center;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+.settings-input {
+  background-color: white;
+  border:none;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border-bottom: 2px solid black;
+  width: 60%;
 }
 
 // scss for settigns view
