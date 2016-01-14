@@ -12,33 +12,34 @@
 
   <!-- Filter bar hidden -->
   <div id='filter-drop-down' class='hidden drop-down'>
-    <div class='tag-icon'><img src='/images/gem.png' class='icon'/></div>
-    <div class='tag-icon'><img src='/images/gem.png' class='icon'/></div>
-    <div class='tag-icon'><img src='/images/gem.png' class='icon'/></div>
-    <div class='tag-icon'><img src='/images/gem.png' class='icon'/></div>
-    <div class='tag-icon'><img src='/images/gem.png' class='icon'/></div>
-    <div class='tag-icon'><img src='/images/gem.png' class='icon'/></div>
+    <div class='tag-icon' data-tag="desert"><img src='/images/desert.png' class='icon'/></div>
+    <div class='tag-icon' data-tag="lake"><img src='/images/lake.png' class='icon'/></div>
+    <div class='tag-icon' data-tag="mountain"><img src='/images/mountain.png' class='icon'/></div>
+    <div class='tag-icon' data-tag="urban"><img src='/images/urban.png' class='icon'/></div>
+    <div class='tag-icon' data-tag="all"><img src='/images/gem.png' class='icon'/></div>
   </div>
 </div>
 
 <!-- Beginning of timeline feed -->
 <div class='time-line'>
   {{#each posts}}
-  <article class='post'>
-    <div class='tl-user-info third'>
-      <a href='/profile/other/{{id}}'>
-        <img class='profile-img-placeholder' src='{{photo_url}}' alt='User Profile Photo'>
-        <p class='tl-user-name'>{{username}}</p>
-      </a>
-    </div>
-    <div class='tl-hike-info third'>
-      <h1 class='tl-hike-name'>{{post_title}}</h1>
-      <p class='tl-hike-location'>{{lat}}, {{long}}</p>
-    </div>
-    <div class='tl-tag third'>
-      <img src='/images/{{tag_name}}.png' class='icon'/>
-    </div>
-  </article>
+    <article class='post' data-tag="{{tag_name}}">
+      <div class='tl-user-info third'>
+        <a href='/profile/{{id}}'>
+          <img class='profile-img-placeholder' src='{{photo_url}}' alt='User Profile Photo'>
+          <p class='tl-user-name'>{{username}}</p>
+        </a>
+      </div>
+      <div class='tl-hike-info third'>
+        <a href="/post/{{post_id}}">
+          <h1 class='tl-hike-name'>{{post_title}}</h1>
+        </a>
+        <p class='tl-hike-location'>{{lat}}, {{long}}</p>
+      </div>
+      <div class='tl-tag third' data-tag="{{tag_name}}">
+        <img src='/images/{{tag_name}}.png' class='icon'/>
+      </div>
+    </article>
   {{/each}}
 </div>  <!-- End of timeline feature -->
 
