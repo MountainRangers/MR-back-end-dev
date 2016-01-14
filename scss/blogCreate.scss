@@ -23,6 +23,28 @@ input {
     font-size: 1em;
   }
 }
+
+input::-webkit-input-placeholder { /* Safari, Chrome and Opera */
+  color: #e6e6e6;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: #e6e6e6;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: #e6e6e6;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: #e6e6e6;
+}
+::-ms-input-placeholder { /* Edge */
+  color: #e6e6e6;
+}
+:placeholder-shown { /* Standard one last! */
+  color: #e6e6e6;
+}
+
+
+
 .call-to-edit {
   font-family: 'Amatic SC';
   font-size: 1.5em;
@@ -57,6 +79,8 @@ input {
   margin-left: 10%;
   font-family: 'Amatic SC';
   font-size: 2em;
+  margin-bottom: 30px;
+  margin-top: 20px;
 }
 .title-input, .body-input {
   height:60px;
