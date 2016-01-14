@@ -1,5 +1,4 @@
 $(document).ready(function(){
-  $changename = $('.change-name');
   $changepersonalinfo = $('.change-personal-info');
   $main = $('main');
   
