@@ -19,7 +19,7 @@ router.get('/addpost', ensureAuthenticatedandUser, function(req, res, next) {
 router.post('/addpost', ensureAuthenticatedandUser, function(req, res, next) {
   req.body.userid = req.user.id;
   api.posts.createOne(req.body).then(function(data){
-    res.json({rowCount: data.rowCount});
+    res.sendStatus(201);
   });
 });
 
@@ -48,7 +48,6 @@ router.post('/makeprofile', ensureAuthenticated, function(req, res, next) {
 
 router.get('/post/:postid', ensureAuthenticatedandUser, function(req, res, next) {
   api.posts.readOne(req.params.postid).then(function(postdata) {
-    console.log(postdata);
     postdata.posts[0].date = formatDate(postdata.posts[0].created_at);
     res.render('post', {
       title: 'TrailMix',
