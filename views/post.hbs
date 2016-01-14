@@ -7,7 +7,7 @@
   </div>
   <div class="post-header-component half">
     <p>{{post.date}}</p>
-    <p>{{post.latitude}}, {{post.longitude}}</p>
+    <p data-js="geolocation">{{post.latitude}}, {{post.longitude}}</p>
   </div>
 </header>
 <div class='description-container'>
@@ -23,8 +23,8 @@
   </div>
   <div id= {{post.id}} class="single-post-delete-container">
     {{#if user}}
-      <div id= {{post.id}} class="single-post-delete-container">
-        <input type='button' value='Delete this post!' class='delete-post'>
+      <div id= {{post.id}} class="single-post-delete-container" data-js='single-post-delete-container'>
+        <input type='button' value='Delete this post!' class='delete-post' data-js='delete-post'>
       </div>
     {{/if}}
   </div>

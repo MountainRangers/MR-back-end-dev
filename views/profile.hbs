@@ -24,7 +24,7 @@
         <h1>{{post_title}}</h1>
       </a>
       <img src='/images/{{tag_name}}.png'/>
-      <p>{{latitude}}, {{longitude}}</p>
+      <p data-js="geolocation">{{latitude}}, {{longitude}}</p>
     </div>
   {{/each}}
 {{/if}}
@@ -32,3 +32,4 @@
 <footer class='app-footer'>
   <p>Copyright, Mountain Rangers 2016. All rights reserved.</p>
 </footer>
+<script src="/javascripts/profile.js"></script>
