@@ -11,11 +11,9 @@ $(document).ready(function(){
     $.ajax({
       url: '/addpost',
       method: 'POST',
-      data: {newpost: 
-              {
-                title: $hikeTitle.val(),
-                body: $hikeBody.val()
-              }
+      data: {
+              title: $hikeTitle.val(),
+              body: $hikeBody.val()
             },
       success: function(data){
         console.log('success')

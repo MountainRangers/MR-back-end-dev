@@ -18,6 +18,7 @@ router.get('/addpost', ensureAuthenticatedandUser, function(req, res, next) {
 
 router.post('/addpost', ensureAuthenticatedandUser, function(req, res, next) {
   req.body.id = req.user.id;
+  console.log(req.body);
   api.posts.createOne(req.body).then(function(){
     res.json({id: req.user.id});
   });
