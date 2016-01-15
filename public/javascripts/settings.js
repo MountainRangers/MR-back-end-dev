@@ -26,7 +26,7 @@ function changeInfo(info){
   var $inputNearButton = info.parent('[data-js~=edit-settings]').find('[data-js~=hidden-edit]');
   $dataNearButton.hide();
   $inputNearButton.val($dataNearButton.text());
-  $inputNearButton.show();
+  $inputNearButton.show().toggleClass('.hidden');;
   info.text('Submit');
 }
 
@@ -56,8 +56,7 @@ function submitChange(submit){
 function tapToCancel(main){
   main.on('click', function(event){
     if(event.target === this && main.find('[data-js~=edit-settings]').find('button').text() == 'Submit'){
-      console.log('it runs');
-      $('[data-js~=hidden-edit]').hide();
+      $('[data-js~=hidden-edit]').hide().toggleClass('.hidden');
       main.find('[data-js~=edit-settings]').find('h2').show();
       main.find('[data-js~=edit-settings]').find('button').text('Change');
     }
