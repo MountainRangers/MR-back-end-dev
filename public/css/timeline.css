@@ -14,7 +14,8 @@
   width: 100%; }
 
 .filter-component {
-  flex-direction: row; }
+  flex-direction: row;
+  width: 50%; }
 
 .drop-down {
   height: 100px;
