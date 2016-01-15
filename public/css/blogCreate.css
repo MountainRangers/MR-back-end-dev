@@ -137,4 +137,20 @@ input::-webkit-input-placeholder {
   transform: translateY(2px);
   box-shadow: 0 4px 0 white, 0 8px 6px rgba(0, 0, 0, 0.45); }
 
+.loading-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.8) url("/images/loading-wheel.gif") 50% 50% no-repeat; }
+
+body.loading {
+  overflow: hidden; }
+
+body.loading .loading-modal {
+  display: block; }
+
 /*# sourceMappingURL=blogCreate.css.map */

@@ -8,6 +8,12 @@ $(document).ready(function() {
   });
 });
 
+$(document).on({
+  ajaxStart: function() {
+    $("body").addClass("loading");
+  },
+});
+
 function sendPost(position){
   $.ajax({
     url: '/addpost',
