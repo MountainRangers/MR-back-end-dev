@@ -1,4 +1,6 @@
 // scss for profile view
+
+
 .profile-header {
   display: flex;
   font-family: "Verdana";
@@ -16,12 +18,17 @@
   padding: 1%;
   .profile-name {
     margin: 5px;
+    padding-bottom: 10px;
+    font-family: "Verdana";
   }
   .member-since {
     margin: 5px;
+    padding-bottom: 10px;
+    font-family: "Verdana";
   }
   .profile-blurb {
     margin: 5px;
+    font-family: "Verdana";
   }
 }
 .profile-img {
@@ -30,41 +37,59 @@
   margin-top: 30px;
   border-radius: 50%;
 }
+
 // grid
-.flex-container {
-  background-color: #ededed;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  display: -webkit-flex;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.wrap {
-  -webkit-flex-wrap: wrap;
-  flex-wrap: wrap;
-}
-.flex-item {
-  background: white;
-  width: 100px;
-  height: 100px;
-  margin: auto;
-  color: white;
-  font-weight: bold;
-  font-size: 2em;
-  text-align: center;
-  margin: 2px;
-}
-.profile-posts {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+// .flex-container {
+//   background-color: #ededed;
+//   padding: 0;
+//   margin: 0;
+//   list-style: none;
+//   display: -webkit-flex;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+// }
+// .wrap {
+//   -webkit-flex-wrap: wrap;
+//   flex-wrap: wrap;
+// }
+// .flex-item {
+//   background: white;
+//   width: 100px;
+//   height: 100px;
+//   margin: auto;
+//   color: white;
+//   font-weight: bold;
+//   font-size: 2em;
+//   text-align: center;
+//   margin: 2px;
+// }
+
 .hike {
   float: left;
   width: 32%;
-  padding-bottom: 25%;
   margin: 0.5%;
   background-color: white;
+}
+
+
+.profile-posts-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  margin: 10px;
+  padding: 20px;
+}
+.profile-icon {
+  height: 60%;
+  width: 60%;
+}
+.profile-post-title {
+  font-family: "Verdana";
+}
+
+.profile-post-location {
+  font-family: "Verdana";
+  color: #ccc;
 }

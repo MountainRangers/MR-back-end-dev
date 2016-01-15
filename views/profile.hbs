@@ -20,11 +20,16 @@
 {{else}}
   {{#each posts}}
     <div class='hike'>
-      <a href="/post/{{post_id}}">
-        <h1>{{post_title}}</h1>
-      </a>
-      <img src='/images/tag_images/{{tag_name}}.png'/>
-      <p data-js="geolocation">{{latitude}}, {{longitude}}</p>
+      <div class='profile-posts-container'>
+        <a href="/post/{{post_id}}"></a>
+        <h1 class="profile-post-title">{{post_title}}</h1>
+      </div>
+      <div class="profile-posts-container">
+        <img src='/images/tag_images/{{tag_name}}.png' class="profile-icon" />
+      </div>
+      <div class="profile-posts-container">
+        <p class="profile-post-location" data-js="geolocation">{{latitude}}, {{longitude}}</p>
+      </div>
     </div>
   {{/each}}
 {{/if}}

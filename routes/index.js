@@ -76,7 +76,7 @@ router.get('/profile/:userid', ensureAuthenticatedandUser, function(req, res, ne
       user: data.user,
       posts: data.userposts,
       tag: data.userposts.tag_name
-    })
+    });
   }).catch(function(err) {
     console.log(err);
   });
