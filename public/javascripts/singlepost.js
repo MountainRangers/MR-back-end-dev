@@ -17,7 +17,6 @@ $(document).ready(function() {
 });
 
 function formatGeo(geoObjects) {
-  console.log(geoObjects);
   for (var i = 0; i < geoObjects.length; i++) {
     geoObjects[i].textContent = formatGeostring(geoObjects[0].textContent);
   }

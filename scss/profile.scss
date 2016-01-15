@@ -29,6 +29,9 @@
   .profile-blurb {
     margin: 5px;
     font-family: "Verdana";
+    text-overflow: ellipsis;
+    height: 4em;
+    overflow: scroll;
   }
 }
 .profile-img {
@@ -37,33 +40,6 @@
   margin-top: 30px;
   border-radius: 50%;
 }
-
-// grid
-// .flex-container {
-//   background-color: #ededed;
-//   padding: 0;
-//   margin: 0;
-//   list-style: none;
-//   display: -webkit-flex;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-// }
-// .wrap {
-//   -webkit-flex-wrap: wrap;
-//   flex-wrap: wrap;
-// }
-// .flex-item {
-//   background: white;
-//   width: 100px;
-//   height: 100px;
-//   margin: auto;
-//   color: white;
-//   font-weight: bold;
-//   font-size: 2em;
-//   text-align: center;
-//   margin: 2px;
-// }
 
 .hike {
   float: left;

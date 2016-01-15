@@ -70,6 +70,7 @@ router.get('/profile/:userid', ensureAuthenticatedandUser, function(req, res, ne
     console.log(data);
     res.render('profile', {
       title: 'TrailMix',
+      id: req.user.id,
       noPosts: data.userposts <= 0 ? true : false,
       date: formatDate(data.user.memberSince),
       showSettings: data.user.user_id === req.user.id ? true : false,
@@ -109,6 +110,7 @@ router.put('/settings', ensureAuthenticated, function(req, res, next) {
 
 router.get('/timeline', ensureAuthenticatedandUser, function(req, res, next) {
   api.posts.readAll().then(function(posts) {
+    console.log('-----this is posts: ', posts);
     res.render('timeline', {
       id: req.user.id,
       posts: posts

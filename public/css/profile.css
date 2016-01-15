@@ -23,7 +23,10 @@
     font-family: "Verdana"; }
   .profile-user-info .profile-blurb {
     margin: 5px;
-    font-family: "Verdana"; }
+    font-family: "Verdana";
+    text-overflow: ellipsis;
+    height: 4em;
+    overflow: scroll; }
 
 .profile-img {
   height: 120px;
