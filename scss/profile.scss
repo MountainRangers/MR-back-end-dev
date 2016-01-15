@@ -4,7 +4,7 @@
 .profile-header {
   display: flex;
   font-family: "Verdana";
-  height: 160px;
+  height: 110%;
   background-color: white;
   align-items: center;
   justify-content: center;
@@ -32,12 +32,14 @@
     text-overflow: ellipsis;
     height: 4em;
     overflow: scroll;
+    margin-bottom: 10px;
   }
 }
 .profile-img {
   height: 120px;
   width: 120px;
   margin-top: 30px;
+  margin-bottom: 30px;
   border-radius: 50%;
 }
 
@@ -46,6 +48,8 @@
   width: 32%;
   margin: 0.5%;
   background-color: white;
+  margin-top: 10px;
+  height: 110%;
 }
 
 
@@ -53,14 +57,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 5px;
   height: 100%;
-  margin: 10px;
-  padding: 20px;
 }
+
 .profile-icon {
-  height: 60%;
-  width: 60%;
+  height: 50%;
+  width: 50%;
 }
+
 .profile-post-title {
   font-family: "Verdana";
 }
