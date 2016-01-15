@@ -36,7 +36,7 @@ main {
     textarea {
       height: 3em;
       font-size: 1em;
-      width: 180px;
+      width: 200px;
     }
   }
   .edit-settings:last-child {
@@ -45,6 +45,7 @@ main {
 }
 
 .settings-input {
+  margin-right: 10%;
   background-color: white;
   outline: none;
   background: transparent;
