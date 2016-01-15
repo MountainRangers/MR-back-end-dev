@@ -30,16 +30,23 @@ main {
       cursor: pointer;
       padding-left: 5px;
     }
-    input {
-      // width: 100px;
-      height: 30px;
-      font-size: 0.8em;
-      align-self: center;
+    textarea {
+      height: 3em;
+      font-size: 1em;
+      width: 80%;
     }
   }
   .edit-settings:last-child {
     margin-bottom: 30px;
   }
+}
+
+.settings-input {
+  background-color: white;
+  outline: none;
+  background: transparent;
+  border: 1px solid #e6e6e6;
+  width: 80%;
 }
 
 .change-button {
@@ -61,14 +68,6 @@ main {
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
-.settings-input {
-  background-color: white;
-  border:none;
-  border: 0;
-  outline: 0;
-  background: transparent;
-  border-bottom: 2px solid black;
-  width: 60%;
-}
+
 
 // scss for settigns view
