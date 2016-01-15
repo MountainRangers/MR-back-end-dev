@@ -3,15 +3,10 @@ $(document).ready(function() {
   });
 
   $('[data-js~=submit-button]').on('click', function(event) {
+    $("body").addClass("loading");
     event.preventDefault();
     navigator.geolocation.getCurrentPosition(sendPost);
   });
-});
-
-$(document).on({
-  ajaxStart: function() {
-    $("body").addClass("loading");
-  },
 });
 
 function sendPost(position){
