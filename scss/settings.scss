@@ -22,6 +22,9 @@ main {
     flex-direction: row;
     justify-content: space-between;
     text-align: left;
+    h2 {
+      width: 200px;
+    }
     h3 {
       font-size: 60%;
       text-align: right;
@@ -33,7 +36,7 @@ main {
     textarea {
       height: 3em;
       font-size: 1em;
-      width: 80%;
+      width: 200px;
     }
   }
   .edit-settings:last-child {
@@ -42,6 +45,7 @@ main {
 }
 
 .settings-input {
+  margin-right: 10%;
   background-color: white;
   outline: none;
   background: transparent;
@@ -51,7 +55,7 @@ main {
 
 .change-button {
   border-radius: 0;
-  width: 20%;
+  width: 60px;
   height: 25px;
   border: none;
   color: white;
