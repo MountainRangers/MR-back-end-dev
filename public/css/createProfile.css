@@ -1,5 +1,6 @@
 .make-profile-container {
-  background-color: white; }
+  background-color: white;
+  height: 920px; }
 
 .tag-container {
   display: flex;
