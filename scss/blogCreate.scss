@@ -17,11 +17,29 @@ input {
   border: 0;
   outline: 0;
   background: transparent;
-  border-bottom: 2px solid #138a3d;
-
+  border-bottom: 1px solid #d3d3d3;
   .description-input{
     font-size: 1em;
   }
+}
+textarea {
+  margin-top: 10px;
+  margin-bottom: 40px;
+  margin-left: 10%;
+  width: 90%;
+  height: 4em;
+  background-color: white;
+  border:none;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  resize: none;
+  outline: none;
+  border: 1px solid #d3d3d3;
+  // color: #e6e6e6;
+}
+textarea::-webkit-input-placeholder { /* Safari, Chrome and Opera */
+  color: #e6e6e6;
 }
 
 input::-webkit-input-placeholder { /* Safari, Chrome and Opera */
@@ -42,16 +60,13 @@ input::-webkit-input-placeholder { /* Safari, Chrome and Opera */
 :placeholder-shown { /* Standard one last! */
   color: #e6e6e6;
 }
-
-
-
-.call-to-edit {
-  font-family: 'Amatic SC';
-  font-size: 1.5em;
-  color: #476042;
-  margin: 20px;
-  margin-top: 20px;
-}
+// .call-to-edit {
+//   font-family: 'Amatic SC';
+//   font-size: 1.5em;
+//   color: #476042;
+//   margin: 20px;
+//   margin-top: 20px;
+// }
 .tag-container {
   display: flex;
   align-items: center;
@@ -61,10 +76,9 @@ input::-webkit-input-placeholder { /* Safari, Chrome and Opera */
 .tag-toggle {
   flex-direction: row;
 }
-.create-blog-form {
+.create-post-form {
   height: 100%;
   text-align: center;
-  background-color: #eef4ed;
   font-family: 'Noto Sans', sans-serif;
 }
 .post-title {
@@ -82,10 +96,16 @@ input::-webkit-input-placeholder { /* Safari, Chrome and Opera */
   margin-bottom: 30px;
   margin-top: 20px;
 }
-.title-input, .body-input {
+.title-input {
   height:60px;
   font-size: 1.3em;
 }
+
+.body-input {
+  height:90px;
+  font-size: 1.3em;
+}
+
 .add-that-post-button {
   border-radius: 0;
   width: 80%;
