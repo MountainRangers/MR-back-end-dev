@@ -67,13 +67,15 @@ router.delete('/post/:postid', ensureAuthenticatedandUser, function(req, res, ne
 
 router.get('/profile/:userid', ensureAuthenticatedandUser, function(req, res, next) {
   api.users.getUsersPosts(req.params.userid).then(function(data) {
+    console.log(data);
     res.render('profile', {
       title: 'TrailMix',
       noPosts: data.userposts <= 0 ? true : false,
       date: formatDate(data.user.memberSince),
       showSettings: data.user.user_id === req.user.id ? true : false,
       user: data.user,
-      posts: data.userposts
+      posts: data.userposts,
+      tag: data.userposts.tag_name
     })
   }).catch(function(err) {
     console.log(err);
