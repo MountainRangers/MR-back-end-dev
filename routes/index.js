@@ -39,7 +39,7 @@ router.post('/makeprofile', ensureAuthenticated, function(req, res, next) {
     email: req.user.email,
     username: req.body.userName,
     google_id: req.user.google_id,
-    photo_url: req.user.profilePhoto,
+    photo_url: req.user.profilePhoto.split('?').shift(),
     personal_info: 'Please add some personal info'
   }).then(function(id) {
     res.redirect('/timeline');
@@ -67,7 +67,6 @@ router.delete('/post/:postid', ensureAuthenticatedandUser, function(req, res, ne
 
 router.get('/profile/:userid', ensureAuthenticatedandUser, function(req, res, next) {
   api.users.getUsersPosts(req.params.userid).then(function(data) {
-    console.log(data);
     res.render('profile', {
       title: 'TrailMix',
       id: req.user.id,
@@ -110,7 +109,6 @@ router.put('/settings', ensureAuthenticated, function(req, res, next) {
 
 router.get('/timeline', ensureAuthenticatedandUser, function(req, res, next) {
   api.posts.readAll().then(function(posts) {
-    console.log('-----this is posts: ', posts);
     res.render('timeline', {
       id: req.user.id,
       posts: posts
