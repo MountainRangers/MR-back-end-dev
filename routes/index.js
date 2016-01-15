@@ -27,6 +27,7 @@ router.get('/makeprofile', ensureAuthenticated, function(req, res, next) {
   if (req.user.id) {
     res.redirect('/timeline');
   } else {
+    req.user.profilePhoto = req.user.profilePhoto.split('?').shift();
     res.render('makeprofile', {
       title: 'TrailMix',
       profile: req.user
@@ -39,7 +40,7 @@ router.post('/makeprofile', ensureAuthenticated, function(req, res, next) {
     email: req.user.email,
     username: req.body.userName,
     google_id: req.user.google_id,
-    photo_url: req.user.profilePhoto.split('?').shift(),
+    photo_url: req.user.profilePhoto,
     personal_info: 'Please add some personal info'
   }).then(function(id) {
     res.redirect('/timeline');
