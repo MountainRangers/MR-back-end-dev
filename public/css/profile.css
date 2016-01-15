@@ -18,7 +18,10 @@
   .profile-user-info .member-since {
     margin: 5px; }
   .profile-user-info .profile-blurb {
-    margin: 5px; }
+    margin: 5px;
+    text-overflow: ellipsis;
+    height: 4em;
+    overflow: scroll; }
 
 .profile-img {
   height: 120px;
