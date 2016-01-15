@@ -1,4 +1,4 @@
-var env = require('dotenv').load();
+require('dotenv').load();
 
 var knex = require('knex')({
   client: 'pg',
@@ -28,7 +28,7 @@ module.exports = {
       return Promise.all([
         knex('tags').select(
           'tags.id as id',
-           'tags.name as name'
+          'tags.name as name'
          )
         .innerJoin('posts_tags', 'posts_tags.tag_id', 'tags.id').where(
           {'posts_tags.post_id': id}
