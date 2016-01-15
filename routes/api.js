@@ -15,6 +15,7 @@ module.exports = {
         'posts.latitude as lat',
         'posts.longitude as long',
         'posts.body as posts_body',
+        'users.id as user_id',
         'users.photo_url as photo_url',
         'users.username as username',
         'tags.name as tag_name'

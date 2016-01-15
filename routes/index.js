@@ -107,6 +107,7 @@ router.put('/settings', ensureAuthenticated, function(req, res, next) {
 
 router.get('/timeline', ensureAuthenticatedandUser, function(req, res, next) {
   api.posts.readAll().then(function(posts) {
+    console.log('-----this is posts: ', posts);
     res.render('timeline', {
       id: req.user.id,
       posts: posts
