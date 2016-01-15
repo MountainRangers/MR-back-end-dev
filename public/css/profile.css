@@ -44,6 +44,12 @@
   margin-top: 10px;
   height: 200px; }
 
+.no-user-posts {
+  color: #d37d3d;
+  font-family: 'Amatic SC';
+  font-size: 2em;
+  font-weight: bold; }
+
 .profile-posts-container {
   display: flex;
   align-items: center;
