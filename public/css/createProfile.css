@@ -1,3 +1,6 @@
+.make-profile-container {
+  background-color: white; }
+
 .tag-container {
   display: flex;
   width: 100%; }
@@ -41,18 +44,43 @@ main {
     align-self: left;
     color: black; }
 
-.submit-button:hover {
-  border: none;
-  flex-direction: row;
-  background-color: white;
+.submit-profile-button {
+  border-radius: 0;
   width: 80%;
-  display: block;
-  margin: auto;
-  height: 60px;
+  height: 45px;
+  border: none;
+  color: white;
+  font-family: "Verdana";
+  font-size: .7em;
+  background-color: #fc511d;
+  box-shadow: 0 8px 0 #b70900, 0 15px 20px rgba(0, 0, 0, 0.35);
+  transition: .4s all ease-in;
+  outline: none;
+  cursor: pointer;
+  text-align: center;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  margin-bottom: 75px; }
+
+.submit-profile-button:hover {
+  border-radius: 0;
+  width: 80%;
+  height: 45px;
+  border: none;
   color: green;
-  font-family: 'Amatic SC';
-  font-size: 1em;
-  justify-content: center;
-  align-items: center; }
+  font-family: "Verdana";
+  font-size: .7em;
+  background-color: white;
+  box-shadow: white, 0 15px 20px white;
+  transition: .4s all ease-in;
+  outline: none;
+  cursor: pointer;
+  text-align: center;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  padding-top: 3px;
+  transform: translateY(2px);
+  box-shadow: 0 4px 0 white, 0 8px 6px rgba(0, 0, 0, 0.45);
+  margin-bottom: 75px; }
 
 /*# sourceMappingURL=createProfile.css.map */
