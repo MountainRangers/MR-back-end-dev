@@ -16,23 +16,6 @@ $(document).ready(function() {
     filterTags(event.currentTarget.dataset.tag);
     $('[data-js~=drop-down]').toggleClass('hidden');
   });
-
-  //   $(window).scroll(
-  //     {
-  //         previousTop: 0
-  //     },
-  //     function () {
-  //     var currentTop = $(window).scrollTop();
-  //     if (currentTop < this.previousTop) {
-  //         $(".tl-header").fadeIn(300);
-  //
-  //     } else {
-  //         $(".tl-header").fadeOut(300);
-  //     }
-  //     this.previousTop = currentTop;
-  // });
-
-
 })
 
 function filterTags(tag) {
@@ -52,7 +35,6 @@ function filterTags(tag) {
 
 
 function formatGeo(geoObjects) {
-  console.log(geoObjects);
   for (var i = 0; i < geoObjects.length; i++) {
     geoObjects[i].textContent = formatGeostring(geoObjects[0].textContent);
   }
