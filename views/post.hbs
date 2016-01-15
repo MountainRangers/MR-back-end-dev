@@ -7,7 +7,9 @@
   </div>
   <div class="post-header-component half">
     <p>{{post.date}}</p>
-    <p data-js="geolocation">{{post.latitude}}, {{post.longitude}}</p>
+    <a href="/location/{{post.id}}">
+      <p data-js="geolocation">{{post.latitude}}, {{post.longitude}}</p>
+    </a>
   </div>
 </header>
 <div class='description-container'>
