@@ -69,6 +69,7 @@ router.get('/profile/:userid', ensureAuthenticatedandUser, function(req, res, ne
   api.users.getUsersPosts(req.params.userid).then(function(data) {
     res.render('profile', {
       title: 'TrailMix',
+      id: req.user.id,
       noPosts: data.userposts <= 0 ? true : false,
       date: formatDate(data.user.memberSince),
       showSettings: data.user.user_id === req.user.id ? true : false,
