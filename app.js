@@ -10,6 +10,7 @@ var hbs = require('hbs');
 
 var routes = require('./routes/index');
 var auth = require('./routes/auth');
+var geoLocation = require('./routes/geoLocation');
 
 require('dotenv').load();
 
@@ -45,6 +46,7 @@ app.use(function (req, res, next) {
 
 app.use('/', routes);
 app.use('/auth', auth);
+app.use('/location', geoLocation);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
