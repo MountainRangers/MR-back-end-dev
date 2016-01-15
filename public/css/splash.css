@@ -38,7 +38,7 @@
   width: 80%;
   height: 75px;
   border: none;
-  color: white;
+  color: black;
   font-family: "Verdana";
   font-size: 1.2em;
   background-color: white;
@@ -120,6 +120,9 @@
   width: 100%;
   font-size: 3em;
   font-weight: 700;
-  color: #603919; }
+  color: #603919;
+  width: 80%;
+  margin: auto;
+  margin-bottom: 30px; }
 
 /*# sourceMappingURL=splash.css.map */

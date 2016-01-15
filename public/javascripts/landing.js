@@ -1,7 +1,11 @@
 $(document).ready(function(){
   $('.google-button').mouseover(function(){
     $('.shape-one').css('fill', 'white')
-  })
+  });
+
+  $('[data-js~=login-button]').on('click', function(event) {
+    window.location = "/auth/google";
+  });
 })
 
 //clock
