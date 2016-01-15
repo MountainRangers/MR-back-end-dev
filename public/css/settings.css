@@ -33,11 +33,12 @@ main {
     main .edit-settings textarea {
       height: 3em;
       font-size: 1em;
-      width: 180px; }
+      width: 200px; }
   main .edit-settings:last-child {
     margin-bottom: 30px; }
 
 .settings-input {
+  margin-right: 10%;
   background-color: white;
   outline: none;
   background: transparent;
